@@ -1,5 +1,9 @@
 {
   "compilerOptions": {
+    "typeRoots": [
+      "node_modules/@types",
+      "src/typeTS"
+    ],
     "target": "es5",
     "lib": ["es6", "dom", "es2017", "es2019", "es2020"],
     "allowJs": true,
@@ -33,6 +37,7 @@
   },
   "exclude": ["node_modules"],
   "include": [
-    "src"
+    "src",
+    "src/typeTS/images.d.ts",
   ]
 }
