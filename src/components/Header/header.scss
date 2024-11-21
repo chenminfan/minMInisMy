@@ -1,0 +1,51 @@
+header {
+  &.isNavCollapsed {
+    .collapse {
+      display: inherit;
+    }
+    .offcanvas {
+      bottom: 0;
+    }
+  }
+  .btn-toggle {
+    display: none;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    box-shadow: 0px 0px 3px $gray-500;
+    backdrop-filter: blur(20px);
+    background-color: rgba($primary, 0.2);
+    &-nav {
+      &-header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+    }
+    .nav {
+      &-link {
+        padding: 8px;
+      }
+    }
+  }
+  .collapse-nav {
+    flex: 1;
+  }
+  @include media-breakpoint-down(md) {
+    .btn-toggle {
+      display: flex;
+    }
+    .navbar {
+      &-nav {
+        &-header {
+          display: none;
+        }
+      }
+    }
+  }
+}
