@@ -9,6 +9,10 @@ type infoProps = {
   time?: string | null;
   imageUrl?: string | null;
 }
+type content1Props = {
+  courses?: string;
+  coursesLink?: string;
+}
 type WORKProps = {
   work: string;
   workName: string;
@@ -21,6 +25,7 @@ type WORKProps = {
   subInfo?: {
     subInfoTitle?: string | null;
     content?: string;
+    content1?: content1Props[];
   };
 }
 export default function Work({ }) {
@@ -129,7 +134,13 @@ export default function Work({ }) {
                 </div>)}
                 {item?.subInfo && <div className="work-info">
                   <div className='work-info-title'><h5>{item?.subInfo?.subInfoTitle}</h5></div>
-                  <div className='work-info-content'>{item?.subInfo?.content}</div>
+                  <div className='work-info-content'>{item?.subInfo?.content}<span>{item?.subInfo?.content1 && item?.subInfo?.content1?.slice(0, 1).map((item, index) => (
+                    <a key={`coursesLink0${item.coursesLink}`} href={item.coursesLink}>{item.courses}</a>
+                  ))}
+                    {item?.subInfo?.content1 && item?.subInfo?.content1?.slice(1).map((item, index) => (
+                      <a key={`coursesLink1${item.coursesLink}`} href={item.coursesLink}>、{item.courses}</a>
+                    ))}</span>
+                  </div>
                 </div>}
               </div>
             </div>
