@@ -1,8 +1,9 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React from 'react';
 import { useScreen } from '@hook/useScreen'
 import IsMy from '@components/home/IsMy'
 import About from '@components/home/About'
 import Work from '@components/home/Work'
+import Portfolio from '@components/home/Portfolio'
 import './home.scss'
 
 const Home = (props) => {
@@ -19,21 +20,7 @@ const Home = (props) => {
       </section>
 
       <section id="Portfolio" className={`home-section home-section-portfolio ${windowHeight > 700 ? 'is-show' : ''}`}>
-        <div className="container-fluid">
-          <div className="row">
-            <div className="col">
-              <div className="home-section-box">
-                <div className="col-md-9">
-                  <h2 className="home-title">PORTFOLIO</h2>
-                  <div className="work-content">
-
-                  </div>
-
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Portfolio />
       </section>
 
       <section id="Work" className={`home-section home-section-work ${windowHeight > 900 ? 'is-show' : ''}`}>

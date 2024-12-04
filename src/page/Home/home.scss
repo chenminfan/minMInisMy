@@ -14,7 +14,7 @@
     h2 {
       margin-bottom: 16px;
     }
-    
+
     .typeWriter {
       padding-bottom: 2px;
       border-bottom: 3px solid $primary;
@@ -105,7 +105,7 @@
         @include media-breakpoint-down(md) {
           margin: auto;
         }
-        .img_box {
+        .img-box {
           border-radius: 32px 0 32px 0;
           overflow: hidden;
         }
@@ -158,6 +158,9 @@
           }
         }
       }
+    }
+    &-portfolio {
+      background-color: rgb(173 163 157 / 10%);
     }
     &-work {
       background-color: rgb(173 163 157 / 50%);

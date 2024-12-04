@@ -5,7 +5,7 @@ import Home from '@page/Home';
 export default function App() {
   return (
     <Routes>
-      <Route element={<Main />}>
+      <Route element={<Main />} >
         <Route path='/' element={<Home />}></Route>
       </Route >
     </Routes >
