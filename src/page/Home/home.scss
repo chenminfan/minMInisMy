@@ -14,7 +14,7 @@
     h2 {
       margin-bottom: 16px;
     }
-    
+
     .typeWriter {
       padding-bottom: 2px;
       border-bottom: 3px solid $primary;
@@ -105,7 +105,7 @@
         @include media-breakpoint-down(md) {
           margin: auto;
         }
-        .img_box {
+        .img-box {
           border-radius: 32px 0 32px 0;
           overflow: hidden;
         }
@@ -156,6 +156,16 @@
             transform: rotate(-10deg) translateX(-50%);
             background-color: $primary;
           }
+        }
+      }
+    }
+    &-portfolio {
+      background-color: rgb(173 163 157 / 10%);
+    }
+    &-portfolio & {
+      &-box {
+        @include media-breakpoint-down(md) {
+          align-items: normal;
         }
       }
     }
@@ -218,14 +228,6 @@
     //   transform: translateX(-50%) translateY(18px) rotate(2deg);
     // }
     &-second {
-    }
-  }
-  &-text {
-    &-p {
-      letter-spacing: 0.8px;
-      & + & {
-        margin-top: 32px;
-      }
     }
   }
 }
