@@ -26,15 +26,16 @@
         }
         cursor: default;
         span {
-          color: $gray-500;
+          color: $gray-400;
         }
         .button {
-          background-color: #c5c1bf;
+          border-color: $gray-100;
+          background-color: #f8f9fa;
         }
       }
       &:hover {
         span {
-          color: $primary;
+          color: $white;
           opacity: 0.8;
         }
       }
@@ -45,10 +46,13 @@
         width: 40px;
         height: 40px;
         border-radius: 100%;
-        background-color: $white;
+        border-width: 1px;
+        border-style: solid;
+        border-color: #b8a07e;
+        background-color: $primary;
       }
       span {
-        color: $primary;
+        color: $white;
         font-size: 16px;
       }
       &-pre {
@@ -77,6 +81,7 @@
     align-items: center;
     position: relative;
     margin-top: 24px;
+    min-height: 630px;
     @include media-breakpoint-down(md) {
       flex-direction: column;
       min-height: 100%;
@@ -267,7 +272,7 @@
       margin: 0;
       font-size: 38px;
       @include media-breakpoint-down(md) {
-        font-size: 28px;
+        font-size: 24px;
       }
     }
     &-title {
