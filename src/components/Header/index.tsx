@@ -1,4 +1,4 @@
-import React, { useState, forwardRef } from 'react'
+import React, { useState, forwardRef, useEffect } from 'react'
 import { useLocation } from 'react-router-dom';
 import './header.scss';
 
@@ -6,32 +6,32 @@ export type NavLeftItemsType = {
   name: string,
   icon?: string,
   link: string,
+  handleClick: () => void,
 };
-const Link = forwardRef<HTMLLIElement, NavLeftItemsType>(({ name, link, icon }: NavLeftItemsType, ref) => {
-  const location = useLocation();
-  return (
-    <li className='nav-item' ref={ref}>
-      <a className={`nav-link ${location.hash === link ? 'active' : ''}`} href={`${link}`}>{name}</a>
-    </li>
-  )
-})
-
 export default function Header(props) {
-  const { NAV_LINK } = props;
+  const { NAV_LINK, scrollToAnchor } = props;
+  const [navId, setNavId] = useState<string>('')
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
-  const handleMouseLeave = () => setIsNavCollapsed(true);
-
 
   return (
     <header className={isNavCollapsed ? '' : 'isNavCollapsed'}>
       <nav className="navbar">
         <div className="container-fluid">
-          {/* <a className="navbar-brand" href="#"></a> */}
 
           <div className={`collapse collapse-nav fade ${isNavCollapsed ? 'show' : ''}`}>
             <ul className="navbar-nav navbar-nav-header">
-              {NAV_LINK.map((nav) => <Link name={nav.name} link={nav.link} key={`header_${nav.name}`} />)}
+              {NAV_LINK.map((nav) => (
+                <li className='nav-item' key={`nav_${nav.link}`}>
+                  <div
+                    className={`nav-link ${navId === nav.link ? 'is-active' : ''}`}
+                    onClick={() => {
+                      scrollToAnchor(nav)
+                      setNavId(nav.link)
+                    }}
+                  >{nav.name}</div>
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -52,7 +52,14 @@ export default function Header(props) {
         </div>
         <div className="offcanvas-body">
           <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
-            {NAV_LINK.map((nav) => <Link name={nav.name} link={nav.link} key={`header_off_${nav.name}`} />)}
+            {NAV_LINK.map((nav) => (
+              <li className='nav-item' key={`nav_${nav.link}`}>
+                <div
+                  className={`nav-link ${navId === nav.link ? 'is-active' : ''}`}
+                  onClick={() => { scrollToAnchor(nav) }}
+                >{nav.name}</div>
+              </li>
+            ))}
           </ul>
         </div>
       </div>
