@@ -1,0 +1,42 @@
+.portfolio {
+  &-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  &-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 24px 12px;
+    width: calc((100% - (24px * 4)) / 4);
+  }
+  &-title {
+    color: $primary;
+    font-weight: 600;
+    &-text {
+      @include text-line-truncate(2, 100%, (24px * 2), 1.5);
+    }
+  }
+  &-image {
+    position: relative;
+    margin-top: 16px;
+    width: 200px;
+    height: 200px;
+    border: 5px solid $white;
+    border-radius: 8px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: -12px;
+      left: 12px;
+      right: -12px;
+      bottom: 12px;
+      border: 1px solid rgb(241, 200, 200);
+      border-radius: 8px;
+    }
+    &-webPage {
+      height: 400px;
+    }
+  }
+}
