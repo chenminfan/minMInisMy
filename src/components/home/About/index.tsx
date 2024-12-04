@@ -1,4 +1,5 @@
 import React from 'react'
+import './about.scss'
 
 type Props = {}
 
@@ -10,13 +11,29 @@ export default function About({ }: Props) {
           <div className="home-section-box">
             <div className="col-md-9">
               <h2 className="home-title">ABOUT</h2>
-              <div className="home-text">
-                <div className='home-text-p'>
-                  <p>平面設計開始至網頁設計、切版、程式撰寫，目前擅長運用js及React框架開發網頁。擁有豐富的大型電商網站切版及簡易程式撰寫的經驗，熟悉react框架、html、scss/css。
+              <div className="about-text">
+                <div className='about-text-p'>
+                  <ul className='about-text-list'>
+                    <li><span className="material-symbols-outlined">
+                      done_all
+                    </span>畢業於臺灣科技大學建築系碩士及聖約翰科技大學資訊管理系</li>
+                    <li><span className="material-symbols-outlined">
+                      done_all
+                    </span><span>具有設計及資訊背景</span>，擁有豐富的旅遊電商及電子商務的相關工作8年經歷，<span>熟悉前端及設計相關技術</span>。</li>
+                    <li><span className="material-symbols-outlined">
+                      done_all
+                    </span>在新專案從零開始，能與團隊間相互合作建立網頁設計規範，在團隊中也會協助同仁熟悉工作流程，內容，協調。</li>
+                    <li><span className="material-symbols-outlined">
+                      done_all
+                    </span><span>對於新事物、新技術，充滿熱誠，喜歡嘗試，研究</span>，在能力範圍內也樂於助人。</li>
+                  </ul>
+                </div>
+                <div className='about-text-p'>
+                  <p>平面設計開始至網頁設計、切版、程式撰寫，目前擅長運用js及React框架開發網頁。擁有豐富的大型電商網站切版及簡易程式撰寫的經驗，<span>熟悉react框架、html、scss/css</span>。
                   </p>
                 </div>
-                <div className='home-text-p'>
-                  <p>曾任職PChome前端設計部的資深工程師，曾做過大小平台，活動網站（近三年的Apple iphone保險活動），PChome前後台維運及前台翻新等切版及撰寫畫面呈現的程式工作事宜。</p>
+                <div className='about-text-p'>
+                  <p>曾<span>任職PChome前端設計部的資深工程師</span>，做過大小平台，活動網站（近三年的Apple iphone保險活動），PChome前後台維運及前台翻新等切版及撰寫畫面呈現的程式工作事宜。</p>
                   <p>以Scrum方式與Master/ PO/ 設計/ 前端、後端工程師的工作流程，於專案上掌握度優異，與主管討論，協助組內相關管理事宜及為帶領翻新的頁面的整體網站架構及UI系統規劃等相關經驗。</p>
                 </div>
                 {/* <div>
