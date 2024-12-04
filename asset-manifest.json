@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/minMInisMy/static/css/main.1b4a7ff6.css",
+    "main.css": "/minMInisMy/static/css/main.3f119214.css",
     "main.js": "/minMInisMy/static/js/main.68fd9c16.js",
     "static/js/453.501ae7c9.chunk.js": "/minMInisMy/static/js/453.501ae7c9.chunk.js",
     "static/media/minfan.jpg": "/minMInisMy/static/media/minfan.a05bad1b475a15d3fa10.jpg",
     "index.html": "/minMInisMy/index.html"
   },
   "entrypoints": [
-    "static/css/main.1b4a7ff6.css",
+    "static/css/main.3f119214.css",
     "static/js/main.68fd9c16.js"
   ]
 }
