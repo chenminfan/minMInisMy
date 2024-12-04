@@ -14,7 +14,7 @@
     h2 {
       margin-bottom: 16px;
     }
-    
+
     .typeWriter {
       padding-bottom: 2px;
       border-bottom: 3px solid $primary;
@@ -105,7 +105,7 @@
         @include media-breakpoint-down(md) {
           margin: auto;
         }
-        .img_box {
+        .img-box {
           border-radius: 32px 0 32px 0;
           overflow: hidden;
         }
@@ -156,6 +156,16 @@
             transform: rotate(-10deg) translateX(-50%);
             background-color: $primary;
           }
+        }
+      }
+    }
+    &-portfolio {
+      background-color: rgb(173 163 157 / 10%);
+    }
+    &-portfolio & {
+      &-box {
+        @include media-breakpoint-down(md) {
+          align-items: normal;
         }
       }
     }
@@ -220,32 +230,83 @@
     &-second {
     }
   }
-  &-text {
-    &-p {
-      letter-spacing: 0.8px;
-      & + & {
-        margin-top: 32px;
+}
+.ui-top {
+  position: fixed;
+  bottom: 50%;
+  right: 16px;
+  z-index: 999;
+  transform: translateY(50%);
+  transition: 1.5s all;
+  @include media-breakpoint-down(md) {
+    right: 8px;
+  }
+  .btn-group-vertical {
+    > .btn:not(.btn-top) {
+      &:nth-last-child(2) {
+        border-radius: 0 0 6px 6px;
+      }
+    }
+    &.is-animation {
+      > .btn:not(.btn-top) {
+        &:nth-last-child(2) {
+          border-radius: 0;
+        }
+      }
+    }
+  }
+
+  .btn {
+    width: 38px;
+    height: auto;
+    padding: 4px 6px 4px 7px;
+    color: $primary;
+    font-weight: 400;
+    border-color: #deb887;
+    background-color: #f8f9fa;
+    &:active,
+    &.active {
+      position: relative;
+      padding-left: 4px;
+      color: $primary;
+      border-left: 4px solid #deb887;
+      background-color: #f8f9fa;
+      &::before {
+        content: '';
+        position: absolute;
+        top: 8px;
+        right: 8px;
+        bottom: 8px;
+        width: 12px;
+        background-color: rgba(227, 158, 158, 20%);
+      }
+    }
+    &:hover {
+      padding-left: 4px;
+      border-left: 4px solid #deb887;
+      border-color: #deb887;
+    }
+    &-top {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: 0.5s all;
+      // &.is-animation {
+      //   animation: headerAnimation 0.5s;
+      // }
+      &.is-show {
+        opacity: 1;
+        transition: 0.5s all;
       }
     }
   }
 }
-.btn-top {
-  opacity: 0;
-  position: fixed;
-  bottom: -100px;
-  right: 32px;
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 100%;
-  z-index: 999;
-  transition: 1.5s all;
-
-  &.is-show {
-    opacity: 1;
-    bottom: 100px;
-    transition: 1.5s all;
-  }
-}
+// @keyframes btnTopAnimation {
+//   from {
+//     transform: translateY(-10%);
+//   }
+//   to {
+//     transform: translateY(0);
+//   }
+// }
