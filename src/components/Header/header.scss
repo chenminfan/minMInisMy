@@ -5,6 +5,14 @@ header {
     }
     .offcanvas {
       bottom: 0;
+      &-uiHeader {
+        border-radius: 32px 0 0 32px;
+      }
+      &-header,
+      &-body {
+        padding: 32px;
+        color: $primary;
+      }
     }
   }
   .btn-toggle {
@@ -28,8 +36,19 @@ header {
       }
     }
     .nav {
+      &-item {
+        margin-left: 8px;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
       &-link {
         padding: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        &.is-active {
+          color: $primary;
+        }
       }
     }
   }
