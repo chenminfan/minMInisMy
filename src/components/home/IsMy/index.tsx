@@ -42,7 +42,7 @@ export default function IsMy({ }: Props) {
     <div className="home-section-box">
       <div className="container-fluid">
         <div className="home-section-info row">
-          <div className="col-md-7">
+          <div className="col-md-6">
             <div className="home-section-title ">
               <h1>
                 閔凡
@@ -70,9 +70,9 @@ export default function IsMy({ }: Props) {
 
             </div>
           </div>
-          <div className="col-md-5">
+          <div className="col-md-6">
             <div className="home-section-img ">
-              <div className="img_box"><LazyLoadImg className="" src={imageMinMin} alt="minFan" /></div>
+              <div className="img-box"><LazyLoadImg className="" src={imageMinMin} alt="minFan" /></div>
             </div>
           </div>
 
