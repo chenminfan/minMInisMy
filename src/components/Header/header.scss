@@ -28,8 +28,19 @@ header {
       }
     }
     .nav {
+      &-item {
+        margin-left: 8px;
+        &:first-child {
+          margin-left: 0;
+        }
+      }
       &-link {
         padding: 8px;
+        font-weight: 500;
+
+        &.is-active {
+          color: $primary;
+        }
       }
     }
   }
