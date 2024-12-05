@@ -20,7 +20,7 @@ const Home = (props) => {
       </section>
 
       <section id="Portfolio" className={`home-section home-section-portfolio ${windowHeight > 700 ? 'is-show' : ''}`}>
-        <Portfolio />
+        {/* <Portfolio /> */}
       </section>
 
       <section id="Work" className={`home-section home-section-work ${windowHeight > 900 ? 'is-show' : ''}`}>
