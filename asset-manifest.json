@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/minMInisMy/static/css/main.b23fb603.css",
-    "main.js": "/minMInisMy/static/js/main.86421d4d.js",
+    "main.js": "/minMInisMy/static/js/main.9e52b1d3.js",
     "static/js/453.2dd4b2ff.chunk.js": "/minMInisMy/static/js/453.2dd4b2ff.chunk.js",
     "static/media/home-1.png": "/minMInisMy/static/media/home-1.ba2fc47ee95da8664023.png",
     "static/media/LionTravel-1.png": "/minMInisMy/static/media/LionTravel-1.be14099f90afa90c1666.png",
@@ -65,6 +65,6 @@
   },
   "entrypoints": [
     "static/css/main.b23fb603.css",
-    "static/js/main.86421d4d.js"
+    "static/js/main.9e52b1d3.js"
   ]
 }
