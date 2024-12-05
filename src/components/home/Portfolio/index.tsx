@@ -25,16 +25,18 @@ export default function Portfolio({ }: Props) {
                 {PORTFOLIO.map((item, index) => (
                   <div className="portfolio-box" key={`portfolio_${index}`}>
                     <div className="portfolio-title"><div className="portfolio-title-text">{item.title}</div></div>
-                    {item.imageUrl && (<div className={`portfolio-image ${item.category === "一頁式網頁設計" ? 'portfolio-image-webPage' : ''}`}>
-                      <div className="img-box">
-                        <LazyLoadImg className="" src={require(`../../../assets/image/Portfolio/${item.imageUrl}`)} alt={item.imageUrl} />
+                    {/* {item.imageUrl && (
+                      <div className={`portfolio-image ${item.category === "一頁式網頁設計" ? 'portfolio-image-webPage' : ''}`}>
+                        <div className="img-box">
+                          <LazyLoadImg className="" src={require(`../../../assets/image/Portfolio/${item.imageUrl}`)} alt={item.imageUrl} />
+                        </div>
                       </div>
-                    </div>)}
+                    )}
                     <div className="portfolio-tool">
                       {item.link && (<a className="btn" href={item.link}><span className="material-symbols-outlined">
                         public
                       </span></a>)}
-                    </div>
+                    </div> */}
                   </div>
                 )
                 )}
