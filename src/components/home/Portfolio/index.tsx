@@ -23,7 +23,7 @@ export default function Portfolio({ }: Props) {
               <h2 className="home-title">PORTFOLIO</h2>
               <div className="portfolio-content">
                 {PORTFOLIO.map((item, index) => (
-                  item.title && <div className="portfolio-box" key={`portfolio_${index}`}>
+                  <div className="portfolio-box" key={`portfolio_${index}`}>
                     <div className="portfolio-title"><div className="portfolio-title-text">{item.title}</div></div>
                     {item.imageUrl && (<div className={`portfolio-image ${item.category === "一頁式網頁設計" ? 'portfolio-image-webPage' : ''}`}>
                       <div className="img-box">
