@@ -20,9 +20,9 @@ export default function Portfolio() {
     if (categoryId !== 'all') {
       return item.category.match(categoryId)
     } else {
-      return item
+      return item.category
     }
-  })
+  }).filter((a) => PORTFOLIO_NAV.slice(0, 3).includes(a.category))
   return (
     <div className="container-fluid">
       <div className="row">
@@ -33,11 +33,10 @@ export default function Portfolio() {
               <div className="portfolio-box">
                 <nav className="portfolio-navbar">
                   <div className="portfolio-nav">
-                    <div
-                      className="portfolio-nav-item">
-                      <button className={`btn btn-outline-primary ${categoryId === 'all' ? 'active' : ''}`} type="button" onClick={() => { handleNavClick('all') }}>All</button>
+                    <div className="portfolio-nav-item">
+                      <button className={`btn btn-outline-primary ${categoryId === 'all' ? 'active' : ''}`} type="button" onClick={() => { handleNavClick('all') }}>WebAll</button>
                     </div>
-                    {PORTFOLIO_NAV.map((nav) => (
+                    {PORTFOLIO_NAV.slice(0, 3).map((nav) => (
                       <div
                         key={`nev_${nav}`}
                         className="portfolio-nav-item">

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom'
-import { useScreen } from '@hook/useScreen'
 import 'bootstrap/dist/js/bootstrap.js'
 import '@assets/bootstrap.scss';
 import '@assets/all.scss'
@@ -20,13 +19,13 @@ export default function Main() {
     let scrollDOM = document.getElementById(hashName.link.substring(1))
     setScrollHeight(scrollDOM?.offsetTop || 0)
   }
+
   useEffect(() => {
-    console.log(scrollHeight)
     if (scrollHeight !== 0) {
       window.scrollTo(0, scrollHeight - 56)
     }
-    console.log(window.scrollTo)
   }, [scrollHeight])
+
   return (
     <>
       <Header NAV_LINK={NAV_LINK} scrollToAnchor={scrollToAnchor} />
