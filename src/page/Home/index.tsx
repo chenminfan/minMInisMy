@@ -1,5 +1,4 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
 import { useScreen } from '@hook/useScreen'
 import IsMy from '@components/home/IsMy'
 import About from '@components/home/About'
@@ -10,7 +9,6 @@ import './home.scss'
 const Home = (props) => {
   const { scrollHeight } = props
   const [windowHeight]: number[] = useScreen();
-  console.log(windowHeight)
   return (
     <div className='home-page'>
       <section className='home-section home-section-first is-show'>
@@ -25,7 +23,7 @@ const Home = (props) => {
         <Portfolio />
       </section>
 
-      <section id="Work" className={`home-section home-section-work ${windowHeight > (scrollHeight || 8200) ? 'is-show' : ''}`}>
+      <section id="Work" className={`home-section home-section-work ${windowHeight > (scrollHeight || 3000) ? 'is-show' : ''}`}>
         <div className="home-section-box">
           <div className="container-fluid">
             <div className="row">

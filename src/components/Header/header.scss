@@ -37,7 +37,7 @@ header {
       &-link {
         padding: 8px;
         font-weight: 500;
-
+        cursor: pointer;
         &.is-active {
           color: $primary;
         }
