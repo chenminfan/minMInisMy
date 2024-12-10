@@ -1,11 +1,16 @@
 import React, { useState } from 'react'
+import { useOutletContext } from 'react-router-dom';
 import LazyLoadImg from "@components/common/LazyLoadImage";
-import portfolio from '@api/portfolio.json'
+import { DATABASEProps } from '@typeTS/dataBase'
 import './portfolio.scss'
 
+type dataType = {
+  myDataBase: DATABASEProps
+}
 export default function Portfolio() {
+  const { myDataBase } = useOutletContext<dataType>();
   const sortOrder = ["React網站開發", "React切版", "html網站切版", "網站設計", "一頁式網頁設計"];
-  const PORTFOLIO = portfolio.filter((workItem) => workItem.category).sort((a: any, b: any) => {
+  const PORTFOLIO = Object.values(myDataBase.portfolio || {}).filter((workItem) => workItem.category).sort((a: any, b: any) => {
     if (!sortOrder.includes(a.category)) return 1
     if (!sortOrder.includes(b.category)) return -1
     return sortOrder.indexOf(a.category) - sortOrder.indexOf(b.category)
@@ -36,8 +41,8 @@ export default function Portfolio() {
                     <div className="btn-group" role="group" aria-label="Large button group">
                       <button className={`btn btn-outline-primary ${categoryId === 'all' ? 'active' : ''}`} type="button" onClick={() => { handleNavClick('all') }}>WebAll</button>
 
-                      {PORTFOLIO_NAV.slice(0, 3).map((nav) => (
-                        <button key={`nev_${nav}`} className={`btn btn-outline-primary ${nav === (categoryId ? categoryId : PORTFOLIO_NAV_ID) ? 'active' : ''}`} type="button" onClick={() => { handleNavClick(nav) }}>{nav}</button>
+                      {PORTFOLIO_NAV.slice(0, 3).map((navItem) => (
+                        <button key={`nev_${navItem}`} className={`btn btn-outline-primary ${navItem === (categoryId ? categoryId : PORTFOLIO_NAV_ID) ? 'active' : ''}`} type="button" onClick={() => { handleNavClick(navItem) }}>{navItem}</button>
                       ))}
                     </div>
                   </div>
@@ -75,6 +80,5 @@ export default function Portfolio() {
         </div>
       </div>
     </div>
-
   )
 }
