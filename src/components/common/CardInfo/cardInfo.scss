@@ -14,6 +14,22 @@ $mobile-M: 12px;
         margin-left: 18px;
       }
     }
+    > div {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      flex-direction: column;
+      align-items: center;
+      flex-wrap: wrap;
+      align-content: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  &-tool {
+    display: flex;
+    height: 32px;
   }
   &-link {
     display: flex;
@@ -107,8 +123,6 @@ $mobile-M: 12px;
       transition: 0.8s all;
       padding-bottom: 100%;
       height: auto;
-    }
-    .img-box {
       &::before {
         content: '';
         position: absolute;
@@ -141,6 +155,9 @@ $mobile-M: 12px;
       .lazy-load-image-background {
         bottom: auto;
         height: auto;
+      }
+      .img-box {
+        height: 100%;
       }
     }
   }
