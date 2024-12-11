@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from 'react'
 import { useOutletContext } from 'react-router-dom';
+import BtnGroupNav from "@components/common/BtnGroupNav";
 import CardInfo from "@components/common/CardInfo";
 import { DATABASEProps } from '@typeTS/dataBase'
 import './webPortfolioCategory.scss'
@@ -10,7 +11,6 @@ type dataType = {
 export default function PagePortfolioCategory({ ORDER, PAGE_KEY_WORD }) {
   const { myDataBase } = useOutletContext<dataType>();
   const PORTFOLIO_BASE = Object.values(myDataBase.portfolio || {})
-  // const ORDER = ["React", "網站", "切版"] as any;
   const [valueCategory, setValueCategory] = useState(PAGE_KEY_WORD)
   const PORTFOLIO_SORT = useMemo(() => {
     return [...PORTFOLIO_BASE]
@@ -21,9 +21,12 @@ export default function PagePortfolioCategory({ ORDER, PAGE_KEY_WORD }) {
           return workItem.category
         }
       })
+      .sort((a: any, b: any) => {
+        if (!ORDER.includes(a.category)) return 1
+        if (!ORDER.includes(b.category)) return -1
+        return ORDER.indexOf(a.category) - ORDER.indexOf(b.category)
+      })
   }, [ORDER, valueCategory])
-
-  const PORTFOLIO_ID = Array.from(new Set(PORTFOLIO_SORT.map((workItem) => workItem.category)))
 
   const BREADCRUMB_DATA = {
     HomeId: 'HOME',
@@ -33,53 +36,24 @@ export default function PagePortfolioCategory({ ORDER, PAGE_KEY_WORD }) {
     WebName: 'WEB',
     WebUrl: '#/web',
   };
-  const SHOW_ITEM = 4;
-  const AVERAGE_PAGE = Math.ceil(PORTFOLIO_ID.length / SHOW_ITEM) - 1;
-  const TOTAL_ITEM = PORTFOLIO_ID.length;
-  const [currentItem, setCurrentItem] = useState<number>(0);
-  const [indexPage, setIndexPage] = useState<number>(0);
 
-  const PORTFOLIO_CATEGORY = PORTFOLIO_SORT.filter((workItem) => {
-    if (valueCategory !== PAGE_KEY_WORD) {
-      return workItem.category.match(valueCategory)
-    } else {
-      return workItem.category
-    }
+  const PORTFOLIO_CATEGORY = useMemo(() => {
+    return [...PORTFOLIO_SORT].filter((workItem) => {
+      if (valueCategory !== PAGE_KEY_WORD) {
+        return workItem.category.match(valueCategory)
+      } else {
+        return workItem.category
+      }
 
-  })
+    }).sort((a: any, b: any) => {
+      return a.title.localeCompare(b.title, 'zh-Hant')
+    })
+  }, [PORTFOLIO_SORT, valueCategory, PAGE_KEY_WORD])
 
-  const handleClickPrev = (value) => {
-    setIndexPage(Math.ceil(value / SHOW_ITEM) === 1 ? 0 : Math.ceil(value / SHOW_ITEM))
-    if (indexPage <= AVERAGE_PAGE) {
-      setCurrentItem(0)
-    } else {
-      setCurrentItem((value) => {
-        if (value >= TOTAL_ITEM - 1) {
-          return 0;
-        } else {
-          return value - SHOW_ITEM;
-        }
-      })
-    }
 
-  }
-  const handleClickNext = (value) => {
-    setIndexPage(Math.ceil(value / SHOW_ITEM))
-    if (indexPage >= AVERAGE_PAGE) {
-      setCurrentItem(currentItem)
-    } else {
-      setCurrentItem((value) => {
-        if (value >= TOTAL_ITEM - 1) {
-          return 0;
-        } else {
-          return value + SHOW_ITEM;
-        }
-      })
-    }
-  }
 
   return (
-    <div className="page-web">
+    <div className="page">
       <div className="container-xl">
         <div className="row">
           <div className="col">
@@ -100,36 +74,7 @@ export default function PagePortfolioCategory({ ORDER, PAGE_KEY_WORD }) {
         <div className="row">
           <div className="col">
             <div className="page-nav">
-              {1 <= indexPage && (
-                <button className="btn page-nav-btn" onClick={() => { handleClickPrev(currentItem - 1) }} disabled={0 === indexPage && indexPage <= AVERAGE_PAGE}>
-                  <span className="material-symbols-outlined">
-                    arrow_left
-                  </span>
-                </button>
-              )}
-
-              <nav>
-                {((indexPage !== 0) && (indexPage <= AVERAGE_PAGE)) && <div className="btn-text"><span>...</span></div>}
-
-                <div className="btn-group">
-                  <button className={`btn btn-outline-primary ${valueCategory === PAGE_KEY_WORD ? 'active' : ''}`} type="button" onClick={() => setValueCategory(PAGE_KEY_WORD)}>{PAGE_KEY_WORD}</button>
-
-                  {PORTFOLIO_ID.slice(0 + currentItem, SHOW_ITEM + currentItem).map((category, index) => (
-                    <button type='button' className={`btn btn-outline-primary  ${category === valueCategory ? 'active' : ''}`} key={`category_${index}`} aria-current="page" onClick={() => setValueCategory(category)} >{category}</button>
-                  )
-                  )}
-                </div>
-
-                {(indexPage < AVERAGE_PAGE) && (<div className="btn-text"><span>...</span></div>)}
-              </nav>
-
-              {(AVERAGE_PAGE > 0 || indexPage < AVERAGE_PAGE) && (
-                <button className="btn page-nav-btn" onClick={() => { handleClickNext(currentItem + 1) }} disabled={indexPage >= AVERAGE_PAGE}>
-                  <span className="material-symbols-outlined">
-                    arrow_right
-                  </span>
-                </button>
-              )}
+              <BtnGroupNav isTool navArray={PORTFOLIO_SORT} keyCategory={PAGE_KEY_WORD} navOrder={ORDER} setValueCategory={setValueCategory} valueCategory={valueCategory} SHOW_ITEM={6} />
             </div>
 
           </div>
@@ -137,13 +82,7 @@ export default function PagePortfolioCategory({ ORDER, PAGE_KEY_WORD }) {
         <div className="row">
           <div className="col">
             <div className="page-content">
-
-              {PORTFOLIO_CATEGORY.map((item, index) => {
-                return (
-                  <CardInfo card={item} key={`portfolio_${index}`}></CardInfo>
-                )
-              }
-              )}
+              {PORTFOLIO_CATEGORY.map((item, index) => <CardInfo card={item} key={`portfolio_${index}`}></CardInfo>)}
             </div>
           </div>
         </div>
