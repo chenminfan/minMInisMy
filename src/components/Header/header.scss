@@ -1,8 +1,20 @@
 header {
+  .nav {
+    &-link {
+      display: flex;
+      align-items: center;
+      span {
+        font-size: 16px;
+        margin-right: 8px;
+      }
+    }
+  }
   &.isNavCollapsed {
     .collapse {
-      display: inherit;
+      display: block;
+      opacity: 1;
     }
+
     .offcanvas {
       bottom: 0;
       &-uiHeader {
@@ -12,6 +24,21 @@ header {
       &-body {
         padding: 32px;
         color: $primary;
+      }
+      .nav {
+        &-item {
+          padding: 8px;
+        }
+        &-link {
+          padding: 4px 8px;
+          color: $secondary;
+          border-left: 4px solid transparent;
+          &.is-active {
+            color: $primary;
+            font-weight: 500;
+            border-color: $primary;
+          }
+        }
       }
     }
   }

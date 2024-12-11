@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import './header.scss';
 
 export type NavLeftItemsType = {
@@ -9,7 +9,8 @@ export type NavLeftItemsType = {
   handleClick: () => void,
 };
 export default function Header(props) {
-  const { NAV_LINK, scrollToAnchor } = props;
+  const location = useLocation();
+  const { NAV_LINK } = props;
   const [navId, setNavId] = useState<string>('')
   const [isNavCollapsed, setIsNavCollapsed] = useState(true);
   const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
@@ -24,9 +25,11 @@ export default function Header(props) {
               {NAV_LINK.map((nav) => (
                 <li className='nav-item' key={`nav_${nav.link}`}>
                   <Link
-                    className={`nav-link ${navId === nav.link ? 'is-active' : ''}`}
+                    className={`nav-link ${nav.link === location.pathname ? 'is-active' : ''}`}
                     to={nav.link}
-                  >{nav.name}</Link>
+                  ><span className="material-symbols-outlined">
+                      {nav.icon}
+                    </span>{nav.name}</Link>
                 </li>
               ))}
             </ul>
@@ -42,9 +45,7 @@ export default function Header(props) {
       </nav>
       <div className="offcanvas offcanvas-uiHeader offcanvas-end" tabIndex={-1} id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div className="offcanvas-header">
-          <h5 className="offcanvas-title" id="offcanvasNavbarLabel"><span className="material-symbols-outlined">
-            home
-          </span></h5>
+          <h5 className="offcanvas-title" id="offcanvasNavbarLabel"></h5>
           <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div className="offcanvas-body">
@@ -52,9 +53,11 @@ export default function Header(props) {
             {NAV_LINK.map((nav) => (
               <li className='nav-item' key={`nav_${nav.link}`}>
                 <Link
-                  className={`nav-link ${navId === nav.link ? 'is-active' : ''}`}
+                  className={`nav-link ${nav.link === location.pathname ? 'is-active' : ''}`}
                   to={nav.link}
-                >{nav.name}</Link>
+                ><span className="material-symbols-outlined">
+                    {nav.icon}
+                  </span>{nav.name}</Link>
               </li>
             ))}
           </ul>
