@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom'
 import { firebaseApp } from '@api/Firebase';
 import { getDatabase, ref, onValue } from "firebase/database";
+import { getAuth, getIdToken } from "firebase/auth";
 import 'bootstrap/dist/js/bootstrap.js'
 import '@assets/bootstrap.scss';
 import '@assets/all.scss'
@@ -24,8 +25,18 @@ export default function Main() {
       setMyDataBase(data)
     });
   }
+  const getMember = () => {
+    // 取得目前登入的使用者
+    getAuth(firebaseApp).onAuthStateChanged(async (user) => {
+      if (user) {
+        console.log(user)
+      } else {
+      }
+    });
+  }
   useEffect(() => {
     getData()
+    getMember()
   }, [])
 
   return (
