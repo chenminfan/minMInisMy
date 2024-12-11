@@ -15,6 +15,10 @@ $mobile-M: 12px;
       }
     }
   }
+  &-tool {
+    display: flex;
+    height: 32px;
+  }
   &-link {
     display: flex;
     justify-content: center;
@@ -107,8 +111,6 @@ $mobile-M: 12px;
       transition: 0.8s all;
       padding-bottom: 100%;
       height: auto;
-    }
-    .img-box {
       &::before {
         content: '';
         position: absolute;
@@ -141,6 +143,9 @@ $mobile-M: 12px;
       .lazy-load-image-background {
         bottom: auto;
         height: auto;
+      }
+      .img-box {
+        height: 100%;
       }
     }
   }
