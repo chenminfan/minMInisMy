@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/minMInisMy/static/css/main.1b830fe0.css",
+    "main.css": "/minMInisMy/static/css/main.f8635f87.css",
     "main.js": "/minMInisMy/static/js/main.d8205dfd.js",
     "static/js/453.2dd4b2ff.chunk.js": "/minMInisMy/static/js/453.2dd4b2ff.chunk.js",
     "static/media/home-1.png": "/minMInisMy/static/media/home-1.ba2fc47ee95da8664023.png",
@@ -70,7 +70,7 @@
     "index.html": "/minMInisMy/index.html"
   },
   "entrypoints": [
-    "static/css/main.1b830fe0.css",
+    "static/css/main.f8635f87.css",
     "static/js/main.d8205dfd.js"
   ]
 }
