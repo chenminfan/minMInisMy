@@ -1,0 +1,39 @@
+.btnGroupNav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 12px 24px;
+  @include media-breakpoint-down(md) {
+    padding: 24px 8px;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0 0 12px;
+    .btn {
+      &-group {
+        .btn {
+          letter-spacing: 0.5px;
+        }
+      }
+      &-text {
+        padding: 6px 8px;
+        color: $primary;
+      }
+    }
+  }
+  &-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px;
+    width: 34px;
+    height: 34px;
+    border-radius: 100%;
+    span {
+      color: $primary;
+    }
+  }
+}
