@@ -23,7 +23,7 @@ export default function CardInfo({ card }: Props) {
       <a href="/#" className="cordInfo-link">
 
         {card.imageUrl && (
-          <div className={`cordInfo-image ${card.category === "一頁式網頁設計" ? 'cordInfo-image-webPage' : ''}`}>
+          <div className={`cordInfo-image ${card.category.includes("一頁式") ? 'cordInfo-image-webPage' : ''}`}>
             <div className="img-box">
               <LazyLoadImg className="" src={require(`../../../assets/image/Portfolio/${card.imageUrl}`)} alt={card.imageUrl} />
             </div>
