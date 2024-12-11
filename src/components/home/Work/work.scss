@@ -81,6 +81,7 @@
     align-items: center;
     position: relative;
     margin-top: 24px;
+    margin-right: 40px;
     min-height: 630px;
     @include media-breakpoint-down(md) {
       flex-direction: column;
