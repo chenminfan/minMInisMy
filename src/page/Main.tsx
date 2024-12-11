@@ -11,10 +11,10 @@ import Footer from '@components/Footer';
 import { DATABASEProps } from '@typeTS/dataBase'
 export default function Main() {
   const NAV_LINK = [
-    { name: 'HOME', link: '/' },
-    { name: 'WEB', link: '/web' },
-    { name: 'WEB DESIGN', link: '/webDesign' },
-    { name: 'GRAPHIC DESIGN', link: '/graphic' },
+    { name: 'HOME', link: '/', icon: 'home' },
+    { name: 'WEB', link: '/web', icon: 'web' },
+    { name: 'WEB DESIGN', link: '/webDesign', icon: 'space_dashboard' },
+    { name: 'GRAPHIC DESIGN', link: '/graphic', icon: 'brush' },
   ]
   const [myDataBase, setMyDataBase] = useState<DATABASEProps[]>([]);
   const db = getDatabase(firebaseApp);
@@ -43,7 +43,7 @@ export default function Main() {
     <>
       <Header NAV_LINK={NAV_LINK} />
       <main>
-        <Outlet context={{ myDataBase }} />
+        <Outlet context={{ myDataBase, NAV_LINK }} />
       </main>
       <Footer />
     </>
