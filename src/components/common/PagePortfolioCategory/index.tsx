@@ -58,7 +58,7 @@ export default function PagePortfolioCategory({ ORDER, PAGE_KEY_WORD }) {
             <div className="page-breadcrumb">
               <Breadcrumb>
                 <BreadcrumbItem itemIcon={NAV_LINK[0].icon} itemLink={NAV_LINK[0].link} />
-                <BreadcrumbItem itemLink={BREADCRUMB_ID?.link} itemName={BREADCRUMB_ID?.name} />
+                <BreadcrumbItem itemIcon={BREADCRUMB_ID?.icon} itemLink={BREADCRUMB_ID?.link} itemName={BREADCRUMB_ID?.name} />
                 <BreadcrumbItem itemName={valueCategory} itemActive />
               </Breadcrumb>
             </div>

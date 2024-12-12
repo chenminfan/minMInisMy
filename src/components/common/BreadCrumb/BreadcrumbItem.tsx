@@ -12,9 +12,7 @@ export default function BreadcrumbItem(props: Props) {
   return (
     <li className="breadcrumb-item">
       <a className={`${itemActive ? 'text-primary' : 'text-muted'}`} href={itemLink} role="link" aria-label="breadcrumb-link">
-        {itemIcon ? <span className="material-symbols-outlined">
-          {itemIcon}
-        </span> : itemName}</a>
+        <span className='breadcrumb-icon me-2'>{itemIcon && itemIcon}</span>{itemName && itemName}</a>
     </li >
   )
 }
