@@ -20,6 +20,14 @@ jobs:
           npm install
           npm run build
         env:
+          FIREBASE_API: ${{ secrets.FIREBASE_API }}
+          FIREBASE_APP_ID: ${{ secrets.FIREBASE_APP_ID }}
+          FIREBASE_DB_URL: ${{ secrets.FIREBASE_DB_URL }}
+          FIREBASE_DOMAIN: ${{ secrets.FIREBASE_DOMAIN }}
+          FIREBASE_MEASUREMENT_ID: ${{ secrets.FIREBASE_MEASUREMENT_ID }}
+          FIREBASE_MESSAGING: ${{ secrets.FIREBASE_MESSAGING }}
+          FIREBASE_PROJECT: ${{ secrets.FIREBASE_PROJECT }}
+          FIREBASE_STORAGE_BUCKET: ${{ secrets.FIREBASE_STORAGE_BUCKET }}
           DEPLOY_SECRET: ${{ secrets.DEPLOY_SECRET }}
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.4
