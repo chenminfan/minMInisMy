@@ -9,7 +9,8 @@ node_modules
 
 # production
 /build
-
+.env
+.env.local
 # misc
 .DS_Store
 # portfolio.json
