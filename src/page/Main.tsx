@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Outlet } from 'react-router-dom'
 import { firebaseApp } from '@api/Firebase';
 import { getDatabase, ref, onValue } from "firebase/database";
@@ -17,33 +17,29 @@ export default function Main() {
     { name: 'GRAPHIC DESIGN', link: '/graphic', icon: 'brush' },
   ]
   const [myDataBase, setMyDataBase] = useState<DATABASEProps[]>([]);
+  const isLoadingRef = useRef(true);
+  const [loadingPage, setLoadingPage] = useState<boolean>(true);
   const db = getDatabase(firebaseApp);
   const dbRef = ref(db)
   const getData = () => {
+    isLoadingRef.current = loadingPage
+    setLoadingPage(true)
     onValue(dbRef, (snapshot) => {
       const data = snapshot.val();
       setMyDataBase(data)
-    });
-  }
-  const getMember = () => {
-    // 取得目前登入的使用者
-    getAuth(firebaseApp).onAuthStateChanged(async (user) => {
-      if (user) {
-        console.log(user)
-      } else {
-      }
+      isLoadingRef.current = false;
+      setLoadingPage(false)
     });
   }
   useEffect(() => {
     getData()
-    getMember()
   }, [])
 
   return (
     <>
       <Header NAV_LINK={NAV_LINK} />
       <main>
-        <Outlet context={{ myDataBase, NAV_LINK }} />
+        <Outlet context={{ myDataBase, NAV_LINK, loadingPage }} />
       </main>
       <Footer />
     </>
