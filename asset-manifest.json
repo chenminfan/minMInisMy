@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/minMInisMy/static/css/main.642d4d02.css",
-    "main.js": "/minMInisMy/static/js/main.7f68acb1.js",
+    "main.js": "/minMInisMy/static/js/main.ee431b42.js",
     "static/js/453.2dd4b2ff.chunk.js": "/minMInisMy/static/js/453.2dd4b2ff.chunk.js",
     "static/media/LionTravel-1.png": "/minMInisMy/static/media/LionTravel-1.be14099f90afa90c1666.png",
     "static/media/home-1.png": "/minMInisMy/static/media/home-1.f5cab98f705df13e7b68.png",
@@ -16,9 +16,8 @@
     "static/media/web-page-5.jpg": "/minMInisMy/static/media/web-page-5.5001c14790e8d74ac4e7.jpg",
     "static/media/web-page-11.jpg": "/minMInisMy/static/media/web-page-11.0b4dde8d297f46eefb44.jpg",
     "static/media/web-page-1.jpg": "/minMInisMy/static/media/web-page-1.f88b717d580cdf1cdb3b.jpg",
-    "static/media/web-page-13.jpg": "/minMInisMy/static/media/web-page-13.37f7dbd4f22c399a0f80.jpg",
+    "static/media/web-page-12.jpg": "/minMInisMy/static/media/web-page-12.37f7dbd4f22c399a0f80.jpg",
     "static/media/NTNU_EDU-1.png": "/minMInisMy/static/media/NTNU_EDU-1.c7273a55afd5d711e667.png",
-    "static/media/web-page-12.jpg": "/minMInisMy/static/media/web-page-12.0a19782707e269e8d562.jpg",
     "static/media/Cart-page.png": "/minMInisMy/static/media/Cart-page.58d53b96cec40844b4e4.png",
     "static/media/web-page-3.jpg": "/minMInisMy/static/media/web-page-3.2612d96afc6b9279684b.jpg",
     "static/media/minfan.jpg": "/minMInisMy/static/media/minfan.a05bad1b475a15d3fa10.jpg",
@@ -91,6 +90,6 @@
   },
   "entrypoints": [
     "static/css/main.642d4d02.css",
-    "static/js/main.7f68acb1.js"
+    "static/js/main.ee431b42.js"
   ]
 }
