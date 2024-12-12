@@ -1,4 +1,6 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChessQueen } from '@fortawesome/free-solid-svg-icons'
 import './about.scss'
 
 type Props = {}
@@ -15,19 +17,19 @@ export default function About({ }: Props) {
                 <div className='about-text-p'>
                   <ul className='about-text-list'>
                     <li>
-                      <span className="material-symbols-outlined">done_all </span>
+                      <FontAwesomeIcon icon={faChessQueen} />
                       <div className="about-text-p">畢業於臺灣科技大學建築系碩士及聖約翰科技大學資訊管理系</div>
                     </li>
                     <li>
-                      <span className="material-symbols-outlined">done_all </span>
+                      <FontAwesomeIcon icon={faChessQueen} />
                       <div className="about-text-p"><span>具有設計及資訊背景</span>，擁有豐富的旅遊電商及電子商務的相關工作8年經歷，<span>熟悉前端及設計相關技術</span>。</div>
                     </li>
                     <li>
-                      <span className="material-symbols-outlined">done_all </span>
+                      <FontAwesomeIcon icon={faChessQueen} />
                       <div className="about-text-p">在新專案從零開始，能與團隊間相互合作建立網頁設計規範，在團隊中也會協助同仁熟悉工作流程，內容，協調。</div>
                     </li>
                     <li>
-                      <span className="material-symbols-outlined">done_all </span>
+                      <FontAwesomeIcon icon={faChessQueen} />
                       <div className="about-text-p"><span>對於新事物、新技術，充滿熱誠，喜歡嘗試，研究</span>，在能力範圍內也樂於助人。</div>
                     </li>
                   </ul>
@@ -42,9 +44,9 @@ export default function About({ }: Props) {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
+          </div >
+        </div >
+      </div >
+    </div >
   )
 }
