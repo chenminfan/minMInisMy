@@ -1,6 +1,9 @@
-import React, { useState } from 'react'
+import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { Link, useLocation } from 'react-router-dom'
 import './header.scss';
+
 
 export type NavLeftItemsType = {
   name: string,
@@ -11,8 +14,6 @@ export type NavLeftItemsType = {
 export default function Header(props) {
   const location = useLocation();
   const { NAV_LINK } = props;
-  const [navId, setNavId] = useState<string>('')
-  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
 
   return (
     <header className="isNavCollapsed">
@@ -21,14 +22,13 @@ export default function Header(props) {
 
           <div className="collapse collapse-nav fade">
             <ul className="navbar-nav navbar-nav-header">
+
               {NAV_LINK.map((nav) => (
                 <li className='nav-item' key={`nav_${nav.link}`}>
                   <Link
                     className={`nav-link ${nav.link === location.pathname ? 'is-active' : ''}`}
                     to={nav.link}
-                  ><span className="material-symbols-outlined">
-                      {nav.icon}
-                    </span>{nav.name}</Link>
+                  >{nav.icon}{nav.name}</Link>
                 </li>
               ))}
             </ul>
@@ -36,12 +36,10 @@ export default function Header(props) {
 
 
           <button className="btn btn-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" onClick={() => { }}>
-            <span className="material-symbols-outlined">
-              menu
-            </span>
+            <FontAwesomeIcon icon={faBars} />
           </button>
         </div>
-      </nav>
+      </nav >
       <div className="offcanvas offcanvas-uiHeader offcanvas-end" tabIndex={-1} id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
         <div className="offcanvas-header">
           <h5 className="offcanvas-title" id="offcanvasNavbarLabel"></h5>
@@ -54,14 +52,12 @@ export default function Header(props) {
                 <Link
                   className={`nav-link ${nav.link === location.pathname ? 'is-active' : ''}`}
                   to={nav.link}
-                ><span className="material-symbols-outlined">
-                    {nav.icon}
-                  </span>{nav.name}</Link>
+                >{nav.icon}{nav.name}</Link>
               </li>
             ))}
           </ul>
         </div>
-      </div>
+      </div >
     </header >
   )
 }
