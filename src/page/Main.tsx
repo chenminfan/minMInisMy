@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Outlet } from 'react-router-dom'
 import { firebaseApp } from '@api/Firebase';
 import { getDatabase, ref, onValue } from "firebase/database";
-import { getAuth, getIdToken } from "firebase/auth";
 import 'bootstrap/dist/js/bootstrap.js'
 import '@assets/bootstrap.scss';
 import '@assets/all.scss'
