@@ -1,4 +1,6 @@
 import React, { useState, useMemo } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
 import './btnGroupNav.scss';
 
 type arrayData = {
@@ -67,11 +69,11 @@ export default function BtnGroupNav(props: Props) {
     <div className="btnGroupNav">
       {isTool && 1 <= indexPage && (
         <button className="btn btnGroupNav-btn" onClick={() => handleClickPrev(currentItem - 1)} disabled={0 === indexPage && indexPage <= AVERAGE_PAGE}>
-          <span className="material-symbols-outlined">
-            arrow_left
-          </span>
+          <FontAwesomeIcon icon={faChevronLeft} />
+
         </button>
-      )}
+      )
+      }
 
       <nav>
         {isTool && ((indexPage !== 0) && (indexPage <= AVERAGE_PAGE)) && <div className="btn-text"><span>...</span></div>}
@@ -88,13 +90,14 @@ export default function BtnGroupNav(props: Props) {
         {isTool && (indexPage < AVERAGE_PAGE) && (<div className="btn-text"><span>...</span></div>)}
       </nav>
 
-      {isTool && (AVERAGE_PAGE > 0 && indexPage < AVERAGE_PAGE) && (
-        <button className="btn btnGroupNav-btn" onClick={() => { handleClickNext(currentItem + 1) }} disabled={indexPage >= AVERAGE_PAGE}>
-          <span className="material-symbols-outlined">
-            arrow_right
-          </span>
-        </button>
-      )}
-    </div>
+      {
+        isTool && (AVERAGE_PAGE > 0 && indexPage < AVERAGE_PAGE) && (
+          <button className="btn btnGroupNav-btn" onClick={() => { handleClickNext(currentItem + 1) }} disabled={indexPage >= AVERAGE_PAGE}>
+            <FontAwesomeIcon icon={faChevronRight} />
+
+          </button >
+        )
+      }
+    </div >
   )
 }

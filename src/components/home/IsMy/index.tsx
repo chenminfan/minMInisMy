@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import LazyLoadImg from "@components/common/LazyLoadImage";
 import imageMinMin from '../../../assets/image/minfan.jpg'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faObjectGroup, faPaintbrush, faHouseChimney, faDesktop } from '@fortawesome/free-solid-svg-icons'
+import './isMy.scss'
 
-type Props = {}
 export const TAG = ['HTML', 'SCSS', 'RWD', 'UI', 'figma', 'Adobe XD', 'Zeplin', 'Git/GitHub', 'React', 'Javascript', 'jQuery', 'npm', 'Bootstrap', 'MUI', 'PhotoShop', 'Illustrator', 'Indesign']
 
-export default function IsMy({ }: Props) {
+export default function IsMy() {
   const TEXTS = ['學技術', '寫程式', '做設計'];
   const [textIndex, setTextIndex] = useState(0);
 
@@ -43,26 +45,20 @@ export default function IsMy({ }: Props) {
       <div className="container-fluid">
         <div className="home-section-info row">
           <div className="col-md-6">
-            <div className="home-section-title ">
+            <div className="home-section-title home-section-title-isMy">
               <h1>
                 閔凡
-                <i className="material-symbols-outlined">
-                  arrow_right_alt
-                </i>
                 <div className="title-icon">
-                  <i className="material-symbols-outlined">
-                    brush
-                  </i>
+                  <FontAwesomeIcon icon={faHouseChimney} />
                 </div>
                 <div className="title-icon">
-                  <i className="material-symbols-outlined">
-                    auto_stories
-                  </i>
+                  <FontAwesomeIcon icon={faPaintbrush} />
                 </div>
                 <div className="title-icon">
-                  <i className="material-symbols-outlined">
-                    desktop_windows
-                  </i>
+                  <FontAwesomeIcon icon={faObjectGroup} />
+                </div>
+                <div className="title-icon">
+                  <FontAwesomeIcon icon={faDesktop} />
                 </div>
               </h1>
               <h2>MinFan</h2>
