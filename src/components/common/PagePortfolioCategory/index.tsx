@@ -1,15 +1,23 @@
 import React, { useMemo, useState } from 'react'
-import { useOutletContext } from 'react-router-dom';
+import { useOutletContext, useLocation } from 'react-router-dom';
 import BtnGroupNav from "@components/common/BtnGroupNav";
 import CardInfo from "@components/common/CardInfo";
+import Breadcrumb from "@components/common/BreadCrumb";
+import BreadcrumbItem from "@components/common/BreadCrumb/BreadcrumbItem";
 import { DATABASEProps } from '@typeTS/dataBase'
 import './webPortfolioCategory.scss'
 
 type dataType = {
-  myDataBase: DATABASEProps
+  myDataBase: DATABASEProps,
+  NAV_LINK: {
+    name: string,
+    link: string,
+    icon: string
+  }[],
 }
 export default function PagePortfolioCategory({ ORDER, PAGE_KEY_WORD }) {
-  const { myDataBase } = useOutletContext<dataType>();
+  const location = useLocation();
+  const { myDataBase, NAV_LINK } = useOutletContext<dataType>();
   const PORTFOLIO_BASE = Object.values(myDataBase.portfolio || {})
   const [valueCategory, setValueCategory] = useState(PAGE_KEY_WORD)
   const PORTFOLIO_SORT = useMemo(() => {
@@ -28,15 +36,7 @@ export default function PagePortfolioCategory({ ORDER, PAGE_KEY_WORD }) {
       })
   }, [ORDER, valueCategory])
 
-  const BREADCRUMB_DATA = {
-    HomeId: 'HOME',
-    HomeName: 'HOME',
-    HomeUrl: '#/',
-    WebId: 'WEB',
-    WebName: 'WEB',
-    WebUrl: '#/web',
-  };
-
+  const BREADCRUMB_ID = NAV_LINK.find((item) => item.link === location.pathname)
   const PORTFOLIO_CATEGORY = useMemo(() => {
     return [...PORTFOLIO_SORT].filter((workItem) => {
       if (valueCategory !== PAGE_KEY_WORD) {
@@ -50,23 +50,17 @@ export default function PagePortfolioCategory({ ORDER, PAGE_KEY_WORD }) {
     })
   }, [PORTFOLIO_SORT, valueCategory, PAGE_KEY_WORD])
 
-
-
   return (
     <div className="page">
       <div className="container-xl">
         <div className="row">
           <div className="col">
             <div className="page-breadcrumb">
-              <nav aria-label="breadcrumb" className='detail-breadcrumb'>
-                <ol className="breadcrumb my-4">
-                  <li className="breadcrumb-item"><a className="text-muted" href={BREADCRUMB_DATA.HomeUrl} role="link" aria-label="breadcrumb-link"><span className="material-symbols-outlined">
-                    home
-                  </span></a></li>
-                  <li className="breadcrumb-item"><a className="text-muted" href={BREADCRUMB_DATA.WebUrl} role="link" aria-label="breadcrumb-link">{BREADCRUMB_DATA.WebName}</a></li>
-                  <li className="breadcrumb-item active text-primary" aria-current="page">{valueCategory}</li>
-                </ol>
-              </nav>
+              <Breadcrumb>
+                <BreadcrumbItem itemIcon={NAV_LINK[0].icon} itemLink={NAV_LINK[0].link} />
+                <BreadcrumbItem itemIcon={BREADCRUMB_ID?.icon} itemLink={`#${BREADCRUMB_ID?.link}`} itemName={BREADCRUMB_ID?.name} />
+                <BreadcrumbItem itemName={valueCategory} itemActive />
+              </Breadcrumb>
             </div>
 
           </div>
