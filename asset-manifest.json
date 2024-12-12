@@ -1,15 +1,16 @@
 {
   "files": {
     "main.css": "/minMInisMy/static/css/main.f8635f87.css",
-    "main.js": "/minMInisMy/static/js/main.93f2243d.js",
+    "main.js": "/minMInisMy/static/js/main.abc5c04b.js",
     "static/js/453.2dd4b2ff.chunk.js": "/minMInisMy/static/js/453.2dd4b2ff.chunk.js",
-    "static/media/home-1.png": "/minMInisMy/static/media/home-1.ba2fc47ee95da8664023.png",
     "static/media/LionTravel-1.png": "/minMInisMy/static/media/LionTravel-1.be14099f90afa90c1666.png",
+    "static/media/home-1.png": "/minMInisMy/static/media/home-1.f5cab98f705df13e7b68.png",
     "static/media/prod-1.png": "/minMInisMy/static/media/prod-1.59be7bc78c60d94306a8.png",
     "static/media/Insurance-2021.png": "/minMInisMy/static/media/Insurance-2021.991cc7c725b0af37907c.png",
     "static/media/web-page-7.jpg": "/minMInisMy/static/media/web-page-7.c163d5d1418be9cea93f.jpg",
-    "static/media/home-2.png": "/minMInisMy/static/media/home-2.4fc4cef52e9b11d34127.png",
     "static/media/web-page-6.jpg": "/minMInisMy/static/media/web-page-6.be8b09251d2965675692.jpg",
+    "static/media/home-2.png": "/minMInisMy/static/media/home-2.8f7e9d452a9618f88d8e.png",
+    "static/media/prod-page.png": "/minMInisMy/static/media/prod-page.4834d9aeaa2d62d13af5.png",
     "static/media/web-page-4.jpg": "/minMInisMy/static/media/web-page-4.50de32d23269351c8d47.jpg",
     "static/media/demo-1.png": "/minMInisMy/static/media/demo-1.3b60bb3a7015a08f9e72.png",
     "static/media/web-page-5.jpg": "/minMInisMy/static/media/web-page-5.5001c14790e8d74ac4e7.jpg",
@@ -49,7 +50,7 @@
     "static/media/Refund-3.png": "/minMInisMy/static/media/Refund-3.f0f68a8025cd0c395dc2.png",
     "static/media/search-001.png": "/minMInisMy/static/media/search-001.874d64a33de2de8a4e17.png",
     "static/media/login-m.png": "/minMInisMy/static/media/login-m.147cc5070cf7227187b8.png",
-    "static/media/prod-2.png": "/minMInisMy/static/media/prod-2.ab0f4139e0a9add2ce2e.png",
+    "static/media/prod-2.png": "/minMInisMy/static/media/prod-2.93779d436b48a45fa255.png",
     "static/media/web-DM-6.jpg": "/minMInisMy/static/media/web-DM-6.affb7e5c8810156f0960.jpg",
     "static/media/search-003.png": "/minMInisMy/static/media/search-003.f2e4bbb748c0b6152fd3.png",
     "static/media/search-004.png": "/minMInisMy/static/media/search-004.a593177a1a3225ab6583.png",
@@ -83,6 +84,6 @@
   },
   "entrypoints": [
     "static/css/main.f8635f87.css",
-    "static/js/main.93f2243d.js"
+    "static/js/main.abc5c04b.js"
   ]
 }
