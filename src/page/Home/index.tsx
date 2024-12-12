@@ -4,6 +4,8 @@ import IsMy from '@components/home/IsMy'
 import About from '@components/home/About'
 import Work from '@components/home/Work'
 import Portfolio from '@components/home/Portfolio'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUpLong } from '@fortawesome/free-solid-svg-icons'
 import './home.scss'
 
 const Home = () => {
@@ -71,14 +73,12 @@ const Home = () => {
           <button type="button" className={`btn btn-primary btn-sm btn-top ${windowHeight > 300 ? ' is-show' : ''}`} onClick={() => {
             window.scrollTo(0, 0)
             setNavId('')
-          }}><span className="material-symbols-outlined">
-              keyboard_arrow_up
-            </span>
+          }}><FontAwesomeIcon icon={faUpLong} />
           </button>
         </div>
 
       </div>
-    </div>
+    </div >
   );
 }
 

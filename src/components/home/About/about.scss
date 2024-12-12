@@ -18,15 +18,14 @@
           width: calc(100% - 30px);
         }
       }
-      span {
-        color: $primary;
+      svg {
+        padding: 4px 0;
         margin-right: 4px;
+        color: $primary;
       }
     }
     span {
-      &:not(.material-symbols-outlined) {
-        box-shadow: inset 0 -8px 0 rgba($primary, $alpha: 0.2);
-      }
+      box-shadow: inset 0 -8px 0 rgba($primary, $alpha: 0.2);
     }
   }
 }
