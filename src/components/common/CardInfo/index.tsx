@@ -3,7 +3,6 @@ import { useRWD } from '@hook/useRWD'
 import LazyLoadImg from "@components/common/LazyLoadImage";
 
 import './cardInfo.scss'
-
 type Props = {
   card: {
     category: string,
@@ -22,7 +21,7 @@ export default function CardInfo({ card }: Props) {
     <div className="cordInfo-card">
       <a href="/#" className="cordInfo-link">
 
-        {card.imageUrl && (
+        {card.imageUrl ? (
           <div className={`cordInfo-image ${card.category.includes("一頁式") ? 'cordInfo-image-webPage' : ''}`}>
             <div className="img-box">
               <LazyLoadImg className="" src={require(`../../../assets/image/Portfolio/${card.imageUrl}`)} alt={card.imageUrl} />
@@ -32,6 +31,18 @@ export default function CardInfo({ card }: Props) {
               {card.workTitle && <div className="cordInfo-info-text">{(card.workTitle).match('Student') ? "學生作品" : card.workTitle}</div>}
             </div>}
           </div>
+        ) : (
+          (
+            <div className={`cordInfo-image ${card.category.includes("一頁式") ? 'cordInfo-image-webPage' : ''}`}>
+              <div className="img-box">
+                <LazyLoadImg className="" src={require(`../../../assets/image/background/background-02.png`)} alt={card.imageUrl} />
+              </div>
+              {(card.category || card.workTitle) && <div className='cordInfo-info'>
+                {card.category && <div className="cordInfo-info-tag">{card.category}</div>}
+                {card.workTitle && <div className="cordInfo-info-text">{(card.workTitle).match('Student') ? "學生作品" : card.workTitle}</div>}
+              </div>}
+            </div>
+          )
         )}
         <div className="cordInfo-title">
           <div className="cordInfo-title-text">
