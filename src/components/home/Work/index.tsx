@@ -2,7 +2,8 @@ import React, { useState, useRef } from 'react'
 import './work.scss'
 import { DATABASEProps, WORKProps } from '@typeTS/dataBase'
 import { useOutletContext } from 'react-router-dom';
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGraduationCap, faChevronLeft, faChevronRight, faAward } from '@fortawesome/free-solid-svg-icons'
 type dataType = {
   myDataBase: DATABASEProps
 }
@@ -47,7 +48,7 @@ export default function Work() {
               className={`work-year ${index === currentPage ? 'is-show' : ''} ${currentPage > index ? 'is-disabled' : ''} ${item.work.match('Student') ? 'iconYear' : ''}`}
               onClick={() => { handleClickButton(index) }} key={`WORK_EXPERIENCE_${item.work}`}>
               {item.work.match('Student') ? (
-                <div className="work-year-point work-year-point-icon"><span className="material-symbols-outlined"> school</span></div>
+                <div className="work-year-point work-year-point-icon"><FontAwesomeIcon icon={faGraduationCap} /></div>
               ) : (
                 <div className="work-year-point"></div>
               )}
@@ -61,61 +62,57 @@ export default function Work() {
         <div className="work-group-toolbar">
           <div className={`workData-btn workData-btn-pre ${currentPage > 0 ? '' : 'is-disabled'}`} onClick={() => { handleClickPre(currentPage) }}>
             <div className="button">
-              <span className="material-symbols-outlined">
-                arrow_back_ios_new
-              </span>
+              <FontAwesomeIcon icon={faChevronLeft} />
             </div>
           </div>
           <div className={`workData-btn workData-btn-next ${currentPage < WORK.length - 1 ? '' : 'is-disabled'}`} onClick={() => { handleClickNext(currentPage) }}>
             <div className="button">
-              <span className="material-symbols-outlined" >
-                arrow_forward_ios
-              </span>
+              <FontAwesomeIcon icon={faChevronRight} />
             </div>
           </div>
         </div>
-        {WORK.map((item, index) => {
-          workValue.current = index
-          return (
-            <div className={`work-group-box ${index === currentPage ? 'is-show' : ''}`} key={`WORK_EXPERIENCE_${item.work}`}>
-              <div className="work-box">
-                <div className="work-heading">
-                  <div className="work-heading-title"><span className="material-symbols-outlined">
-                    workspace_premium
-                  </span>
-                    <h3>{item.workName}</h3></div>
-                  <div className="work-time">{item.startTime}~{item.endTime}</div>
-                </div>
-                {item.workTitle && <div className="work-content">
-                  <div className="work-content-title">{item.workTitle}</div>
-                  <div className="work-content-tool">{item.workTool}</div></div>}
-
-                {item.info && (<div className="work-info">
-                  <div className='work-info-title'><h5>{item.infoTitle}</h5></div>
-                  <ol className="list-group list-group-flush">
-                    {item.info.map((info) => (
-                      info.title && <li className="list-group-item" key={`info_${info.title}`}>
-                        <div className='work-info-title'>{info.title}</div>
-                        <div className='work-info-content'>{info.content}</div>
-                      </li>
-                    ))}
-                  </ol>
-                </div>)}
-                {item?.subInfo && <div className="work-info">
-                  <div className='work-info-title'><h5>{item?.subInfo?.subInfoTitle}</h5></div>
-                  <div className='work-info-content'>{item?.subInfo?.content}<span>{item?.subInfo?.content1 && item?.subInfo?.content1?.slice(0, 1).map((item) => (
-                    <a href={item.coursesLink} key={`infoContent_${item.courses}`}>{item.courses}</a>
-                  ))}
-                    {item?.subInfo?.content1 && item?.subInfo?.content1?.slice(1).map((item) => (
-                      <a href={item.coursesLink} key={`infoContent_1_${item.courses}`}>、{item.courses}</a>
-                    ))}</span>
+        {
+          WORK.map((item, index) => {
+            workValue.current = index
+            return (
+              <div className={`work-group-box ${index === currentPage ? 'is-show' : ''}`} key={`WORK_EXPERIENCE_${item.work}`}>
+                <div className="work-box">
+                  <div className="work-heading">
+                    <div className="work-heading-title"><FontAwesomeIcon icon={faAward} />
+                      <h3>{item.workName}</h3></div>
+                    <div className="work-time">{item.startTime}~{item.endTime}</div>
                   </div>
-                </div>}
-              </div>
-            </div>
-          )
-        })}
-      </div>
-    </div>
+                  {item.workTitle && <div className="work-content">
+                    <div className="work-content-title">{item.workTitle}</div>
+                    <div className="work-content-tool">{item.workTool}</div></div>}
+
+                  {item.info && (<div className="work-info">
+                    <div className='work-info-title'><h5>{item.infoTitle}</h5></div>
+                    <ol className="list-group list-group-flush">
+                      {item.info.map((info) => (
+                        info.title && <li className="list-group-item" key={`info_${info.title}`}>
+                          <div className='work-info-title'>{info.title}</div>
+                          <div className='work-info-content'>{info.content}</div>
+                        </li>
+                      ))}
+                    </ol>
+                  </div>)}
+                  {item?.subInfo && <div className="work-info">
+                    <div className='work-info-title'><h5>{item?.subInfo?.subInfoTitle}</h5></div>
+                    <div className='work-info-content'>{item?.subInfo?.content}<span>{item?.subInfo?.content1 && item?.subInfo?.content1?.slice(0, 1).map((item) => (
+                      <a href={item.coursesLink} key={`infoContent_${item.courses}`}>{item.courses}</a>
+                    ))}
+                      {item?.subInfo?.content1 && item?.subInfo?.content1?.slice(1).map((item) => (
+                        <a href={item.coursesLink} key={`infoContent_1_${item.courses}`}>、{item.courses}</a>
+                      ))}</span>
+                    </div>
+                  </div>}
+                </div>
+              </div >
+            )
+          })
+        }
+      </div >
+    </div >
   )
 }

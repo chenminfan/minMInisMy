@@ -25,7 +25,7 @@
           display: flex;
         }
         cursor: default;
-        span {
+        svg {
           color: $gray-400;
         }
         .button {
@@ -34,7 +34,7 @@
         }
       }
       &:hover {
-        span {
+        svg {
           color: $white;
           opacity: 0.8;
         }
@@ -51,7 +51,7 @@
         border-color: #b8a07e;
         background-color: $primary;
       }
-      span {
+      svg {
         color: $white;
         font-size: 16px;
       }
@@ -166,8 +166,9 @@
           margin-top: 16px;
         }
       }
-      > span {
+      > svg {
         margin: 50%;
+        color: $white;
         transform: translate(-50%, -50%);
       }
     }
@@ -279,8 +280,9 @@
     &-title {
       display: flex;
       align-items: center;
-      > span {
+      > svg {
         font-size: 32px;
+        margin: 0 8px;
       }
     }
   }
