@@ -2,19 +2,26 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Outlet } from 'react-router-dom'
 import { firebaseApp } from '@api/Firebase';
 import { getDatabase, ref, onValue } from "firebase/database";
+import { config } from '@fortawesome/fontawesome-svg-core'
+import '@fortawesome/fontawesome-svg-core/styles.css'
 import 'bootstrap/dist/js/bootstrap.js'
 import '@assets/bootstrap.scss';
 import '@assets/all.scss'
 import Header from '@components/Header';
 import Footer from '@components/Footer';
 import { DATABASEProps } from '@typeTS/dataBase'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faObjectGroup, faDesktop, faPaintbrush, faHouseChimney } from '@fortawesome/free-solid-svg-icons'
 export default function Main() {
   const NAV_LINK = [
-    { name: 'HOME', link: '/', icon: 'home' },
-    { name: 'WEB', link: '/web', icon: 'web' },
-    { name: 'WEB DESIGN', link: '/webDesign', icon: 'space_dashboard' },
-    { name: 'GRAPHIC DESIGN', link: '/graphic', icon: 'brush' },
+    { name: 'HOME', link: '/', icon: (<FontAwesomeIcon icon={faHouseChimney} />) },
+    { name: 'WEB', link: '/web', icon: (<FontAwesomeIcon icon={faDesktop} />) },
+    { name: 'WEB DESIGN', link: '/webDesign', icon: (<FontAwesomeIcon icon={faObjectGroup} />) },
+    { name: 'GRAPHIC DESIGN', link: '/graphic', icon: (<FontAwesomeIcon icon={faPaintbrush} />) },
   ]
+
+
+
   const [myDataBase, setMyDataBase] = useState<DATABASEProps[]>([]);
   const isLoadingRef = useRef(true);
   const [loadingPage, setLoadingPage] = useState<boolean>(true);
@@ -33,6 +40,7 @@ export default function Main() {
   useEffect(() => {
     getData()
   }, [])
+  config.autoAddCss = false
 
   return (
     <>
