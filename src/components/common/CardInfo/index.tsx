@@ -5,6 +5,7 @@ import LazyLoadImg from "@components/common/LazyLoadImage";
 import './cardInfo.scss'
 type Props = {
   card: {
+    id: string,
     category: string,
     workTitle: string,
     title: string,
@@ -16,11 +17,9 @@ type Props = {
 export default function CardInfo({ card }: Props) {
   const RWD_DEVICE = useRWD();
   const StrTitle = card.title.split('｜')
-
   return (
     <div className="cordInfo-card">
-      <a href="/#" className="cordInfo-link">
-
+      <a href={`#/portfolio/${card.id}`} className="cordInfo-link">
         {card.imageUrl ? (
           <div className={`cordInfo-image ${card.category.includes("一頁式") ? 'cordInfo-image-webPage' : ''}`}>
             <div className="img-box">

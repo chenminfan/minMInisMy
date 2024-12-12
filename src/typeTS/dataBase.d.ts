@@ -1,3 +1,11 @@
+export type portfolioProps = {
+  id: string,
+  category: string,
+  workTitle: string,
+  title: string,
+  imageUrl: string,
+  link: string,
+}
 export type infoProps = {
   title?: string | null;
   content?: string | null;
