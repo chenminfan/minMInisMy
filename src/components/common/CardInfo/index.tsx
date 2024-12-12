@@ -1,6 +1,8 @@
 import React from 'react'
 import { useRWD } from '@hook/useRWD'
 import LazyLoadImg from "@components/common/LazyLoadImage";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faLink } from '@fortawesome/free-solid-svg-icons'
 
 import './cardInfo.scss'
 type Props = {
@@ -54,10 +56,9 @@ export default function CardInfo({ card }: Props) {
       </a>
 
       <div className="cordInfo-tool">
-        {card.link && (<a className="btn" href={card.link}><span className="material-symbols-outlined">
-          open_in_new
-        </span></a>)}
+        {card.link && (<a className="btn" href={card.link}><FontAwesomeIcon icon={faLink} />
+        </a>)}
       </div>
-    </div>
+    </div >
   )
 }
