@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/minMInisMy/static/css/main.22b0e090.css",
-    "main.js": "/minMInisMy/static/js/main.abc5c04b.js",
+    "main.css": "/minMInisMy/static/css/main.642d4d02.css",
+    "main.js": "/minMInisMy/static/js/main.c6ac7791.js",
     "static/js/453.2dd4b2ff.chunk.js": "/minMInisMy/static/js/453.2dd4b2ff.chunk.js",
     "static/media/LionTravel-1.png": "/minMInisMy/static/media/LionTravel-1.be14099f90afa90c1666.png",
     "static/media/home-1.png": "/minMInisMy/static/media/home-1.f5cab98f705df13e7b68.png",
@@ -33,6 +33,7 @@
     "static/media/ContactUs.png": "/minMInisMy/static/media/ContactUs.ce1ff45d13a12c97d8a4.png",
     "static/media/home-page.png": "/minMInisMy/static/media/home-page.edb4803a0c18af1fbabf.png",
     "static/media/search-005.png": "/minMInisMy/static/media/search-005.952b91217c18efe5af7c.png",
+    "static/media/background-01.jpg": "/minMInisMy/static/media/background-01.44ecf466417dcb999757.jpg",
     "static/media/Reviews-3.png": "/minMInisMy/static/media/Reviews-3.a70de169fd749f5e2123.png",
     "static/media/Subscriptions.png": "/minMInisMy/static/media/Subscriptions.64c166a89e673abb6cfe.png",
     "static/media/Backend.png": "/minMInisMy/static/media/Backend.b15a510a353ac3b1e68e.png",
@@ -62,6 +63,7 @@
     "static/media/search-m-002.png": "/minMInisMy/static/media/search-m-002.177eee668f30de53b663.png",
     "static/media/web-ui-design-2.jpg": "/minMInisMy/static/media/web-ui-design-2.403778cbfa59c7690c1b.jpg",
     "static/media/web-ui-design.jpg": "/minMInisMy/static/media/web-ui-design.21c86b27189bfd651ca4.jpg",
+    "static/media/background-02.png": "/minMInisMy/static/media/background-02.586dc978618ac8efd2db.png",
     "static/media/search-m-005.png": "/minMInisMy/static/media/search-m-005.1c1adb710cedefebb13b.png",
     "static/media/book-4.jpg": "/minMInisMy/static/media/book-4.4c6c62ac6d66af7bcfbb.jpg",
     "static/media/search-m-001.png": "/minMInisMy/static/media/search-m-001.764710a8e64e32d67896.png",
@@ -83,7 +85,7 @@
     "index.html": "/minMInisMy/index.html"
   },
   "entrypoints": [
-    "static/css/main.22b0e090.css",
-    "static/js/main.abc5c04b.js"
+    "static/css/main.642d4d02.css",
+    "static/js/main.c6ac7791.js"
   ]
 }
