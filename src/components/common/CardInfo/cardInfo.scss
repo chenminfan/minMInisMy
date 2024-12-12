@@ -7,6 +7,7 @@ $mobile-M: 12px;
     align-items: center;
     width: calc((100% - ($desktop-M * 3)) / 3);
     margin: 0 $desktop-M $desktop-M 0;
+    transition: 0.8s all;
     @include media-breakpoint-down(md) {
       width: calc((100% - (($mobile-M * 4) + 6px)) / 2);
       margin: 0 $mobile-M $mobile-M;
