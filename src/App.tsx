@@ -4,6 +4,7 @@ import Home from '@page/Home';
 import Web from '@page/Web';
 import WebDesign from '@page/WebDesign';
 import Graphic from '@page/Graphic';
+import PortfolioPage from '@page/PortfolioPage';
 
 export default function App() {
   return (
@@ -13,6 +14,7 @@ export default function App() {
         <Route path='/web' element={<Web />}></Route>
         <Route path='/webDesign' element={<WebDesign />}></Route>
         <Route path='/graphic' element={<Graphic />}></Route>
+        <Route path='/portfolio/:portfolioId' element={<PortfolioPage />}></Route>
       </Route >
     </Routes >
   )

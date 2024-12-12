@@ -6,6 +6,8 @@ export type portfolioProps = {
   title: string,
   imageUrl: string,
   link: string,
+  imageInfo?:string[],
+  
 }
 export type infoProps = {
   title?: string | null;
