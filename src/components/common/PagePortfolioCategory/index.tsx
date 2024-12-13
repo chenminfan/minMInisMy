@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import { useOutletContext, useLocation } from 'react-router-dom';
 import BtnGroupNav from "@components/common/BtnGroupNav";
 import CardInfo from "@components/common/CardInfo";
@@ -16,40 +16,36 @@ type dataType = {
   }[],
 }
 export default function PagePortfolioCategory({ ORDER, PAGE_KEY_WORD }) {
-  const location = useLocation();
   const { myDataBase, NAV_LINK } = useOutletContext<dataType>();
   const PORTFOLIO_BASE = Object.values(myDataBase.portfolio || {})
   const [valueCategory, setValueCategory] = useState(PAGE_KEY_WORD)
-  const PORTFOLIO_SORT = useMemo(() => {
-    return [...PORTFOLIO_BASE]
-      .filter((workItem) => {
-        if (ORDER.length > 0 && valueCategory !== '') {
-          return ORDER.find((item) => (workItem.category).includes(item))
-        } else {
-          return workItem.category
-        }
-      })
-      .sort((a: any, b: any) => {
-        if (!ORDER.includes(a.category)) return 1
-        if (!ORDER.includes(b.category)) return -1
-        return ORDER.indexOf(a.category) - ORDER.indexOf(b.category)
-      })
-  }, [ORDER, valueCategory])
+  const BREADCRUMB_ID = NAV_LINK.find((item) => item.name === PAGE_KEY_WORD)
 
-  const BREADCRUMB_ID = NAV_LINK.find((item) => item.link === location.pathname)
-  const PORTFOLIO_CATEGORY = useMemo(() => {
-    return [...PORTFOLIO_SORT].filter((workItem) => {
-      if (valueCategory !== PAGE_KEY_WORD) {
-        return workItem.category.match(valueCategory)
-      } else {
-        return workItem.category
-      }
+  useEffect(() => {
+    setValueCategory(PAGE_KEY_WORD)
+  }, [PAGE_KEY_WORD])
 
-    }).sort((a: any, b: any) => {
-      return a.title.localeCompare(b.title, 'zh-Hant')
+  const PORTFOLIO_SORT = PORTFOLIO_BASE.filter((workItem) => {
+    if (valueCategory !== '') {
+      return ORDER.find((item) => (workItem.category).includes(item))
+    }
+    return workItem.category
+  })
+    .sort((a: any, b: any) => {
+      if (!ORDER.includes(a.category)) return 1
+      if (!ORDER.includes(b.category)) return -1
+      return ORDER.indexOf(a.category) - ORDER.indexOf(b.category)
     })
-  }, [PORTFOLIO_SORT, valueCategory, PAGE_KEY_WORD])
 
+  const PORTFOLIO_CATEGORY = PORTFOLIO_SORT.filter((workItem) => {
+    if (valueCategory === PAGE_KEY_WORD) {
+      return workItem.category
+    } else {
+      return workItem.category.match(valueCategory)
+    }
+  }).sort((a: any, b: any) => {
+    return a.title.localeCompare(b.title, 'zh-Hant')
+  })
   return (
     <div className="page">
       <div className="container-xl">
@@ -59,7 +55,7 @@ export default function PagePortfolioCategory({ ORDER, PAGE_KEY_WORD }) {
               <Breadcrumb>
                 <BreadcrumbItem itemIcon={NAV_LINK[0].icon} itemLink={NAV_LINK[0].link} />
                 <BreadcrumbItem itemIcon={BREADCRUMB_ID?.icon} itemLink={`#${BREADCRUMB_ID?.link}`} itemName={BREADCRUMB_ID?.name} />
-                <BreadcrumbItem itemName={valueCategory} itemActive />
+                <BreadcrumbItem itemName={PAGE_KEY_WORD === valueCategory ? `${PAGE_KEY_WORD} ALL` : valueCategory} itemActive />
               </Breadcrumb>
             </div>
 
@@ -68,7 +64,7 @@ export default function PagePortfolioCategory({ ORDER, PAGE_KEY_WORD }) {
         <div className="row">
           <div className="col">
             <div className="page-nav">
-              <BtnGroupNav isTool navArray={PORTFOLIO_SORT} keyCategory={PAGE_KEY_WORD} navOrder={ORDER} setValueCategory={setValueCategory} valueCategory={valueCategory} SHOW_ITEM={6} />
+              <BtnGroupNav isTool navArray={PORTFOLIO_SORT} PAGE_KEY_WORD={PAGE_KEY_WORD} navOrder={ORDER} setValueCategory={setValueCategory} valueCategory={valueCategory} SHOW_ITEM={6} />
             </div>
 
           </div>
