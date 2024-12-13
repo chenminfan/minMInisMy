@@ -19,6 +19,13 @@ a {
       box-shadow: 0px 3px 0 rgb(171 150 131);
     }
   }
+  &-light,
+  &-outline-light {
+    &.main-btn {
+      border-color: $white;
+      box-shadow: 0px 5px 0 $white;
+    }
+  }
 }
 
 .img-box {
@@ -47,6 +54,7 @@ a {
 }
 
 main {
-  min-height: calc(100vh - 200px);
+  min-height: calc(100vh - 150px);
   margin-top: 56px;
+  padding-bottom: 32px;
 }
