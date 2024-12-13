@@ -11,13 +11,13 @@ import Header from '@components/Header';
 import Footer from '@components/Footer';
 import { DATABASEProps } from '@typeTS/dataBase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faObjectGroup, faDesktop, faPaintbrush, faHouseChimney } from '@fortawesome/free-solid-svg-icons'
+import { faObjectGroup, faLaptopCode, faPaintbrush, faHouseChimney } from '@fortawesome/free-solid-svg-icons'
 export default function Main() {
   const NAV_LINK = [
-    { name: 'HOME', link: '/', icon: (<FontAwesomeIcon icon={faHouseChimney} />) },
-    { name: 'WEB', link: 'web', icon: (<FontAwesomeIcon icon={faDesktop} />) },
-    { name: 'WEB DESIGN', link: 'webDesign', icon: (<FontAwesomeIcon icon={faObjectGroup} />) },
-    { name: 'GRAPHIC DESIGN', link: 'graphic', icon: (<FontAwesomeIcon icon={faPaintbrush} />) },
+    { name: 'HOME', link: '/', icon: (<FontAwesomeIcon className="mainIcon" icon={faHouseChimney} size="sm" />) },
+    { name: 'WEB', link: 'web', icon: (<FontAwesomeIcon className="mainIcon" icon={faLaptopCode} size="sm" />) },
+    { name: 'WEB DESIGN', link: 'webDesign', icon: (<FontAwesomeIcon className="mainIcon" icon={faObjectGroup} size="sm" />) },
+    { name: 'GRAPHIC DESIGN', link: 'graphic', icon: (<FontAwesomeIcon className="mainIcon" icon={faPaintbrush} size="sm" />) },
   ]
 
 

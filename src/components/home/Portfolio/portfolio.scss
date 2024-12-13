@@ -20,8 +20,16 @@
 
   &-content {
     display: flex;
+    flex-direction: column;
+  }
+  &-cardInfo {
+    display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     min-height: calc(100vh - 180px);
+  }
+  &-tool {
+    display: flex;
+    justify-content: center;
   }
 }

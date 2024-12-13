@@ -1,4 +1,7 @@
 import React from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faObjectGroup, faLaptopCode, faPaintbrush, faHouseChimney } from '@fortawesome/free-solid-svg-icons'
+
 import './footer.scss'
 
 export default function Footer() {
@@ -8,16 +11,13 @@ export default function Footer() {
         <data className='d-flex align-items-center justify-content-between text-white mb-md-7 mb-4'>
           <ul className="d-flex list-unstyled mb-0 h4">
             <li>
-              <a href="#" className="text-white mx-3" role="link" aria-label="footer-link">
-                <i className="bi bi-facebook"></i></a>
+              <FontAwesomeIcon className="mainIcon" icon={faObjectGroup} beat />
             </li>
             <li>
-              <a href="#" className="text-white mx-3" role="link" aria-label="footer-link">
-                <i className="bi bi-instagram"></i></a>
+
             </li>
             <li>
-              <a href="#" className="text-white mx-3" role="link" aria-label="footer-link">
-                <i className="bi bi-line"></i></a>
+
             </li>
           </ul>
         </data>
