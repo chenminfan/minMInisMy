@@ -9,7 +9,7 @@ type arrayData = {
 type Props = {
   isTool: boolean,
   navArray: arrayData[],
-  keyCategory: string,
+  PAGE_KEY_WORD: string,
   navOrder: string[],
   valueCategory: string,
   setValueCategory: (string) => void,
@@ -17,7 +17,7 @@ type Props = {
 }
 
 export default function BtnGroupNav(props: Props) {
-  const { isTool, navArray, keyCategory, navOrder, valueCategory, setValueCategory = () => { }, SHOW_ITEM = 5 } = props
+  const { isTool, navArray, PAGE_KEY_WORD, navOrder, valueCategory, setValueCategory = () => { }, SHOW_ITEM = 5 } = props
   const handleClickPrev = (value) => {
     setIndexPage(Math.ceil(value / SHOW_ITEM) === 1 ? 0 : Math.ceil(value / SHOW_ITEM))
     if (indexPage <= AVERAGE_PAGE) {
@@ -79,7 +79,7 @@ export default function BtnGroupNav(props: Props) {
         {isTool && ((indexPage !== 0) && (indexPage <= AVERAGE_PAGE)) && <div className="btn-text"><span>...</span></div>}
 
         <div className="btn-group">
-          {indexPage === 0 && <button className={`btn btn-outline-primary ${valueCategory === keyCategory ? 'active' : ''}`} type="button" onClick={() => setValueCategory(keyCategory)}>{keyCategory}</button>}
+          {indexPage === 0 && <button className={`btn btn-outline-primary ${valueCategory === PAGE_KEY_WORD ? 'active' : ''}`} type="button" onClick={() => setValueCategory(PAGE_KEY_WORD)}>{PAGE_KEY_WORD}</button>}
 
           {PORTFOLIO_ID.slice(0 + currentItem, SHOW_ITEM + currentItem).map((category: string, index) => (
             <button type='button' className={`btn btn-outline-primary  ${category === valueCategory ? 'active' : ''}`} key={`category_${index}`} aria-current="page" onClick={() => setValueCategory(category)} >{category}</button>

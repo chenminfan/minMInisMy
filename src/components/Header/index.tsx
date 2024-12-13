@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { Link, useLocation } from 'react-router-dom'
@@ -9,12 +9,17 @@ export type NavLeftItemsType = {
   name: string,
   icon?: string,
   link: string,
-  handleClick: () => void,
+  handleClick?: () => void,
+};
+export type isNavType = {
+  link: string,
+  name: string,
+  icon?: string,
 };
 export default function Header(props) {
-  const location = useLocation();
   const { NAV_LINK } = props;
-
+  const location = useLocation();
+  const [isNav, setIsNav] = useState<string>('')
   return (
     <header className="isNavCollapsed">
       <nav className="navbar">
@@ -24,11 +29,11 @@ export default function Header(props) {
             <ul className="navbar-nav navbar-nav-header">
 
               {NAV_LINK.map((nav) => (
-                <li className='nav-item' key={`nav_${nav.link}`}>
-                  <Link
-                    className={`nav-link ${nav.link === location.pathname ? 'is-active' : ''}`}
-                    to={nav.link}
-                  >{nav.icon}{nav.name}</Link>
+                <li className='nav-item' key={`nav_${nav.link}`} onClick={() => setIsNav(nav.link)}>
+                  <a
+                    className={`nav-link ${location.pathname == `/class/${nav.link}` || (location.pathname === '/' && nav.link === '/') ? 'is-active' : ''}`}
+                    href={location.pathname.includes(nav.link) ? '#' : `#/class/${isNav}`}
+                  >{nav.icon}{nav.name}</a>
                 </li>
               ))}
             </ul>
@@ -46,7 +51,7 @@ export default function Header(props) {
           <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div className="offcanvas-body">
-          <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+          {/* <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
             {NAV_LINK.map((nav) => (
               <li className='nav-item' key={`nav_${nav.link}`}>
                 <Link
@@ -55,7 +60,7 @@ export default function Header(props) {
                 >{nav.icon}{nav.name}</Link>
               </li>
             ))}
-          </ul>
+          </ul> */}
         </div>
       </div >
     </header >
