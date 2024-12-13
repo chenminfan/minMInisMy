@@ -14,7 +14,9 @@ export default function Work() {
   const [currentPage, setCurrentPage] = useState<number>(0);
   const WORK: WORKProps[] = Object.values(myDataBase.work || {}).filter((workItem) => {
     return workItem.endTime.substring(0, 4);
-  }).sort((a: any, b: any) => { return b.endTime.substring(0, 4) - a.endTime.substring(0, 4); })
+  }).sort((a: any, b: any) => {
+    return b.endTime.substring(0, 4) - a.endTime.substring(0, 4);
+  })
 
   const handleClickPre = (number) => {
     if (number > 0) {
@@ -48,7 +50,7 @@ export default function Work() {
               className={`work-year ${index === currentPage ? 'is-show' : ''} ${currentPage > index ? 'is-disabled' : ''} ${item.work.match('Student') ? 'iconYear' : ''}`}
               onClick={() => { handleClickButton(index) }} key={`WORK_EXPERIENCE_${item.work}`}>
               {item.work.match('Student') ? (
-                <div className="work-year-point work-year-point-icon"><FontAwesomeIcon icon={faGraduationCap} /></div>
+                <div className="work-year-point work-year-point-icon"><FontAwesomeIcon className="mainIcon" icon={faGraduationCap} /></div>
               ) : (
                 <div className="work-year-point"></div>
               )}
@@ -62,12 +64,12 @@ export default function Work() {
         <div className="work-group-toolbar">
           <div className={`workData-btn workData-btn-pre ${currentPage > 0 ? '' : 'is-disabled'}`} onClick={() => { handleClickPre(currentPage) }}>
             <div className="button">
-              <FontAwesomeIcon icon={faChevronLeft} />
+              <FontAwesomeIcon className="mainIcon" icon={faChevronLeft} size="lg" />
             </div>
           </div>
           <div className={`workData-btn workData-btn-next ${currentPage < WORK.length - 1 ? '' : 'is-disabled'}`} onClick={() => { handleClickNext(currentPage) }}>
             <div className="button">
-              <FontAwesomeIcon icon={faChevronRight} />
+              <FontAwesomeIcon className="mainIcon" icon={faChevronRight} size="lg" />
             </div>
           </div>
         </div>
@@ -78,7 +80,7 @@ export default function Work() {
               <div className={`work-group-box ${index === currentPage ? 'is-show' : ''}`} key={`WORK_EXPERIENCE_${item.work}`}>
                 <div className="work-box">
                   <div className="work-heading">
-                    <div className="work-heading-title"><FontAwesomeIcon icon={faAward} />
+                    <div className="work-heading-title"><FontAwesomeIcon className="mainIcon" icon={faAward} />
                       <h3>{item.workName}</h3></div>
                     <div className="work-time">{item.startTime}~{item.endTime}</div>
                   </div>

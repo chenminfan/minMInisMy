@@ -8,6 +8,7 @@ import './cardInfo.scss'
 type Props = {
   card: {
     id: string,
+    page: string;
     category: string,
     workTitle: string,
     title: string,
@@ -21,43 +22,45 @@ export default function CardInfo({ card }: Props) {
   const StrTitle = card.title.split('｜')
   return (
     <div className="cordInfo-card">
-      <a href={`#/portfolio/${card.id}`} className="cordInfo-link">
-        {card.imageUrl ? (
-          <div className={`cordInfo-image ${card.category.includes("一頁式") ? 'cordInfo-image-webPage' : ''}`}>
-            <div className="img-box">
-              <LazyLoadImg className="" src={require(`../../../assets/image/Portfolio/${card.imageUrl}`)} alt={card.imageUrl} />
-            </div>
-            {(card.category || card.workTitle) && <div className='cordInfo-info'>
-              {card.category && <div className="cordInfo-info-tag">{card.category}</div>}
-              {card.workTitle && <div className="cordInfo-info-text">{(card.workTitle).match('Student') ? "學生作品" : card.workTitle}</div>}
-            </div>}
-          </div>
-        ) : (
-          (
+      <div className="cordInfo-box">
+        <a href={`#/portfolio/${card.id}`} className="cordInfo-link">
+          {card.imageUrl ? (
             <div className={`cordInfo-image ${card.category.includes("一頁式") ? 'cordInfo-image-webPage' : ''}`}>
               <div className="img-box">
-                <LazyLoadImg className="" src={require(`../../../assets/image/background/background-02.png`)} alt={card.imageUrl} />
+                <LazyLoadImg className="" src={require(`../../../assets/image/Portfolio/${card.imageUrl}`)} alt={card.imageUrl} />
               </div>
               {(card.category || card.workTitle) && <div className='cordInfo-info'>
                 {card.category && <div className="cordInfo-info-tag">{card.category}</div>}
                 {card.workTitle && <div className="cordInfo-info-text">{(card.workTitle).match('Student') ? "學生作品" : card.workTitle}</div>}
               </div>}
             </div>
-          )
-        )}
-        <div className="cordInfo-title">
-          <div className="cordInfo-title-text">
-            {RWD_DEVICE === "mobile" && StrTitle.length >= 2 ? <div>
-              {StrTitle.map((strWord, index) => (<div key={`strWord${index}`}>{strWord}</div>))}
-            </div> : card.title
-            }
+          ) : (
+            (
+              <div className={`cordInfo-image ${card.category.includes("一頁式") ? 'cordInfo-image-webPage' : ''}`}>
+                <div className="img-box">
+                  <LazyLoadImg className="" src={require(`../../../assets/image/background/background-02.png`)} alt={card.imageUrl} />
+                </div>
+                {(card.category || card.workTitle) && <div className='cordInfo-info'>
+                  {card.category && <div className="cordInfo-info-tag">{card.category}</div>}
+                  {card.workTitle && <div className="cordInfo-info-text">{(card.workTitle).match('Student') ? "學生作品" : card.workTitle}</div>}
+                </div>}
+              </div>
+            )
+          )}
+          <div className="cordInfo-title">
+            <div className="cordInfo-title-text">
+              {RWD_DEVICE === "mobile" && StrTitle.length >= 2 ? <div>
+                {StrTitle.map((strWord, index) => (<div key={`strWord${index}`}>{strWord}</div>))}
+              </div> : card.title
+              }
+            </div>
           </div>
-        </div>
-      </a>
+        </a>
 
-      <div className="cordInfo-tool">
-        {card.link && (<a className="btn" href={card.link}><FontAwesomeIcon icon={faLink} />
-        </a>)}
+        {card.page! == "WEB" && <div className="cordInfo-tool">
+          {card.link && (<a className="btn" href={card.link}><FontAwesomeIcon className="mainIcon" icon={faLink} size='sm' />
+          </a>)}
+        </div>}
       </div>
     </div >
   )
