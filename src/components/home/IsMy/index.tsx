@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import LazyLoadImg from "@components/common/LazyLoadImage";
 import imageMinMin from '../../../assets/image/minfan.jpg'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faObjectGroup, faPaintbrush, faHouseChimney, faDesktop } from '@fortawesome/free-solid-svg-icons'
+import { faObjectGroup, faPaintbrush, faHouseChimney, faLaptopCode } from '@fortawesome/free-solid-svg-icons'
 import './isMy.scss'
 
 export const TAG = ['HTML', 'SCSS', 'RWD', 'UI', 'figma', 'Adobe XD', 'Zeplin', 'Git/GitHub', 'React', 'Javascript', 'jQuery', 'npm', 'Bootstrap', 'MUI', 'PhotoShop', 'Illustrator', 'Indesign']
@@ -49,16 +49,16 @@ export default function IsMy() {
               <h1>
                 閔凡
                 <div className="title-icon">
-                  <FontAwesomeIcon icon={faHouseChimney} />
+                  <FontAwesomeIcon className="mainIcon" icon={faHouseChimney} beat />
                 </div>
                 <div className="title-icon">
-                  <FontAwesomeIcon icon={faPaintbrush} />
+                  <FontAwesomeIcon className="mainIcon" icon={faPaintbrush} beatFade />
                 </div>
                 <div className="title-icon">
-                  <FontAwesomeIcon icon={faObjectGroup} />
+                  <FontAwesomeIcon className="mainIcon" icon={faObjectGroup} shake />
                 </div>
                 <div className="title-icon">
-                  <FontAwesomeIcon icon={faDesktop} />
+                  <FontAwesomeIcon className="mainIcon" icon={faLaptopCode} spinPulse />
                 </div>
               </h1>
               <h2>MinFan</h2>

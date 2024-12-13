@@ -4,6 +4,22 @@
 a {
   text-decoration: none;
 }
+.btn {
+  &-primary,
+  &-outline-primary {
+    &.main-btn {
+      border-color: rgb(127 77 77);
+      box-shadow: 0px 3px 0 rgb(127 77 77);
+    }
+  }
+  &-secondary,
+  &-outline-secondary {
+    &.main-btn {
+      border-color: rgb(171 150 131);
+      box-shadow: 0px 3px 0 rgb(171 150 131);
+    }
+  }
+}
 
 .img-box {
   position: relative;

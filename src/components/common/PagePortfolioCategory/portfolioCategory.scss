@@ -1,4 +1,5 @@
 .page {
+  background-color: rgb(245 245 245 / 0.5);
   .cordInfo {
     &-card {
       // width: calc((100% - (30px * 3)) / 3);
@@ -18,9 +19,13 @@
       flex-wrap: wrap;
       justify-content: center;
       break-inside: avoid;
+
       @include media-breakpoint-down(md) {
         width: 100%;
         margin: 0;
+      }
+      + .cordInfo-card {
+        margin-top: 36px;
       }
     }
   }
@@ -29,9 +34,9 @@
     // flex-direction: row;
     // flex-wrap: wrap;
     display: block;
-    -webkit-column-gap: 12px;
-    -moz-column-gap: 12px;
-    column-gap: 12px;
+    -webkit-column-gap: 36px;
+    -moz-column-gap: 36px;
+    column-gap: 36px;
     column-count: 3;
     @include media-breakpoint-down(md) {
       column-count: 2;
