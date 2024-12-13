@@ -37,7 +37,7 @@ export default function Portfolio() {
               <div className="portfolio-box">
                 <nav className="portfolio-navbar">
                   <div className="portfolio-nav">
-                    <BtnGroupNav isTool navArray={PORTFOLIO} keyCategory={PAGE_KEY_WORD} navOrder={ORDER} setValueCategory={setCategoryId} valueCategory={categoryId} SHOW_ITEM={4} />
+                    <BtnGroupNav isTool navArray={PORTFOLIO} PAGE_KEY_WORD={PAGE_KEY_WORD} navOrder={ORDER} setValueCategory={setCategoryId} valueCategory={categoryId} SHOW_ITEM={4} />
                   </div>
                 </nav>
 

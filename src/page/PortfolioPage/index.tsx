@@ -27,7 +27,7 @@ export default function PortfolioPage() {
     window.scrollTo(0, 0)
   }, [])
 
-  console.log(PORTFOLIO_BASE_ITEM)
+  // console.log(PORTFOLIO_BASE_ITEM)
 
   return (
     <div className="page-portfolio">

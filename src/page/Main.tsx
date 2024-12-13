@@ -15,9 +15,9 @@ import { faObjectGroup, faDesktop, faPaintbrush, faHouseChimney } from '@fortawe
 export default function Main() {
   const NAV_LINK = [
     { name: 'HOME', link: '/', icon: (<FontAwesomeIcon icon={faHouseChimney} />) },
-    { name: 'WEB', link: '/web', icon: (<FontAwesomeIcon icon={faDesktop} />) },
-    { name: 'WEB DESIGN', link: '/webDesign', icon: (<FontAwesomeIcon icon={faObjectGroup} />) },
-    { name: 'GRAPHIC DESIGN', link: '/graphic', icon: (<FontAwesomeIcon icon={faPaintbrush} />) },
+    { name: 'WEB', link: 'web', icon: (<FontAwesomeIcon icon={faDesktop} />) },
+    { name: 'WEB DESIGN', link: 'webDesign', icon: (<FontAwesomeIcon icon={faObjectGroup} />) },
+    { name: 'GRAPHIC DESIGN', link: 'graphic', icon: (<FontAwesomeIcon icon={faPaintbrush} />) },
   ]
 
 
