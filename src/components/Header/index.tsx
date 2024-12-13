@@ -42,7 +42,7 @@ export default function Header(props) {
 
 
           <button className="btn btn-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" onClick={() => { }}>
-            <FontAwesomeIcon icon={faBars} />
+            <FontAwesomeIcon className="mainIcon" icon={faBars} />
           </button>
         </div>
       </nav >
