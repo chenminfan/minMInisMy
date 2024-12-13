@@ -73,7 +73,7 @@ const Home = () => {
           <button type="button" className={`btn btn-primary btn-sm btn-top ${windowHeight > 300 ? ' is-show' : ''}`} onClick={() => {
             window.scrollTo(0, 0)
             setNavId('')
-          }}><FontAwesomeIcon icon={faUpLong} />
+          }}><FontAwesomeIcon className="mainIcon" icon={faUpLong} />
           </button>
         </div>
 

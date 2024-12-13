@@ -5,7 +5,7 @@ import CardInfo from "@components/common/CardInfo";
 import Breadcrumb from "@components/common/BreadCrumb";
 import BreadcrumbItem from "@components/common/BreadCrumb/BreadcrumbItem";
 import { DATABASEProps } from '@typeTS/dataBase'
-import './webPortfolioCategory.scss'
+import './portfolioCategory.scss'
 
 type dataType = {
   myDataBase: DATABASEProps,
@@ -31,6 +31,7 @@ export default function PagePortfolioCategory({ ORDER, PAGE_KEY_WORD }) {
     }
     return workItem.category
   })
+
     .sort((a: any, b: any) => {
       if (!ORDER.includes(a.category)) return 1
       if (!ORDER.includes(b.category)) return -1
@@ -46,6 +47,7 @@ export default function PagePortfolioCategory({ ORDER, PAGE_KEY_WORD }) {
   }).sort((a: any, b: any) => {
     return a.title.localeCompare(b.title, 'zh-Hant')
   })
+
   return (
     <div className="page">
       <div className="container-xl">

@@ -4,7 +4,6 @@ header {
       display: flex;
       align-items: center;
       svg {
-        font-size: 16px;
         margin-right: 8px;
       }
     }
@@ -26,17 +25,26 @@ header {
         color: $primary;
       }
       .nav {
-        &-item {
-          padding: 8px;
-        }
         &-link {
-          padding: 4px 8px;
+          padding: 16px;
           color: $secondary;
-          border-left: 4px solid transparent;
+          position: relative;
+          &::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: calc(100% - 16px);
+            top: 50%;
+            left: 0;
+            transform: translateY(-50%);
+            background-color: transparent;
+          }
           &.is-active {
             color: $primary;
             font-weight: 500;
-            border-color: $primary;
+            &::before {
+              background-color: $primary;
+            }
           }
         }
       }
@@ -85,8 +93,11 @@ header {
   @include media-breakpoint-down(md) {
     .btn-toggle {
       display: flex;
+      margin: 4px 0;
     }
     .navbar {
+      padding-left: 16px;
+      min-height: 56px;
       &-nav {
         &-header {
           display: none;
