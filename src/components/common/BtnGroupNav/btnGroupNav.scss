@@ -16,7 +16,9 @@
     .btn {
       &-group {
         .btn {
-          letter-spacing: 0.5px;
+          min-width: 150px;
+          letter-spacing: 0.8px;
+          
         }
       }
       &-text {

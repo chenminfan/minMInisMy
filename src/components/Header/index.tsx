@@ -42,7 +42,7 @@ export default function Header(props) {
 
 
           <button className="btn btn-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation" onClick={() => { }}>
-            <FontAwesomeIcon icon={faBars} />
+            <FontAwesomeIcon className="mainIcon" icon={faBars} />
           </button>
         </div>
       </nav >
@@ -52,16 +52,16 @@ export default function Header(props) {
           <button type="button" className="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
         <div className="offcanvas-body">
-          {/* <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
+          <ul className="navbar-nav justify-content-end flex-grow-1 pe-3">
             {NAV_LINK.map((nav) => (
-              <li className='nav-item' key={`nav_${nav.link}`}>
-                <Link
-                  className={`nav-link ${nav.link === location.pathname ? 'is-active' : ''}`}
-                  to={nav.link}
-                >{nav.icon}{nav.name}</Link>
+              <li className='nav-item' key={`nav_${nav.link}`} onClick={() => setIsNav(nav.link)}>
+                <a
+                  className={`nav-link ${location.pathname == `/class/${nav.link}` || (location.pathname === '/' && nav.link === '/') ? 'is-active' : ''}`}
+                  href={(nav.link === '/') ? '/' : `#/class/${isNav}`}
+                >{nav.icon}{nav.name}</a>
               </li>
             ))}
-          </ul> */}
+          </ul>
         </div>
       </div >
     </header >
