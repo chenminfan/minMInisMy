@@ -1,5 +1,32 @@
 footer {
-  height: 200px;
+  display: flex;
+  align-items: flex-end;
+  padding: 8px 0 16px;
+  min-height: 140px;
   color: $white;
   background-color: rgba(rgb(192 175 175), $alpha: 0.9);
+
+  .footer {
+    &-list {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 0;
+      &-item {
+        padding: 8px;
+      }
+      &-link {
+        color: $white;
+      }
+    }
+    &-note {
+      font-size: 14px;
+      text-align: center;
+    }
+    &-copyright {
+      padding: 8px;
+      font-size: 14px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+  }
 }
