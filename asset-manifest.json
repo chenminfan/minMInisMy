@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/minMInisMy/static/css/main.ae612af9.css",
-    "main.js": "/minMInisMy/static/js/main.6df190ee.js",
+    "main.css": "/minMInisMy/static/css/main.fe0a507e.css",
+    "main.js": "/minMInisMy/static/js/main.2d014b74.js",
     "static/js/453.2dd4b2ff.chunk.js": "/minMInisMy/static/js/453.2dd4b2ff.chunk.js",
     "static/media/LionTravel-1.png": "/minMInisMy/static/media/LionTravel-1.be14099f90afa90c1666.png",
     "static/media/Insurance-2021.png": "/minMInisMy/static/media/Insurance-2021.991cc7c725b0af37907c.png",
@@ -48,23 +48,20 @@
     "static/media/search-003.png": "/minMInisMy/static/media/search-003.4e881b47375d95246df9.png",
     "static/media/search-006.png": "/minMInisMy/static/media/search-006.fc296a5a14c343ef936e.png",
     "static/media/web-DM-3.jpg": "/minMInisMy/static/media/web-DM-3.232b842fb5b5e3f54d17.jpg",
-    "static/media/search-m-006.png": "/minMInisMy/static/media/search-m-006.d3512c792ab9fd4fbb31.png",
     "static/media/web-DM-5.jpg": "/minMInisMy/static/media/web-DM-5.41620d09f2d66b78b320.jpg",
     "static/media/Reviews-page-m.png": "/minMInisMy/static/media/Reviews-page-m.3700281fab3d4c9387bb.png",
-    "static/media/search-m-002.png": "/minMInisMy/static/media/search-m-002.f7ae4af686d6740a9a93.png",
     "static/media/web-ui-design-2.jpg": "/minMInisMy/static/media/web-ui-design-2.403778cbfa59c7690c1b.jpg",
     "static/media/web-ui-design.jpg": "/minMInisMy/static/media/web-ui-design.21c86b27189bfd651ca4.jpg",
     "static/media/background-02.png": "/minMInisMy/static/media/background-02.586dc978618ac8efd2db.png",
     "static/media/Refund-page.png": "/minMInisMy/static/media/Refund-page.4a085838d517c77b0a56.png",
-    "static/media/search-m-005.png": "/minMInisMy/static/media/search-m-005.1c1adb710cedefebb13b.png",
     "static/media/book-4.jpg": "/minMInisMy/static/media/book-4.4c6c62ac6d66af7bcfbb.jpg",
-    "static/media/search-m-001.png": "/minMInisMy/static/media/search-m-001.764710a8e64e32d67896.png",
     "static/media/book-2.jpg": "/minMInisMy/static/media/book-2.8f0daf0e979fe2f45fca.jpg",
     "static/media/web-ui-design-3.jpg": "/minMInisMy/static/media/web-ui-design-3.febe09636410a786b1f6.jpg",
     "static/media/prod-page.png": "/minMInisMy/static/media/prod-page.795079d45d15cb21acf7.png",
     "static/media/search-001.png": "/minMInisMy/static/media/search-001.35bfd07c6fbe972b43b8.png",
     "static/media/Reviews-4.png": "/minMInisMy/static/media/Reviews-4.00883600b841c9ab7e92.png",
     "static/media/book-3.jpg": "/minMInisMy/static/media/book-3.8b70b570e8686c5b6f69.jpg",
+    "static/media/search-m-006.png": "/minMInisMy/static/media/search-m-006.2b1a24d8d18f19ea28d9.png",
     "static/media/book-5.jpg": "/minMInisMy/static/media/book-5.3a4c71dc3a6709c97263.jpg",
     "static/media/web-DM-2.jpg": "/minMInisMy/static/media/web-DM-2.fca462b060cd48f306e2.jpg",
     "static/media/search-m-003.png": "/minMInisMy/static/media/search-m-003.9702527e36a23a62f8fd.png",
@@ -72,6 +69,9 @@
     "static/media/web-ui-design-5.jpg": "/minMInisMy/static/media/web-ui-design-5.dde9ac4d7cd31060ba84.jpg",
     "static/media/web-ui-design-4.jpg": "/minMInisMy/static/media/web-ui-design-4.d81a46bd9964ab5ba2cd.jpg",
     "static/media/prod-2.png": "/minMInisMy/static/media/prod-2.663d6bfc8ee5ef71611d.png",
+    "static/media/search-m-002.png": "/minMInisMy/static/media/search-m-002.b06cf8327d42dc29deed.png",
+    "static/media/search-m-005.png": "/minMInisMy/static/media/search-m-005.a32bd60a751177cab930.png",
+    "static/media/search-m-001.png": "/minMInisMy/static/media/search-m-001.7b91fecf23b897631b82.png",
     "static/media/book-1.jpg": "/minMInisMy/static/media/book-1.3af45ea12a2525d17f84.jpg",
     "static/media/search-m-004.png": "/minMInisMy/static/media/search-m-004.9d65c7805b9cafcd58a2.png",
     "static/media/web-ui-design-6.jpg": "/minMInisMy/static/media/web-ui-design-6.c1e56a94e5de385a6d4e.jpg",
@@ -89,7 +89,7 @@
     "index.html": "/minMInisMy/index.html"
   },
   "entrypoints": [
-    "static/css/main.ae612af9.css",
-    "static/js/main.6df190ee.js"
+    "static/css/main.fe0a507e.css",
+    "static/js/main.2d014b74.js"
   ]
 }
