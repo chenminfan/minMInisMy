@@ -1,27 +1,49 @@
 import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faObjectGroup, faLaptopCode, faPaintbrush, faHouseChimney } from '@fortawesome/free-solid-svg-icons'
+import { faGlobe, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faSquareGithub, faCodepen, faNpm, faYarn, faReact, faFontAwesome, faJs, faBootstrap, faHtml5, faSass, faCss3Alt, faCss, faUnsplash } from '@fortawesome/free-brands-svg-icons'
 
 import './footer.scss'
 
 export default function Footer() {
   return (
-    <footer>
-      <div className='container'>
-        <data className='d-flex align-items-center justify-content-between text-white mb-md-7 mb-4'>
-          <ul className="d-flex list-unstyled mb-0 h4">
-            <li>
-              <FontAwesomeIcon className="mainIcon" icon={faObjectGroup} beat />
-            </li>
-            <li>
-
-            </li>
-            <li>
-
-            </li>
-          </ul>
-        </data>
-        <div className="footer-copyright">© 2024 本網站僅供個人作品使用，不提供商業用途，All Rights Reserved.</div>
+    <footer className='footer'>
+      <div className='container-xl'>
+        <div className="row">
+          <div className="col">
+            <div className='footer-info-link'>
+              <ul className="footer-list">
+                <li className='footer-list-item'>
+                  <a href="#" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faSquareGithub} size='lg' /></a>
+                </li>
+                <li className='footer-list-item'>
+                  <a href="#" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faCodepen} size='lg' /></a>
+                </li>
+                <li className='footer-list-item'>
+                  <a href="#" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faEnvelope} size='lg' /></a>
+                </li>
+                <li className='footer-list-item'>
+                  <a href="#" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faGlobe} size='lg' /></a>
+                </li>
+                {/* <li>
+              <FontAwesomeIcon icon={faNpm} />
+              <FontAwesomeIcon icon={faYarn} />
+              <FontAwesomeIcon icon={faReact} />
+              <FontAwesomeIcon icon={faFontAwesome} />
+              <FontAwesomeIcon icon={faBootstrap} />
+              <FontAwesomeIcon icon={faJs} />
+              <FontAwesomeIcon icon={faHtml5} />
+              <FontAwesomeIcon icon={faSass} />
+              <FontAwesomeIcon icon={faCss3Alt} />
+              <FontAwesomeIcon icon={faCss} />
+              <FontAwesomeIcon icon={faUnsplash} />
+            </li> */}
+              </ul>
+            </div>
+            <div className="footer-copyright">© 2024 Copyright <span>MinFan</span> All Rights Reserved.</div>
+            <div className="footer-note">本網站僅供個人作品使用，不提供商業用途</div>
+          </div>
+        </div>
       </div>
     </footer >
   )
