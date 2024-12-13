@@ -69,7 +69,7 @@ export default function BtnGroupNav(props: Props) {
     <div className="btnGroupNav">
       {isTool && 1 <= indexPage && (
         <button className="btn btnGroupNav-btn" onClick={() => handleClickPrev(currentItem - 1)} disabled={0 === indexPage && indexPage <= AVERAGE_PAGE}>
-          <FontAwesomeIcon icon={faChevronLeft} />
+          <FontAwesomeIcon className="mainIcon" icon={faChevronLeft} size="lg" />
 
         </button>
       )
@@ -79,10 +79,10 @@ export default function BtnGroupNav(props: Props) {
         {isTool && ((indexPage !== 0) && (indexPage <= AVERAGE_PAGE)) && <div className="btn-text"><span>...</span></div>}
 
         <div className="btn-group">
-          {indexPage === 0 && <button className={`btn btn-outline-primary ${valueCategory === PAGE_KEY_WORD ? 'active' : ''}`} type="button" onClick={() => setValueCategory(PAGE_KEY_WORD)}>{`${PAGE_KEY_WORD} ALL`}</button>}
+          {indexPage === 0 && <button className={`btn btn-outline-primary main-btn ${valueCategory === PAGE_KEY_WORD ? 'active' : ''}`} type="button" onClick={() => setValueCategory(PAGE_KEY_WORD)}>{`${PAGE_KEY_WORD} ALL`}</button>}
 
           {PORTFOLIO_ID.slice(0 + currentItem, SHOW_ITEM + currentItem).map((category: string, index) => (
-            <button type='button' className={`btn btn-outline-primary  ${category === valueCategory ? 'active' : ''}`} key={`category_${index}`} aria-current="page" onClick={() => setValueCategory(category)} >{category}</button>
+            <button type='button' className={`btn btn-outline-primary main-btn  ${category === valueCategory ? 'active' : ''}`} key={`category_${index}`} aria-current="page" onClick={() => setValueCategory(category)} >{category}</button>
           )
           )}
         </div>
@@ -90,14 +90,12 @@ export default function BtnGroupNav(props: Props) {
         {isTool && (indexPage < AVERAGE_PAGE) && (<div className="btn-text"><span>...</span></div>)}
       </nav>
 
-      {
-        isTool && (AVERAGE_PAGE > 0 && indexPage < AVERAGE_PAGE) && (
-          <button className="btn btnGroupNav-btn" onClick={() => { handleClickNext(currentItem + 1) }} disabled={indexPage >= AVERAGE_PAGE}>
-            <FontAwesomeIcon icon={faChevronRight} />
+      {isTool && (AVERAGE_PAGE > 0 && indexPage < AVERAGE_PAGE) && (
+        <button className="btn btnGroupNav-btn" onClick={() => { handleClickNext(currentItem + 1) }} disabled={indexPage >= AVERAGE_PAGE}>
+          <FontAwesomeIcon className="mainIcon" icon={faChevronRight} size="lg" />
 
-          </button >
-        )
-      }
+        </button >
+      )}
     </div >
   )
 }

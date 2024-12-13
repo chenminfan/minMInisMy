@@ -42,11 +42,25 @@ export default function Portfolio() {
                 </nav>
 
                 <div className="portfolio-content">
-                  {PORTFOLIO_CATEGORY.map((item, index) => {
-                    return (
-                      <CardInfo card={item} key={`portfolio_${index}`}></CardInfo>
-                    )
-                  })}
+                  <div className="portfolio-cardInfo">
+                    {categoryId === PAGE_KEY_WORD ? (<>
+                      {PORTFOLIO_CATEGORY.slice(0, 20).map((item, index) => {
+                        return (
+                          <CardInfo card={item} key={`portfolio_${index}`}></CardInfo>
+                        )
+                      })}</>) : (<>
+                        {PORTFOLIO_CATEGORY.map((item, index) => {
+                          return (
+                            <CardInfo card={item} key={`portfolio_${index}`}></CardInfo>
+                          )
+                        })}</>)}
+                  </div>
+
+                  {categoryId === PAGE_KEY_WORD && (
+                    <div className='portfolio-tool'>
+                      <button className={`btn btn-outline-primary main-btn`} type="button" onClick={() => { }}>...更多作品</button>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>
