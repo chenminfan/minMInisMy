@@ -20,6 +20,7 @@ export default function Main() {
     { name: 'GRAPHIC DESIGN', link: 'graphic', icon: (<FontAwesomeIcon className="mainIcon" icon={faPaintbrush} size="sm" />) },
   ]
 
+  const [valueCategory, setValueCategory] = useState('')
 
 
   const [myDataBase, setMyDataBase] = useState<DATABASEProps[]>([]);
@@ -42,11 +43,12 @@ export default function Main() {
   }, [])
   config.autoAddCss = false
 
+
   return (
     <>
-      <Header NAV_LINK={NAV_LINK} />
+      <Header NAV_LINK={NAV_LINK} setValueCategory={setValueCategory} />
       <main>
-        <Outlet context={{ myDataBase, NAV_LINK, loadingPage }} />
+        <Outlet context={{ myDataBase, NAV_LINK, loadingPage, setValueCategory, valueCategory }} />
       </main>
       <Footer />
     </>

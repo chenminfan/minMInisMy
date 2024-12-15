@@ -4,20 +4,8 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { Link, useLocation } from 'react-router-dom'
 import './header.scss';
 
-
-export type NavLeftItemsType = {
-  name: string,
-  icon?: string,
-  link: string,
-  handleClick?: () => void,
-};
-export type isNavType = {
-  link: string,
-  name: string,
-  icon?: string,
-};
 export default function Header(props) {
-  const { NAV_LINK } = props;
+  const { NAV_LINK, setValueCategory } = props;
   const location = useLocation();
   const [isNav, setIsNav] = useState<string>('')
   return (
@@ -29,7 +17,10 @@ export default function Header(props) {
             <ul className="navbar-nav navbar-nav-header">
 
               {NAV_LINK.map((nav) => (
-                <li className='nav-item' key={`nav_${nav.link}`} onClick={() => setIsNav(nav.link)}>
+                <li className='nav-item' key={`nav_${nav.link}`} onClick={() => {
+                  setIsNav(nav.link)
+                  setValueCategory(nav.name)
+                }}>
                   <a
                     className={`nav-link ${location.pathname == `/class/${nav.link}` || (location.pathname === '/' && nav.link === '/') ? 'is-active' : ''}`}
                     href={(nav.link === '/') ? '/' : `#/class/${isNav}`}
