@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/minMInisMy/static/css/main.9fca567c.css",
-    "main.js": "/minMInisMy/static/js/main.83bbac84.js",
+    "main.js": "/minMInisMy/static/js/main.bb342f08.js",
     "static/js/453.2dd4b2ff.chunk.js": "/minMInisMy/static/js/453.2dd4b2ff.chunk.js",
     "static/media/LionTravel-1.png": "/minMInisMy/static/media/LionTravel-1.be14099f90afa90c1666.png",
     "static/media/web-page-7.jpg": "/minMInisMy/static/media/web-page-7.c163d5d1418be9cea93f.jpg",
@@ -54,7 +54,6 @@
     "static/media/book-2.jpg": "/minMInisMy/static/media/book-2.8f0daf0e979fe2f45fca.jpg",
     "static/media/web-ui-design-height-page-3.jpg": "/minMInisMy/static/media/web-ui-design-height-page-3.febe09636410a786b1f6.jpg",
     "static/media/prod-page.png": "/minMInisMy/static/media/prod-page.795079d45d15cb21acf7.png",
-    "static/media/Backend.png": "/minMInisMy/static/media/Backend.358ecfc2dbbc5cef85f6.png",
     "static/media/search-001.png": "/minMInisMy/static/media/search-001.35bfd07c6fbe972b43b8.png",
     "static/media/Reviews-4.png": "/minMInisMy/static/media/Reviews-4.00883600b841c9ab7e92.png",
     "static/media/book-3.jpg": "/minMInisMy/static/media/book-3.8b70b570e8686c5b6f69.jpg",
@@ -69,6 +68,7 @@
     "static/media/prod-m-2.png": "/minMInisMy/static/media/prod-m-2.663d6bfc8ee5ef71611d.png",
     "static/media/search-m-002.png": "/minMInisMy/static/media/search-m-002.b06cf8327d42dc29deed.png",
     "static/media/search-m-005.png": "/minMInisMy/static/media/search-m-005.a32bd60a751177cab930.png",
+    "static/media/Backend.png": "/minMInisMy/static/media/Backend.5b005a3365d21a01b65d.png",
     "static/media/search-m-001.png": "/minMInisMy/static/media/search-m-001.7b91fecf23b897631b82.png",
     "static/media/book-1.jpg": "/minMInisMy/static/media/book-1.3af45ea12a2525d17f84.jpg",
     "static/media/search-m-004.png": "/minMInisMy/static/media/search-m-004.9d65c7805b9cafcd58a2.png",
@@ -91,6 +91,6 @@
   },
   "entrypoints": [
     "static/css/main.9fca567c.css",
-    "static/js/main.83bbac84.js"
+    "static/js/main.bb342f08.js"
   ]
 }
