@@ -2,12 +2,13 @@ export type portfolioProps = {
   id: string,
   page: string,
   category: string,
+  content: string;
   workTitle: string,
   title: string,
   imageUrl: string,
   link: string,
-  imageInfo?:string[],
-  
+  imageInfo?: string[],
+
 }
 export type infoProps = {
   title?: string | null;
@@ -38,5 +39,5 @@ export type WORKProps = {
 
 export type DATABASEProps = {
   work: { WORKProps },
-  portfolio: { string },
+  portfolio: { portfolioProps },
 }

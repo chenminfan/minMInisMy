@@ -7,8 +7,8 @@ type Props = {
 export default function Breadcrumb(props: Props) {
   const { children } = props
   return (
-    <nav aria-label="breadcrumb" className='detail-breadcrumb'>
-      <ol className="breadcrumb my-4">
+    <nav className='detail-breadcrumb d-flex align-items-center h-100' aria-label="breadcrumb">
+      <ol className="breadcrumb my-2">
         {children}
       </ol>
     </nav>
