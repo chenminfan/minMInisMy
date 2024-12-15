@@ -14,16 +14,21 @@ type dataType = {
     link: string,
     icon: string
   }[],
+  setValueCategory: (string) => void,
+  valueCategory: string
 }
+
 export default function PagePortfolioCategory({ ORDER, PAGE_KEY_WORD }) {
-  const { myDataBase, NAV_LINK } = useOutletContext<dataType>();
+  const { myDataBase, NAV_LINK, setValueCategory, valueCategory } = useOutletContext<dataType>();
   const PORTFOLIO_BASE = Object.values(myDataBase.portfolio || {})
-  const [valueCategory, setValueCategory] = useState(PAGE_KEY_WORD)
+  // const [valueCategory, setValueCategory] = useState(PAGE_KEY_WORD)
   const BREADCRUMB_ID = NAV_LINK.find((item) => item.name === PAGE_KEY_WORD)
 
   useEffect(() => {
-    setValueCategory(PAGE_KEY_WORD)
-  }, [PAGE_KEY_WORD])
+    if (valueCategory === PAGE_KEY_WORD.toLowerCase() || valueCategory === '') {
+      setValueCategory(PAGE_KEY_WORD)
+    }
+  }, [valueCategory, PAGE_KEY_WORD])
 
   const PORTFOLIO_SORT = PORTFOLIO_BASE.filter((workItem) => {
     if (valueCategory !== '') {
@@ -47,7 +52,6 @@ export default function PagePortfolioCategory({ ORDER, PAGE_KEY_WORD }) {
   }).sort((a: any, b: any) => {
     return a.title.localeCompare(b.title, 'zh-Hant')
   })
-
   return (
     <div className="page">
       <div className="container-xl">
@@ -56,7 +60,7 @@ export default function PagePortfolioCategory({ ORDER, PAGE_KEY_WORD }) {
             <div className="page-breadcrumb">
               <Breadcrumb>
                 <BreadcrumbItem itemIcon={NAV_LINK[0].icon} itemLink={NAV_LINK[0].link} />
-                <BreadcrumbItem itemIcon={BREADCRUMB_ID?.icon} itemLink={`#${BREADCRUMB_ID?.link}`} itemName={BREADCRUMB_ID?.name} />
+                <BreadcrumbItem itemIcon={BREADCRUMB_ID?.icon} itemLink={`#/class/${BREADCRUMB_ID?.link}`} itemName={BREADCRUMB_ID?.name} />
                 <BreadcrumbItem itemName={PAGE_KEY_WORD === valueCategory ? `${PAGE_KEY_WORD} ALL` : valueCategory} itemActive />
               </Breadcrumb>
             </div>
