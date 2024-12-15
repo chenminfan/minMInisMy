@@ -40,6 +40,9 @@
       }
     }
     .portfolio {
+      &-info {
+        margin: 16px 0 32px;
+      }
       &-carousel {
         display: flex;
         flex-direction: row;
