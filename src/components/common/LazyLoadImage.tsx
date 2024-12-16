@@ -3,7 +3,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import PlaceholderImage from "../../assets/image/background/background-02.png";
 
 type LazyLoadImgType = {
-  className: string,
+  className?: string,
   alt: string,
   src: string,
   placeholdersrc?: string,
