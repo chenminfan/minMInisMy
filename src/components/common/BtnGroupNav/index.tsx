@@ -19,7 +19,7 @@ type Props = {
 export default function BtnGroupNav(props: Props) {
   const { isTool, navArray, PAGE_KEY_WORD, navOrder, valueCategory, setValueCategory = () => { }, SHOW_ITEM = 5 } = props
   const handleClickPrev = (value) => {
-    setIndexPage(Math.ceil(value / SHOW_ITEM) === 1 ? 0 : Math.ceil(value / SHOW_ITEM))
+    setIndexPage(Math.ceil(value / SHOW_ITEM) === 1 ? 0 : Math.ceil(value / SHOW_ITEM - 1))
     if (indexPage <= AVERAGE_PAGE) {
       setCurrentItem(0)
     } else {

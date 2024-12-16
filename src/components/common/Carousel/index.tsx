@@ -1,7 +1,7 @@
 import React from 'react'
 
 type Props = {
-  children: string | JSX.Element | JSX.Element[],
+  children: any | JSX.Element | JSX.Element[] | {},
   carouselName: string,
   carouselPre?: boolean,
   carouselNext?: boolean,
