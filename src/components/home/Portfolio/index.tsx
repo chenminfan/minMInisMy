@@ -57,9 +57,9 @@ export default function Portfolio() {
                         })}</>)}
                   </div>
 
-                  {categoryId === PAGE_KEY_WORD && (
+                  {(categoryId === PAGE_KEY_WORD || PORTFOLIO_CATEGORY.length > 12) && (
                     <div className='portfolio-tool'>
-                      <a className={`btn btn-outline-primary main-btn`} href='#/class/web' onClick={() => { setValueCategory('web') }}>...更多作品</a>
+                      <a className={`btn btn-outline-primary main-btn`} href='#/category/website' onClick={() => { setValueCategory('website') }}>...更多作品</a>
                     </div>
                   )}
                 </div>

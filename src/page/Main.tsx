@@ -15,7 +15,7 @@ import { faObjectGroup, faLaptopCode, faPaintbrush, faHouseChimney } from '@fort
 export default function Main() {
   const NAV_LINK = [
     { name: 'HOME', link: '#', icon: (<FontAwesomeIcon className="mainIcon" icon={faHouseChimney} size="sm" />) },
-    { name: 'WEB', link: 'web', icon: (<FontAwesomeIcon className="mainIcon" icon={faLaptopCode} size="sm" />) },
+    { name: 'WEBSITE', link: 'website', icon: (<FontAwesomeIcon className="mainIcon" icon={faLaptopCode} size="sm" />) },
     { name: 'WEB DESIGN', link: 'webDesign', icon: (<FontAwesomeIcon className="mainIcon" icon={faObjectGroup} size="sm" />) },
     { name: 'GRAPHIC DESIGN', link: 'graphic', icon: (<FontAwesomeIcon className="mainIcon" icon={faPaintbrush} size="sm" />) },
   ]
