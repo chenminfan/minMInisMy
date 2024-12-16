@@ -14,7 +14,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faObjectGroup, faLaptopCode, faPaintbrush, faHouseChimney } from '@fortawesome/free-solid-svg-icons'
 export default function Main() {
   const NAV_LINK = [
-    { name: 'HOME', link: '/', icon: (<FontAwesomeIcon className="mainIcon" icon={faHouseChimney} size="sm" />) },
+    { name: 'HOME', link: '/#', icon: (<FontAwesomeIcon className="mainIcon" icon={faHouseChimney} size="sm" />) },
     { name: 'WEB', link: 'web', icon: (<FontAwesomeIcon className="mainIcon" icon={faLaptopCode} size="sm" />) },
     { name: 'WEB DESIGN', link: 'webDesign', icon: (<FontAwesomeIcon className="mainIcon" icon={faObjectGroup} size="sm" />) },
     { name: 'GRAPHIC DESIGN', link: 'graphic', icon: (<FontAwesomeIcon className="mainIcon" icon={faPaintbrush} size="sm" />) },

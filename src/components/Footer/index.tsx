@@ -14,16 +14,16 @@ export default function Footer() {
             <div className='footer-info-link'>
               <ul className="footer-list">
                 <li className='footer-list-item'>
-                  <a href="#" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faSquareGithub} size='lg' /></a>
+                  <a href="#" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faSquareGithub} size='sm' /></a>
                 </li>
                 <li className='footer-list-item'>
-                  <a href="#" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faCodepen} size='lg' /></a>
+                  <a href="#" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faCodepen} size='sm' /></a>
                 </li>
                 <li className='footer-list-item'>
-                  <a href="#" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faEnvelope} size='lg' /></a>
+                  <a href="#" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faEnvelope} size='sm' /></a>
                 </li>
                 <li className='footer-list-item'>
-                  <a href="#" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faGlobe} size='lg' /></a>
+                  <a href="#" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faGlobe} size='sm' /></a>
                 </li>
                 {/* <li>
               <FontAwesomeIcon icon={faNpm} />
@@ -40,8 +40,11 @@ export default function Footer() {
             </li> */}
               </ul>
             </div>
-            <div className="footer-copyright">© 2024 Copyright <span>MinFan</span> All Rights Reserved.</div>
-            <div className="footer-note">本網站僅供個人作品使用，不提供商業用途</div>
+            <div className="footer-info">
+              <span className="footer-copyright">© 2024 Copyright <span>MinFan</span> All Rights Reserved.</span>
+              <span className="footer-note">本網站僅供個人作品使用，不提供商業用途</span>
+            </div>
+
           </div>
         </div>
       </div>

@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useMemo } from 'react'
 import { useParams, useOutletContext } from 'react-router-dom'
+import { useRWD } from '@hook/useRWD'
 import Breadcrumb from "@components/common/BreadCrumb";
 import BreadcrumbItem from "@components/common/BreadCrumb/BreadcrumbItem";
 import Carousel from '@components/common/Carousel'
 import LazyLoadImg from "@components/common/LazyLoadImage";
 import { DATABASEProps, portfolioProps } from '@typeTS/dataBase'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faChevronUp, faChevronDown, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import './portfolioPage.scss'
 
 type dataType = {
@@ -19,6 +22,7 @@ type dataType = {
 }
 
 export default function PortfolioPage() {
+  const RWD_DEVICE = useRWD();
   const { portfolioId } = useParams();
   const { myDataBase, NAV_LINK, setValueCategory } = useOutletContext<dataType>();
   const PORTFOLIO_BASE = Object.values(myDataBase.portfolio || {})
@@ -32,10 +36,46 @@ export default function PortfolioPage() {
   const handleLinkClick = (link) => {
     setValueCategory(link)
   }
-  const SHOW_ITEM = 4;
+
+  const SORT = useMemo(() => {
+    return [...IS_IMAGES.concat(PORTFOLIO_BASE_ITEM?.imageUrl || [])]
+
+  }, [IS_IMAGES, PORTFOLIO_BASE_ITEM])
+  const SHOW_ITEM = RWD_DEVICE !== "mobile" ? 5 : 3;
+  const TOTAL_ITEM = SORT.length;
+  const AVERAGE_PAGE = Math.ceil(TOTAL_ITEM / SHOW_ITEM) - 1;
   const [currentItem, setCurrentItem] = useState<number>(0);
   const [indexPage, setIndexPage] = useState<number>(0);
 
+  const handleClickPrev = (value) => {
+    setIndexPage(Math.ceil(value / SHOW_ITEM) < 1 ? 0 : Math.ceil(value / SHOW_ITEM - 1))
+    if (indexPage <= AVERAGE_PAGE) {
+      setCurrentItem(0)
+    } else {
+      setCurrentItem((value) => {
+        if (value >= TOTAL_ITEM - 1) {
+          return 0;
+        } else {
+          return value - SHOW_ITEM;
+        }
+      })
+    }
+
+  }
+  const handleClickNext = (value) => {
+    setIndexPage(Math.ceil(value / SHOW_ITEM))
+    if (indexPage >= AVERAGE_PAGE) {
+      setCurrentItem(currentItem)
+    } else {
+      setCurrentItem((value) => {
+        if (value >= TOTAL_ITEM - 1) {
+          return 0;
+        } else {
+          return value + SHOW_ITEM;
+        }
+      })
+    }
+  }
   return (
     <div className="page-portfolio">
       <div className="container-xl">
@@ -62,52 +102,43 @@ export default function PortfolioPage() {
             <div className="portfolio-carousel">
               <Carousel carouselName="prodCarousel" carouselPre={IS_IMAGES.length > 1} carouselNext={IS_IMAGES.length > 1}>
                 <div className="carousel-inner h-100">
-                  {PORTFOLIO_BASE_ITEM?.imageUrl && <div className={`carousel-item h-100 active ${(PORTFOLIO_BASE_ITEM?.imageUrl.includes('height-page') || PORTFOLIO_BASE_ITEM?.imageUrl.includes('web-page') || PORTFOLIO_BASE_ITEM?.imageUrl.includes('search-0')) && 'carousel-item-page'}`} data-bs-interval="10000">
-                    <div className="img-box">
-                      <LazyLoadImg src={require(`../../assets/image/Portfolio/${PORTFOLIO_BASE_ITEM?.imageUrl}`)} className="d-block" alt={PORTFOLIO_BASE_ITEM?.title} />
-                    </div>
-                  </div>}
-                  {IS_IMAGES.length > 1 && (<>
-                    {PORTFOLIO_BASE_ITEM?.imageInfo?.map((item, index) => (
-                      <div className={`carousel-item h-100 ${(item.includes('web-page') || item.includes('search-0') || item.includes('height-page') || item.includes('-m-')) && 'item-page'}`} key={`${item}_${index}`} data-bs-interval="10000">
-                        <div className="img-box">
-                          <LazyLoadImg src={require(`../../assets/image/Portfolio/${item}`)} className="d-block" alt={PORTFOLIO_BASE_ITEM?.title} />
+                  {SORT.length !== 0 && SORT.map((item, index) => (
+                    <div className={`carousel-item h-100 ${index === 0 && "active"} ${(item.includes('web-page') || item.includes('search-0') || item.includes('height-page') || item.includes('-m-')) && 'item-page'}`} key={`${item}_${index}`} data-bs-interval="10000">
+                      <div className="img-box">
+                        <LazyLoadImg src={require(`../../assets/image/Portfolio/${item}`)} className="d-block" alt={PORTFOLIO_BASE_ITEM?.title} />
 
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </Carousel>
+              {(SORT.length > 0) && (
+                <div className="portfolio-imgInfo">
+                  {1 <= indexPage && (
+                    <button className="btn btn-primary portfolio-imgInfo-btn portfolio-imgInfo-btn-pre" onClick={() => handleClickPrev(currentItem - 1)} disabled={0 === indexPage && indexPage <= AVERAGE_PAGE}>
+                      <FontAwesomeIcon className="mainIcon" icon={RWD_DEVICE !== "desktop" ? faChevronLeft : faChevronUp} size={RWD_DEVICE !== "desktop" ? "sm" : "lg"} />
+
+                    </button>
+                  )}
+
+                  <div className='portfolio-imgInfo-imageList'>
+                    {SORT.slice(0 + currentItem, SHOW_ITEM + currentItem).map((item, index) => (
+                      <div className="portfolio-imgInfo-item" data-bs-target="#prodCarousel" data-bs-slide-to={index} key={`${item}_${index}`}>
+                        <div className="img-box">
+                          <LazyLoadImg src={require(`../../assets/image/Portfolio/${item}`)} className="d-block" alt={require(`../../assets/image/Portfolio/${item}`)} />
                         </div>
                       </div>
                     ))}
-                  </>)}
+                  </div>
+
+                  {(AVERAGE_PAGE > 0 && indexPage < AVERAGE_PAGE) && (
+                    <button className="btn btn-primary portfolio-imgInfo-btn portfolio-imgInfo-btn-next" onClick={() => { handleClickNext(currentItem + 1) }} disabled={indexPage >= AVERAGE_PAGE}>
+                      <FontAwesomeIcon className="mainIcon" icon={RWD_DEVICE !== "desktop" ? faChevronRight : faChevronDown} size={RWD_DEVICE !== "desktop" ? "sm" : "lg"} />
+
+                    </button >
+                  )}
                 </div>
-              </Carousel>
-              <div className="portfolio-imgInfo">
-                {/* {isTool && 1 <= indexPage && (
-                  <button className="btn btnGroupNav-btn" onClick={() => handleClickPrev(currentItem - 1)} disabled={0 === indexPage && indexPage <= AVERAGE_PAGE}>
-                    <FontAwesomeIcon className="mainIcon" icon={faChevronLeft} size="lg" />
-
-                  </button>
-                )} */}
-                {PORTFOLIO_BASE_ITEM?.imageUrl && (
-                  <div className="portfolio-imgInfo-item" data-bs-target="#prodCarousel" data-bs-slide-to={0} >
-                    <div className="img-box">
-                      <LazyLoadImg src={require(`../../assets/image/Portfolio/${PORTFOLIO_BASE_ITEM?.imageUrl}`)} className="d-block" alt={PORTFOLIO_BASE_ITEM?.title} />
-                    </div>
-                  </div>
-                )}
-                {PORTFOLIO_BASE_ITEM?.imageInfo?.map((item, index) => (
-                  <div className="portfolio-imgInfo-item" data-bs-target="#prodCarousel" data-bs-slide-to={index + 1} key={`${item}_${index}`}>
-                    <div className="img-box">
-                      <LazyLoadImg src={require(`../../assets/image/Portfolio/${item}`)} className="d-block" alt={PORTFOLIO_BASE_ITEM?.title} />
-                    </div>
-                  </div>
-                ))}
-
-                {/* {isTool && (AVERAGE_PAGE > 0 && indexPage < AVERAGE_PAGE) && (
-                  <button className="btn btnGroupNav-btn" onClick={() => { handleClickNext(currentItem + 1) }} disabled={indexPage >= AVERAGE_PAGE}>
-                    <FontAwesomeIcon className="mainIcon" icon={faChevronRight} size="lg" />
-
-                  </button >
-                )} */}
-              </div>
+              )}
             </div>
 
           </div>
