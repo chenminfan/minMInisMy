@@ -32,6 +32,9 @@ export default function PortfolioPage() {
   const handleLinkClick = (link) => {
     setValueCategory(link)
   }
+  const SHOW_ITEM = 4;
+  const [currentItem, setCurrentItem] = useState<number>(0);
+  const [indexPage, setIndexPage] = useState<number>(0);
 
   return (
     <div className="page-portfolio">
@@ -59,14 +62,14 @@ export default function PortfolioPage() {
             <div className="portfolio-carousel">
               <Carousel carouselName="prodCarousel" carouselPre={IS_IMAGES.length > 1} carouselNext={IS_IMAGES.length > 1}>
                 <div className="carousel-inner h-100">
-                  {PORTFOLIO_BASE_ITEM?.imageUrl && <div className={`carousel-item h-100 active ${PORTFOLIO_BASE_ITEM?.imageUrl.includes('height-page') && 'carousel-item-page'}`} data-bs-interval="10000">
+                  {PORTFOLIO_BASE_ITEM?.imageUrl && <div className={`carousel-item h-100 active ${(PORTFOLIO_BASE_ITEM?.imageUrl.includes('height-page') || PORTFOLIO_BASE_ITEM?.imageUrl.includes('web-page') || PORTFOLIO_BASE_ITEM?.imageUrl.includes('search-0')) && 'carousel-item-page'}`} data-bs-interval="10000">
                     <div className="img-box">
                       <LazyLoadImg src={require(`../../assets/image/Portfolio/${PORTFOLIO_BASE_ITEM?.imageUrl}`)} className="d-block" alt={PORTFOLIO_BASE_ITEM?.title} />
                     </div>
                   </div>}
                   {IS_IMAGES.length > 1 && (<>
                     {PORTFOLIO_BASE_ITEM?.imageInfo?.map((item, index) => (
-                      <div className={`carousel-item h-100 ${(item.includes('height-page') || item.includes('-m-')) && 'item-page'}`} key={`${item}_${index}`} data-bs-interval="10000">
+                      <div className={`carousel-item h-100 ${(item.includes('web-page') || item.includes('search-0') || item.includes('height-page') || item.includes('-m-')) && 'item-page'}`} key={`${item}_${index}`} data-bs-interval="10000">
                         <div className="img-box">
                           <LazyLoadImg src={require(`../../assets/image/Portfolio/${item}`)} className="d-block" alt={PORTFOLIO_BASE_ITEM?.title} />
 
@@ -77,6 +80,12 @@ export default function PortfolioPage() {
                 </div>
               </Carousel>
               <div className="portfolio-imgInfo">
+                {/* {isTool && 1 <= indexPage && (
+                  <button className="btn btnGroupNav-btn" onClick={() => handleClickPrev(currentItem - 1)} disabled={0 === indexPage && indexPage <= AVERAGE_PAGE}>
+                    <FontAwesomeIcon className="mainIcon" icon={faChevronLeft} size="lg" />
+
+                  </button>
+                )} */}
                 {PORTFOLIO_BASE_ITEM?.imageUrl && (
                   <div className="portfolio-imgInfo-item" data-bs-target="#prodCarousel" data-bs-slide-to={0} >
                     <div className="img-box">
@@ -91,6 +100,13 @@ export default function PortfolioPage() {
                     </div>
                   </div>
                 ))}
+
+                {/* {isTool && (AVERAGE_PAGE > 0 && indexPage < AVERAGE_PAGE) && (
+                  <button className="btn btnGroupNav-btn" onClick={() => { handleClickNext(currentItem + 1) }} disabled={indexPage >= AVERAGE_PAGE}>
+                    <FontAwesomeIcon className="mainIcon" icon={faChevronRight} size="lg" />
+
+                  </button >
+                )} */}
               </div>
             </div>
 
