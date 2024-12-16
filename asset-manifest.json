@@ -1,13 +1,12 @@
 {
   "files": {
-    "main.css": "/minMInisMy/static/css/main.85eb8221.css",
-    "main.js": "/minMInisMy/static/js/main.07a3ba0d.js",
+    "main.css": "/minMInisMy/static/css/main.ed5cfc28.css",
+    "main.js": "/minMInisMy/static/js/main.1881d040.js",
     "static/js/453.2dd4b2ff.chunk.js": "/minMInisMy/static/js/453.2dd4b2ff.chunk.js",
     "static/media/LionTravel-1.png": "/minMInisMy/static/media/LionTravel-1.be14099f90afa90c1666.png",
     "static/media/web-page-7.jpg": "/minMInisMy/static/media/web-page-7.c163d5d1418be9cea93f.jpg",
     "static/media/web-page-6.jpg": "/minMInisMy/static/media/web-page-6.be8b09251d2965675692.jpg",
     "static/media/web-page-4.jpg": "/minMInisMy/static/media/web-page-4.50de32d23269351c8d47.jpg",
-    "static/media/demo-1.png": "/minMInisMy/static/media/demo-1.3b60bb3a7015a08f9e72.png",
     "static/media/web-page-5.jpg": "/minMInisMy/static/media/web-page-5.5001c14790e8d74ac4e7.jpg",
     "static/media/web-page-11.jpg": "/minMInisMy/static/media/web-page-11.0b4dde8d297f46eefb44.jpg",
     "static/media/web-page-1.jpg": "/minMInisMy/static/media/web-page-1.f88b717d580cdf1cdb3b.jpg",
@@ -21,10 +20,10 @@
     "static/media/web-page-2.jpg": "/minMInisMy/static/media/web-page-2.a492b5996bdda2827445.jpg",
     "static/media/background-01.jpg": "/minMInisMy/static/media/background-01.44ecf466417dcb999757.jpg",
     "static/media/web-page-9.jpg": "/minMInisMy/static/media/web-page-9.4dc22b79af504f13f4aa.jpg",
-    "static/media/demo-2.png": "/minMInisMy/static/media/demo-2.0e12f3b6a1aa8e01ec64.png",
     "static/media/storybook-1.png": "/minMInisMy/static/media/storybook-1.7713255bfa858172a268.png",
     "static/media/Insurance-2021.png": "/minMInisMy/static/media/Insurance-2021.f838fd361b34f584079f.png",
     "static/media/Cart-height-page.png": "/minMInisMy/static/media/Cart-height-page.4312c2e533b9eeafaa44.png",
+    "static/media/demo-1.png": "/minMInisMy/static/media/demo-1.cf508f75a21b7b06c9f2.png",
     "static/media/Insurance-2020-height-page.png": "/minMInisMy/static/media/Insurance-2020-height-page.6f65b1575658919307f5.png",
     "static/media/home-1.png": "/minMInisMy/static/media/home-1.9f7c594c1d42da989228.png",
     "static/media/home-page.png": "/minMInisMy/static/media/home-page.0f318758118145bfc585.png",
@@ -37,6 +36,7 @@
     "static/media/search-005.png": "/minMInisMy/static/media/search-005.4b59a3d39b4b6bf3ecd9.png",
     "static/media/search-003.png": "/minMInisMy/static/media/search-003.4e881b47375d95246df9.png",
     "static/media/search-006.png": "/minMInisMy/static/media/search-006.fc296a5a14c343ef936e.png",
+    "static/media/demo-2.png": "/minMInisMy/static/media/demo-2.e32e90195fe88614518f.png",
     "static/media/web-DM-3.jpg": "/minMInisMy/static/media/web-DM-3.232b842fb5b5e3f54d17.jpg",
     "static/media/ui-ecvdr-2.png": "/minMInisMy/static/media/ui-ecvdr-2.8ed69507d28ce379bfbf.png",
     "static/media/ui-ecvdr-3.png": "/minMInisMy/static/media/ui-ecvdr-3.cb71b3ea35a247687ea5.png",
@@ -90,7 +90,7 @@
     "index.html": "/minMInisMy/index.html"
   },
   "entrypoints": [
-    "static/css/main.85eb8221.css",
-    "static/js/main.07a3ba0d.js"
+    "static/css/main.ed5cfc28.css",
+    "static/js/main.1881d040.js"
   ]
 }
