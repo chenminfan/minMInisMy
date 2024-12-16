@@ -9,8 +9,8 @@ export default function App() {
     <Routes>
       <Route element={<Main />} >
         <Route path='/' element={<Home />}></Route>
-        <Route path='/class/:portfolioId' element={<PortfolioClass />}></Route>
-        <Route path='/portfolio/:portfolioId' element={<PortfolioPage />}></Route>
+        <Route path='/category/:portfolioId' element={<PortfolioClass />}></Route>
+        <Route path='/portfolio/:categoryId' element={<PortfolioPage />}></Route>
       </Route >
     </Routes >
   )

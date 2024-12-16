@@ -30,6 +30,19 @@
       }
     }
   }
+  .btnGroupNav {
+    padding: 16px 0;
+    nav {
+      justify-content: flex-end;
+      padding: 0;
+      @include media-breakpoint-down(md) {
+        justify-content: center;
+      }
+    }
+  }
+  &-breadcrumb {
+    padding: 16px 0;
+  }
   &-content {
     // display: flex;
     // flex-direction: row;
