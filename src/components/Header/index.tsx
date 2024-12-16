@@ -22,8 +22,8 @@ export default function Header(props) {
                   setValueCategory(nav.name)
                 }}>
                   <a
-                    className={`nav-link ${location.pathname == `/class/${nav.link}` || (location.pathname === '/' && nav.link === '/') ? 'is-active' : ''}`}
-                    href={(nav.link === '/') ? '/' : `#/class/${isNav}`}
+                    className={`nav-link ${location.pathname == `/class/${nav.link}` || (location.pathname === '/#' && nav.link === '/#') ? 'is-active' : ''}`}
+                    href={(nav.link === '/#') ? '/#' : `#/class/${isNav}`}
                   >{nav.icon}{nav.name}</a>
                 </li>
               ))}
@@ -50,8 +50,8 @@ export default function Header(props) {
                 data-bs-dismiss="offcanvas"
               >
                 <a
-                  className={`nav-link ${location.pathname == `/class/${nav.link}` || (location.pathname === '/' && nav.link === '/') ? 'is-active' : ''}`}
-                  href={(nav.link === '/') ? '/' : `#/class/${isNav}`}
+                  className={`nav-link ${location.pathname == `/class/${nav.link}` || (location.pathname === '/#' && nav.link === '/#') ? 'is-active' : ''}`}
+                  href={(nav.link === '/#') ? '/#' : `#/class/${isNav}`}
                 >{nav.icon}{nav.name}</a>
               </li>
             ))}

@@ -6,11 +6,12 @@ import { DATABASEProps } from '@typeTS/dataBase'
 import './portfolio.scss'
 
 type dataType = {
-  myDataBase: DATABASEProps
+  myDataBase: DATABASEProps,
+  setValueCategory: (string) => void
 }
 export default function Portfolio() {
 
-  const { myDataBase } = useOutletContext<dataType>();
+  const { myDataBase, setValueCategory } = useOutletContext<dataType>();
   const PAGE_KEY_WORD = 'WEB ALL'
   const ORDER = ["REACT網站開發", "REACT切版", "HTML網站切版", "網站設計"];
   const PORTFOLIO_BASE = Object.values(myDataBase.portfolio || {})
@@ -44,7 +45,7 @@ export default function Portfolio() {
                 <div className="portfolio-content">
                   <div className="portfolio-cardInfo">
                     {categoryId === PAGE_KEY_WORD ? (<>
-                      {PORTFOLIO_CATEGORY.slice(0, 20).map((item, index) => {
+                      {PORTFOLIO_CATEGORY.slice(0, 12).map((item, index) => {
                         return (
                           <CardInfo card={item} key={`portfolio_${index}`}></CardInfo>
                         )
@@ -58,7 +59,7 @@ export default function Portfolio() {
 
                   {categoryId === PAGE_KEY_WORD && (
                     <div className='portfolio-tool'>
-                      <button className={`btn btn-outline-primary main-btn`} type="button" onClick={() => { }}>...更多作品</button>
+                      <a className={`btn btn-outline-primary main-btn`} href='#/class/web' onClick={() => { setValueCategory('web') }}>...更多作品</a>
                     </div>
                   )}
                 </div>
