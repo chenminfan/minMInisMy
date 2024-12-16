@@ -3,9 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChessQueen } from '@fortawesome/free-solid-svg-icons'
 import './about.scss'
 
-type Props = {}
-
-export default function About({ }: Props) {
+export default function About() {
   return (
     <div className="container-fluid">
       <div className="row">

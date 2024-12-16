@@ -23,10 +23,10 @@ type dataType = {
 
 export default function PortfolioPage() {
   const RWD_DEVICE = useRWD();
-  const { portfolioId } = useParams();
+  const { categoryId } = useParams();
   const { myDataBase, NAV_LINK, setValueCategory } = useOutletContext<dataType>();
   const PORTFOLIO_BASE = Object.values(myDataBase.portfolio || {})
-  const PORTFOLIO_BASE_ITEM: portfolioProps = PORTFOLIO_BASE.find((item) => item.id === portfolioId)
+  const PORTFOLIO_BASE_ITEM: portfolioProps = PORTFOLIO_BASE.find((item) => (categoryId || '').includes(item.id))
   const NAV_LINK_ICON = NAV_LINK.find((item) => item.name.match(PORTFOLIO_BASE_ITEM?.page))
   const IS_IMAGES: string[] = PORTFOLIO_BASE_ITEM?.imageInfo || []
   useEffect(() => {
@@ -39,8 +39,8 @@ export default function PortfolioPage() {
 
   const SORT = useMemo(() => {
     return [...IS_IMAGES.concat(PORTFOLIO_BASE_ITEM?.imageUrl || [])]
+  }, [PORTFOLIO_BASE_ITEM])
 
-  }, [IS_IMAGES, PORTFOLIO_BASE_ITEM])
   const SHOW_ITEM = RWD_DEVICE !== "mobile" ? 5 : 3;
   const TOTAL_ITEM = SORT.length;
   const AVERAGE_PAGE = Math.ceil(TOTAL_ITEM / SHOW_ITEM) - 1;
@@ -76,6 +76,9 @@ export default function PortfolioPage() {
       })
     }
   }
+
+  console.log(categoryId)
+  console.log(SORT)
   return (
     <div className="page-portfolio">
       <div className="container-xl">
@@ -83,9 +86,9 @@ export default function PortfolioPage() {
           <div className="col">
             <Breadcrumb>
               <BreadcrumbItem itemIcon={NAV_LINK[0].icon} itemLink={NAV_LINK[0].link} />
-              <BreadcrumbItem itemIcon={NAV_LINK_ICON?.icon} itemLink={`#/class/${NAV_LINK_ICON?.link}`} itemName={NAV_LINK_ICON?.name} />
+              <BreadcrumbItem itemIcon={NAV_LINK_ICON?.icon} itemLink={`#/category/${NAV_LINK_ICON?.link}`} itemName={NAV_LINK_ICON?.name} />
               <BreadcrumbItem itemName={PORTFOLIO_BASE_ITEM?.category}
-                itemLink={`#/class/${NAV_LINK_ICON?.link}`}
+                itemLink={`#/category/${NAV_LINK_ICON?.link}`}
                 handleClick={() => { handleLinkClick(PORTFOLIO_BASE_ITEM?.category) }}
               />
               <BreadcrumbItem itemName={PORTFOLIO_BASE_ITEM?.title} itemActive />
@@ -115,9 +118,8 @@ export default function PortfolioPage() {
               {(SORT.length > 0) && (
                 <div className="portfolio-imgInfo">
                   {1 <= indexPage && (
-                    <button className="btn btn-primary portfolio-imgInfo-btn portfolio-imgInfo-btn-pre" onClick={() => handleClickPrev(currentItem - 1)} disabled={0 === indexPage && indexPage <= AVERAGE_PAGE}>
+                    <button className="btn btn-primary portfolio-imgInfo-btn portfolio-imgInfo-btn-pre" type="button" role="button" onClick={() => handleClickPrev(currentItem - 1)} disabled={0 === indexPage && indexPage <= AVERAGE_PAGE}>
                       <FontAwesomeIcon className="mainIcon" icon={RWD_DEVICE !== "desktop" ? faChevronLeft : faChevronUp} size={RWD_DEVICE !== "desktop" ? "sm" : "lg"} />
-
                     </button>
                   )}
 
@@ -132,7 +134,7 @@ export default function PortfolioPage() {
                   </div>
 
                   {(AVERAGE_PAGE > 0 && indexPage < AVERAGE_PAGE) && (
-                    <button className="btn btn-primary portfolio-imgInfo-btn portfolio-imgInfo-btn-next" onClick={() => { handleClickNext(currentItem + 1) }} disabled={indexPage >= AVERAGE_PAGE}>
+                    <button className="btn btn-primary portfolio-imgInfo-btn portfolio-imgInfo-btn-next" type="button" role="button" onClick={() => { handleClickNext(currentItem + 1) }} disabled={indexPage >= AVERAGE_PAGE}>
                       <FontAwesomeIcon className="mainIcon" icon={RWD_DEVICE !== "desktop" ? faChevronRight : faChevronDown} size={RWD_DEVICE !== "desktop" ? "sm" : "lg"} />
 
                     </button >

@@ -16,7 +16,7 @@
     .btn {
       &-group {
         .btn {
-          min-width: 150px;
+          min-width: 100px;
           letter-spacing: 0.8px;
           @include media-breakpoint-down(md) {
             min-width: inherit;

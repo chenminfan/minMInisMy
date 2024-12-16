@@ -19,11 +19,21 @@ type Props = {
 
 export default function CardInfo({ card }: Props) {
   const RWD_DEVICE = useRWD();
-  const StrTitle = card.title.split('｜')
+  const StrTitle = card.title.split('｜');
+  const classWeb = (type) => {
+    switch (type) {
+      case 'WEBSITE':
+        return 'website';
+      case 'WEB DESIGN':
+        return 'webDesign';
+      case 'GRAPHIC DESIGN':
+        return 'graphicDesign'
+    }
+  }
   return (
     <div className="cordInfo-card">
       <div className="cordInfo-box">
-        <a href={`#/portfolio/${card.id}`} className="cordInfo-link">
+        <a href={`#/portfolio/${classWeb(card.page)}${card.id}`} className="cordInfo-link">
           {card.imageUrl ? (
             <div className={`cordInfo-image ${card.category.includes("一頁式") ? 'cordInfo-image-webPage' : ''}`}>
               <div className="img-box">
@@ -57,7 +67,7 @@ export default function CardInfo({ card }: Props) {
           </div>
         </a>
 
-        {card.page! == "WEB" && <div className="cordInfo-tool">
+        {card.page === "WEBSITE" && <div className="cordInfo-tool">
           {card.link && (<a className="btn" href={card.link}><FontAwesomeIcon className="mainIcon" icon={faLink} size='sm' />
           </a>)}
         </div>}
