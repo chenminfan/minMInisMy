@@ -1,8 +1,8 @@
 footer {
   display: flex;
   align-items: flex-end;
-  padding: 8px 0 16px;
-  min-height: 140px;
+  padding: 16px 0;
+  min-height: 80px;
   color: $white;
   background-color: rgba(rgb(192 175 175), $alpha: 0.9);
 
@@ -10,23 +10,33 @@ footer {
     &-list {
       display: flex;
       justify-content: center;
-      margin-bottom: 0;
+      margin-bottom: 4px;
       &-item {
-        padding: 8px;
+        padding: 0 8px;
       }
       &-link {
         color: $white;
+        border-radius: 100%;
+        padding: 0 4px;
+        width: 32px;
       }
     }
-    &-note {
-      font-size: 14px;
-      text-align: center;
-    }
-    &-copyright {
+    &-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       padding: 8px;
       font-size: 14px;
-      text-align: center;
       letter-spacing: 1px;
+      @include media-breakpoint-down(md) {
+        flex-direction: column;
+      }
+      span + span {
+        margin-left: 8px;
+        @include media-breakpoint-down(md) {
+          margin-left: 0;
+        }
+      }
     }
   }
 }

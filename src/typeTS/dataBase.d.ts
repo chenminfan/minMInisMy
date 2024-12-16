@@ -7,7 +7,7 @@ export type portfolioProps = {
   title: string,
   imageUrl: string,
   link: string,
-  imageInfo?: string[],
+  imageInfo?: string[string],
 
 }
 export type infoProps = {
