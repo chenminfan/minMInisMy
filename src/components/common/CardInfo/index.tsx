@@ -68,8 +68,9 @@ export default function CardInfo({ card }: Props) {
         </a>
 
         {card.page === "WEBSITE" && <div className="cordInfo-tool">
-          {card.link && (<a className="btn" href={card.link}><FontAwesomeIcon className="mainIcon" icon={faLink} size='sm' />
-          </a>)}
+          {card.link && (
+            <a className="btn" href={card.link}><FontAwesomeIcon className="mainIcon" icon={faLink} size='sm' /></a>
+          )}
         </div>}
       </div>
     </div >

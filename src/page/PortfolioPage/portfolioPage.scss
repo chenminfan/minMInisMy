@@ -42,7 +42,10 @@
       }
     }
     .detail-breadcrumb {
-      margin-top: 8px;
+      margin-top: 16px;
+      @include media-breakpoint-down(md) {
+        margin-top: 8px;
+      }
       .breadcrumb {
         &-item {
           margin-top: 4px;
@@ -50,12 +53,30 @@
       }
     }
     .portfolio {
+      &-head {
+        display: flex;
+        align-items: center;
+        margin-bottom: 16px;
+        @include media-breakpoint-down(md) {
+          flex-direction: column;
+        }
+      }
       &-info {
         margin: 12px 0;
+        &-link {
+          color: $primary;
+        }
+        &-note {
+          color: $gray-700;
+          font-size: 14px;
+        }
         @include media-breakpoint-down(md) {
           margin: 24px 0;
         }
         &-title {
+          h3 {
+            margin-bottom: 0;
+          }
           @include media-breakpoint-down(md) {
             margin-bottom: 16px;
           }

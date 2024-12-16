@@ -7,7 +7,7 @@ import Carousel from '@components/common/Carousel'
 import LazyLoadImg from "@components/common/LazyLoadImage";
 import { DATABASEProps, portfolioProps } from '@typeTS/dataBase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronUp, faChevronDown, faChevronRight, faChevronLeft } from '@fortawesome/free-solid-svg-icons'
+import { faChevronUp, faChevronDown, faChevronRight, faChevronLeft, faLink } from '@fortawesome/free-solid-svg-icons'
 import './portfolioPage.scss'
 
 type dataType = {
@@ -97,8 +97,18 @@ export default function PortfolioPage() {
         <div className="row">
           <div className="col">
             <div className="portfolio-info">
-              <div className="portfolio-info-title"><h3>{PORTFOLIO_BASE_ITEM?.title}</h3></div>
+              <div className="portfolio-head">
+                <div className="portfolio-info-title">
+                  <h3>{PORTFOLIO_BASE_ITEM?.title}</h3>
+                </div>
+                <div className="portfolio-info-tool">
+                  <a className="portfolio-info-link btn" href={PORTFOLIO_BASE_ITEM?.link}><FontAwesomeIcon className="mainIcon" icon={faLink} size='sm' /></a>
+                  <span className="portfolio-info-note">(部分連結需申請該網站會員登入)</span>
+                </div>
+              </div>
+
               <div className="portfolio-info-content">{PORTFOLIO_BASE_ITEM?.content}</div>
+
             </div>
             <div className="portfolio-carousel">
               <Carousel carouselName="prodCarousel" carouselPre={IS_IMAGES.length > 1} carouselNext={IS_IMAGES.length > 1}>
@@ -107,7 +117,6 @@ export default function PortfolioPage() {
                     <div className={`carousel-item h-100 ${index === 0 && "active"} ${(item.includes('web-page') || item.includes('search-0') || item.includes('height-page') || item.includes('-m-')) && 'item-page'}`} key={`${item}_${index}`} data-bs-interval="10000">
                       <div className="img-box">
                         <LazyLoadImg src={require(`../../assets/image/Portfolio/${item}`)} className="d-block" alt={PORTFOLIO_BASE_ITEM?.title} />
-
                       </div>
                     </div>
                   ))}

@@ -42,6 +42,9 @@ export default function Header(props) {
             {NAV_LINK.map((nav) => (
               <li className='nav-item' key={`nav_${nav.link}`}
                 data-bs-dismiss="offcanvas"
+                onClick={() => {
+                  setValueCategory(nav.name)
+                }}
               >
                 <a
                   className={`nav-link ${location.pathname === `/category/${nav.link}` || (location.pathname === "/" && nav.name === "HOME") || (location.pathname.includes('portfolio') && location.pathname.slice(11).includes(nav.link)) ? 'is-active' : ''}`}
