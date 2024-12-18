@@ -102,8 +102,12 @@ export default function PortfolioPage() {
                   <h3>{PORTFOLIO_BASE_ITEM?.title}</h3>
                 </div>
                 <div className="portfolio-info-tool">
-                  <a className="portfolio-info-link btn" href={PORTFOLIO_BASE_ITEM?.link}><FontAwesomeIcon className="mainIcon" icon={faLink} size='sm' /></a>
-                  <span className="portfolio-info-note">(部分連結需申請該網站會員登入)</span>
+                  {PORTFOLIO_BASE_ITEM?.link && (
+                    <>
+                      <a className="portfolio-info-link btn" href={PORTFOLIO_BASE_ITEM?.link}><FontAwesomeIcon className="mainIcon" icon={faLink} size='sm' /></a><span className="portfolio-info-note">(部分連結需申請該網站會員登入)</span>
+                    </>
+                  )}
+
                 </div>
               </div>
 
