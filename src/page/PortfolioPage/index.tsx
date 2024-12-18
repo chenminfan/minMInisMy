@@ -118,7 +118,7 @@ export default function PortfolioPage() {
               <Carousel carouselName="prodCarousel" carouselPre={IS_IMAGES.length > 1} carouselNext={IS_IMAGES.length > 1}>
                 <div className="carousel-inner h-100">
                   {SORT.length !== 0 && SORT.map((item, index) => (
-                    <div className={`carousel-item h-100 ${index === 0 && "active"} ${(item.includes('web-page') || item.includes('search-0') || item.includes('height-page') || item.includes('-m-')) && 'item-page'}`} key={`${item}_${index}`} data-bs-interval="10000">
+                    <div className={`carousel-item h-100 ${index === 0 && "active"} ${(item.includes('web-page') || item.includes('search-0') || item.includes('height-page') || item.includes('-m-')) && 'carousel-item-page'}`} key={`${item}_${index}`} data-bs-interval="10000">
                       <div className="img-box">
                         <LazyLoadImg src={require(`../../assets/image/Portfolio/${item}`)} className="d-block" alt={PORTFOLIO_BASE_ITEM?.title} />
                       </div>
