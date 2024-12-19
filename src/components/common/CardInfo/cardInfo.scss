@@ -164,6 +164,7 @@ $mobile-M: 12px;
     }
   }
   &-image {
+    position: relative;
     width: 100%;
     border-radius: 8px 8px 0 0;
     transition: 0.35s all;
@@ -171,6 +172,7 @@ $mobile-M: 12px;
       box-shadow: 0 0 3px $gray-400;
     }
     .img-box {
+      position: relative;
       transition: 0.35s all;
       padding-bottom: 100%;
       height: auto;

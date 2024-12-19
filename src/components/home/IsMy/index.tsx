@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faObjectGroup, faPaintbrush, faHouseChimney, faLaptopCode } from '@fortawesome/free-solid-svg-icons'
 import './isMy.scss'
 
-export const TAG = ['HTML', 'SCSS', 'RWD', 'UI', 'figma', 'Adobe XD', 'Zeplin', 'Git/GitHub', 'React', 'Javascript', 'jQuery', 'npm', 'Bootstrap', 'MUI', 'PhotoShop', 'Illustrator', 'Indesign']
+export const TAG = ['HTML', 'SCSS', 'RWD', 'UI', 'figma', 'Adobe XD', 'Zeplin', 'Git/GitHub', 'ReactJs', 'Javascript', 'jQuery', 'storybook', 'TypeScript', 'npm', 'Bootstrap', 'MUI', 'PhotoShop', 'Illustrator', 'Indesign']
 
 export default function IsMy() {
   const TEXTS = ['學技術', '寫程式', '做設計'];
