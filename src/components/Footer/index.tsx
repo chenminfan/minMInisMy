@@ -42,7 +42,10 @@ export default function Footer() {
             </div>
             <div className="footer-info">
               <span className="footer-copyright">© 2024 Copyright <span>MinFan</span> All Rights Reserved.</span>
-              <span className="footer-note">本網站僅供個人作品使用，不提供商業用途</span>
+              <div className="footer-note">
+                <span className="footer-note">本網站作品相關資訊來源於公司官方為主，僅供參考</span>
+                <span className="footer-note">本網站僅供個人作品使用，不提供商業用途</span>
+              </div>
             </div>
 
           </div>

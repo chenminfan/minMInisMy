@@ -20,7 +20,7 @@ export default function About() {
                     </li>
                     <li>
                       <FontAwesomeIcon className="mainIcon" icon={faChessQueen} />
-                      <div className="about-text-p"><span>具有設計及資訊背景</span>，擁有豐富的旅遊電商及電子商務的相關工作8年經歷，<span>熟悉前端及設計相關技術</span>。</div>
+                      <div className="about-text-p"><span>具有設計及資訊背景</span>，擁有豐富的旅遊電商及電子商務的相關工作8年經歷，<span>熟悉前端及設計相關技術及專業能力</span>。</div>
                     </li>
                     <li>
                       <FontAwesomeIcon className="mainIcon" icon={faChessQueen} />
@@ -28,7 +28,7 @@ export default function About() {
                     </li>
                     <li>
                       <FontAwesomeIcon className="mainIcon" icon={faChessQueen} />
-                      <div className="about-text-p"><span>對於新事物、新技術，充滿熱誠，喜歡嘗試，研究</span>，在能力範圍內也樂於助人。</div>
+                      <div className="about-text-p"><span>對於新事物、新技術，充滿熱誠，喜歡嘗試，研究</span>，在能力範圍內也樂於與他人交流技術相關，一直往前端領域邁進。</div>
                     </li>
                   </ul>
                 </div>
@@ -37,7 +37,7 @@ export default function About() {
                   </p>
                 </div>
                 <div className='about-text-p'>
-                  <p>曾<span>任職於PChome前端設計部，擔任資深工程師</span>，參與過各大平台和活動網站的設計與開發，包括近三年的Apple iPhone保險活動網站，PChome前後台維運及前台翻新等切版及撰寫畫面呈現的程式工作事宜。</p>
+                  <p>曾<span>任職於PChome前端設計部，從網頁設計師－＞資深工程師</span>，參與過各大平台和活動網站的設計與開發，包括PChome前後台維運及前台翻新等切版及撰寫畫面呈現的專案，近三年的Apple iPhone保險活動網站工作事宜。</p>
                   <p>以Scrum敏捷開發流程進行專案，與Master/ PO/ 設計/ 前端、後端工程師等單位工作協作，於專案上掌握度優異，與主管討論，協助組內相關管理事宜及為帶領翻新的頁面的整體網站架構及UI系統規劃等相關經驗。</p>
                 </div>
               </div>

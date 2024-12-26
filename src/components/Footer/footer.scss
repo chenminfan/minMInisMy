@@ -21,16 +21,25 @@ footer {
         width: 32px;
       }
     }
+    &-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-top: 8px;
+    }
     &-info {
       display: flex;
       align-items: center;
       justify-content: center;
+      flex-direction: column;
       padding: 8px;
       font-size: 14px;
       letter-spacing: 1px;
       @include media-breakpoint-down(md) {
         flex-direction: column;
       }
+
       span + span {
         margin-left: 8px;
         @include media-breakpoint-down(md) {

@@ -300,7 +300,7 @@
     &-title {
       display: inline-flex;
       padding: 2px 8px;
-      margin-bottom: 4px;
+      margin-bottom: 8px;
       color: $white;
       border-radius: 8px;
       background-color: $primary;
@@ -315,6 +315,9 @@
   }
   &-info {
     padding: 8px;
+    &-content {
+      margin: 8px 0;
+    }
     h5 {
       margin-bottom: 8px;
       color: $primary;

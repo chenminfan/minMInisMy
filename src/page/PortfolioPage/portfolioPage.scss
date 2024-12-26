@@ -1,5 +1,6 @@
 .page {
   &-portfolio {
+    margin: 0 32px 32px;
     .carousel {
       width: 100%;
       height: 560px;
@@ -7,7 +8,7 @@
       .img-box {
         img {
           width: auto;
-          height: auto;
+          height: 100%;
           margin: auto;
         }
         span {
@@ -27,11 +28,14 @@
         &-page {
           overflow-y: auto;
           .img-box {
-            padding-bottom: 100%;
+            max-width: calc(100% - 30rem);
             min-height: 100%;
+            padding-bottom: 100%;
+            margin: auto;
             overflow: visible;
             img {
               width: 100%;
+              height: auto;
             }
           }
           span {
