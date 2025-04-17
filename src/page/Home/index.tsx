@@ -6,10 +6,12 @@ import Work from '@components/home/Work'
 import Portfolio from '@components/home/Portfolio'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faUpLong } from '@fortawesome/free-solid-svg-icons'
+import { useGTM } from '@utils/useGTM';
 import './home.scss'
 
 const Home = () => {
   const [windowHeight]: number[] = useScreen();
+  const { pushToDataLayer } = useGTM();
   const [navId, setNavId] = useState<string>('')
   const NAV_LINK = [
     { name: '關於我', link: '#About' },
@@ -21,11 +23,13 @@ const Home = () => {
     let scrollDOM = document.getElementById(hashName.link.substring(1))
     setScrollHeight(scrollDOM?.offsetTop || 0)
   }
+
   useEffect(() => {
     if (scrollHeight !== 0) {
       window.scrollTo(0, scrollHeight - 56)
     }
   }, [scrollHeight])
+
 
   return (
     <div className='home-page' data-bs-smooth-scroll="true">
@@ -67,6 +71,11 @@ const Home = () => {
               onClick={() => {
                 scrollToAnchor(nav)
                 setNavId(nav.link)
+                pushToDataLayer({
+                  event: 'buttonClick',
+                  buttonText: nav.name,
+                  userId: 456,
+                });
               }}
             >{nav.name}</button>
           ))}
