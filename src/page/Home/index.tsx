@@ -67,7 +67,7 @@ const Home = () => {
       <div className="ui-top">
         <div className={`btn-group-vertical ${windowHeight > 300 ? 'is-animation' : ''}`} role="group" aria-label="Vertical button group">
           {NAV_LINK.map((nav) => (
-            <button key={`nav_${nav.link}`} type="button" className={`btn btn-sm btn-primary ${nav.link === navId ? 'active' : ''}`}
+            <button key={`nav_${nav.link}`} type="button" className={`btn btn-sm btn-primary ${nav.link === navId ? 'active' : ''}`} id="GTM_button"
               onClick={() => {
                 scrollToAnchor(nav)
                 setNavId(nav.link)
