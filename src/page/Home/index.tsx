@@ -19,20 +19,35 @@ const Home = ({ isBlocked }) => {
     { name: '經歷', link: '#Work' }
   ]
   const [scrollHeight, setScrollHeight] = useState(0)
-  const scrollToAnchor = (hashName) => {
-    let scrollDOM = document.getElementById(hashName.link.substring(1))
-    setScrollHeight(scrollDOM?.offsetTop || 0)
-  }
+  const scrollToAnchor = (hashName: string = '#About') => {
+    const domId = hashName.startsWith('#') ? hashName.substring(1) : hashName;
+    const scrollDOM = document.getElementById(domId);
+
+    if (scrollDOM) {
+      setScrollHeight(scrollDOM.offsetTop);
+      scrollDOM.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' }); // fallback
+    }
+  };
+
 
   useEffect(() => {
-    if (scrollHeight !== 0) {
-      window.scrollTo(0, scrollHeight - 56)
+    const dom = document.getElementById("About");
+    const offset = dom?.offsetTop || 0;
+
+    if (scrollHeight === 0 && offset !== 0) {
+      setScrollHeight(offset);
+      window.scrollTo({ top: offset - 56, behavior: "smooth" });
     }
   }, [scrollHeight])
   const filteredNav = isBlocked
     ? NAV_LINK.filter((nav) => nav.name !== '關於我')
     : NAV_LINK;
 
+  console.log(windowHeight)
+  console.log("scrollHeight" + scrollHeight)
+  const windowHeightBlack = isBlocked ? true : (windowHeight > 900 || (windowHeight > scrollHeight))
   return (
     <div className='home-page' data-bs-smooth-scroll="true">
       {isBlocked ? <section className='section-null'>
@@ -48,11 +63,11 @@ const Home = ({ isBlocked }) => {
         </section>
       </>)}
 
-      <section id="Portfolio" className={`home-section home-section-portfolio ${(isBlocked || windowHeight > scrollHeight) || windowHeight > 1000 ? 'is-show' : ''}`}>
+      <section id="Portfolio" className={`home-section home-section-portfolio ${windowHeightBlack ? 'is-show' : ''}`}>
         <Portfolio />
       </section>
 
-      <section id="Work" className={`home-section home-section-work ${isBlocked || windowHeight > scrollHeight || windowHeight > 2400 ? 'is-show' : ''}`}>
+      <section id="Work" className={`home-section home-section-work ${windowHeight > scrollHeight || (isBlocked && windowHeight > 2400) ? 'is-show' : ''}`}>
         <div className="home-section-box">
           <div className="container-fluid">
             <div className="row">
@@ -77,7 +92,7 @@ const Home = ({ isBlocked }) => {
             return (
               <button key={`nav_${nav.link}`} type="button" className={`btn btn-sm btn-primary ${nav.link === navId ? 'active' : ''}`} id="GTM_button"
                 onClick={() => {
-                  scrollToAnchor(nav)
+                  scrollToAnchor(nav.link)
                   setNavId(nav.link)
                   pushToDataLayer({
                     event: 'buttonClick',

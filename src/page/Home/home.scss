@@ -58,8 +58,8 @@
         left: 0;
         right: 0;
         width: 100%;
-        height: 300px;
-        background: linear-gradient(to top, $white, transparent);
+        height: 200px;
+        background: linear-gradient(to top, #f0eeec, transparent);
         @include media-breakpoint-down(md) {
           background-position-x: -130px;
         }
