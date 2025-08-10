@@ -1,5 +1,6 @@
 .home {
   &-page {
+    background-color: #f0eeec;
     .tag {
       &-list {
         display: flex;
@@ -39,6 +40,7 @@
     }
     &-first {
       padding-top: 56px;
+      z-index: 2;
       h2 {
         font-family: 'Caveat', cursive;
         font-size: 68px;
@@ -56,8 +58,8 @@
         left: 0;
         right: 0;
         width: 100%;
-        height: 300px;
-        background: linear-gradient(to top, $white, transparent);
+        height: 200px;
+        background: linear-gradient(to top, #f0eeec, transparent);
         @include media-breakpoint-down(md) {
           background-position-x: -130px;
         }
@@ -150,7 +152,7 @@
       }
     }
     &-portfolio {
-      background-color: rgb(173 163 157 / 10%);
+      background: linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0%, rgba(173, 163, 157, 0.1) 100%);
     }
     &-portfolio & {
       &-box {
@@ -221,6 +223,46 @@
     }
   }
 }
+.section-null {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 100px 0;
+  min-height: inherit;
+  color: $secondary;
+  font-size: 20px;
+  font-weight: 500;
+  // min-height: 500px;
+  z-index: 2;
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    z-index: -1;
+    background: url('../../assets/image/background/background-01.jpg');
+    background-size: cover;
+  }
+  &::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(0deg, rgb(233 231 228) 60%, rgba(255, 255, 255, 0) 100%);
+    @include media-breakpoint-down(md) {
+      background-position-x: -130px;
+    }
+  }
+}
+
 .ui-top {
   position: fixed;
   bottom: 50%;

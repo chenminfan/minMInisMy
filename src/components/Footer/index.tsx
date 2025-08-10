@@ -14,16 +14,16 @@ export default function Footer() {
             <div className='footer-info-link'>
               <ul className="footer-list">
                 <li className='footer-list-item'>
-                  <a href="#" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faSquareGithub} size='sm' /></a>
+                  <a href="https://github.com/chenminfan/minMInisMy" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faSquareGithub} size='sm' /></a>
                 </li>
                 <li className='footer-list-item'>
-                  <a href="#" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faCodepen} size='sm' /></a>
+                  <a href="https://codepen.io/minfan-chen" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faCodepen} size='sm' /></a>
                 </li>
                 <li className='footer-list-item'>
-                  <a href="#" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faEnvelope} size='sm' /></a>
+                  <a href="mailto:mingfan1202job@gmail.com" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faEnvelope} size='sm' /></a>
                 </li>
                 <li className='footer-list-item'>
-                  <a href="#" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faGlobe} size='sm' /></a>
+                  <a href="https://chenminfan.github.io/purchaseTogether-dev/" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faGlobe} size='sm' /></a>
                 </li>
                 {/* <li>
               <FontAwesomeIcon icon={faNpm} />
