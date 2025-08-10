@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/minMInisMy/static/css/main.25918ab4.css",
-    "main.js": "/minMInisMy/static/js/main.85e4ad5d.js",
+    "main.css": "/minMInisMy/static/css/main.19cdf556.css",
+    "main.js": "/minMInisMy/static/js/main.25a28875.js",
     "static/js/453.2dd4b2ff.chunk.js": "/minMInisMy/static/js/453.2dd4b2ff.chunk.js",
     "static/media/LionTravel-1.png": "/minMInisMy/static/media/LionTravel-1.be14099f90afa90c1666.png",
     "static/media/web-page-7.jpg": "/minMInisMy/static/media/web-page-7.c163d5d1418be9cea93f.jpg",
@@ -92,7 +92,7 @@
     "index.html": "/minMInisMy/index.html"
   },
   "entrypoints": [
-    "static/css/main.25918ab4.css",
-    "static/js/main.85e4ad5d.js"
+    "static/css/main.19cdf556.css",
+    "static/js/main.25a28875.js"
   ]
 }
