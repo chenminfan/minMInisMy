@@ -4,11 +4,11 @@ import Home from '@page/Home';
 import PortfolioClass from '@app/page/PortfolioClass';
 import PortfolioPage from '@page/PortfolioPage';
 
-export default function App() {
+export default function App({ isBlocked }) {
   return (
     <Routes>
       <Route element={<Main />} >
-        <Route path='/' element={<Home />}></Route>
+        <Route path='/' element={<Home isBlocked={isBlocked} />}></Route>
         <Route path='/category/:portfolioId' element={<PortfolioClass />}></Route>
         <Route path='/portfolio/:categoryId' element={<PortfolioPage />}></Route>
       </Route >
