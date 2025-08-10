@@ -9,6 +9,22 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+const shouldRestrict = process.env.REACT_APP_PREVIEW_RESTRICT === 'true';
+const allowedDomains = ['localhost', '192.168.50.101'];
+const isAllowed = allowedDomains.some(domain =>
+  window.location.hostname.includes(domain)
+);
+
+const Blocked = () => (
+  <div style={{ padding: '2rem', textAlign: 'center' }}>
+    🔒 目前暫無開放。
+  </div>
+);
+
+const AppWrapper = () => {
+  if (shouldRestrict && !isAllowed) return <Blocked />;
+  return <App />;
+};
 
 root.render(
   // <React.StrictMode>
@@ -17,7 +33,7 @@ root.render(
     v7_startTransition: true,
     v7_relativeSplatPath: true,
   }}>
-    <App />
+    <AppWrapper />
   </HashRouter>
 );
 
