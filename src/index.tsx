@@ -11,7 +11,9 @@ const root = ReactDOM.createRoot(
 );
 const shouldRestrict = process.env.REACT_APP_PREVIEW_RESTRICT === 'true';
 const allowedDomains = ['192.168.50.101'];
-const isAllowed = allowedDomains.some(domain => location.hostname.includes(domain));
+const isAllowed = allowedDomains.some(domain =>
+  window.location.hostname.includes(domain)
+);
 
 const Blocked = () => (
   <div style={{ padding: '2rem', textAlign: 'center' }}>
