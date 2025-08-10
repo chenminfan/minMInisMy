@@ -4,11 +4,36 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 import { useLocation } from 'react-router-dom'
 import './header.scss';
 
-export default function Header(props) {
+type Props = {
+  NAV_LINK?: any,
+  setValueCategory?: any,
+}
+export default function Header(props: Props) {
   const { NAV_LINK, setValueCategory } = props;
   const location = useLocation();
+  if (!setValueCategory) {
+    return (
+      <header className='header header-null'>
+        <nav className="navbar">
+          <ul className="navbar-nav">
+            {NAV_LINK.map((nav) => (
+              <li className='nav-item' key={`nav_${nav.link}`} onClick={() => {
+                setValueCategory(nav.name)
+              }}>
+                <a
+                  className={`nav-link ${location.pathname === `/category/${nav.link}` || (location.pathname === "/" && nav.name === "HOME") || (location.pathname.includes('portfolio') && location.pathname.slice(11).includes(nav.link)) ? 'is-active' : ''}`}
+                  href={(nav.link === '#') ? '#' : `#/category/${nav.link}`}
+                >{nav.icon}{nav.name}</a>
+              </li>
+            ))}
+          </ul>
+
+        </nav>
+      </header>
+    )
+  }
   return (
-    <header className="isNavCollapsed">
+    <header className="header isNavCollapsed">
       <nav className="navbar">
         <div className="container-fluid">
 
