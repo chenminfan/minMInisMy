@@ -33,7 +33,16 @@ module.exports = override(
     }
   }),
   (config) => {
-    if (process.env.NODE_ENV === "production") config.devtool = false;
+    // 🔒 根據環境變數設定 publicPath
+    const restrictPreview = process.env.REACT_APP_PREVIEW_RESTRICT === 'true';
+    if (restrictPreview) {
+      config.output.publicPath = '/restricted/';
+    }
+
+    if (process.env.NODE_ENV === 'production') {
+      config.devtool = false;
+    }
+    // if (process.env.NODE_ENV === "production") config.devtool = false;
 
     return config
   },
