@@ -1,4 +1,30 @@
 header {
+  &.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    width: 100%;
+    background-color: rgba($primary, 0.2);
+    &-null {
+      display: flex;
+      justify-content: center;
+      + main {
+        height: auto;
+        min-height: calc(100vh - 207px);
+        section {
+          display: flex;
+          justify-content: center;
+          padding: 150px 0;
+          min-height: inherit;
+          color: $secondary;
+          font-size: 20px;
+          font-weight: 500;
+        }
+      }
+    }
+  }
   .nav {
     &-link {
       display: flex;
@@ -55,14 +81,8 @@ header {
   }
 
   .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 999;
     box-shadow: 0px 0px 3px $gray-500;
     backdrop-filter: blur(20px);
-    background-color: rgba($primary, 0.2);
     &-nav {
       &-header {
         display: flex;

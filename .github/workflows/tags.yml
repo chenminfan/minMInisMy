@@ -9,6 +9,7 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     env:
+      REACT_APP_PREVIEW_RESTRICT: true
       REACT_APP_FIREBASE_API: ${{ secrets.REACT_APP_FIREBASE_API }}
       REACT_APP_FIREBASE_APP_ID: ${{ secrets.REACT_APP_FIREBASE_APP_ID }}
       REACT_APP_FIREBASE_DB_URL: ${{ secrets.REACT_APP_FIREBASE_DB_URL }}
@@ -17,7 +18,6 @@ jobs:
       REACT_APP_FIREBASE_MESSAGING: ${{ secrets.REACT_APP_FIREBASE_MESSAGING }}
       REACT_APP_FIREBASE_PROJECT: ${{ secrets.REACT_APP_FIREBASE_PROJECT }}
       REACT_APP_FIREBASE_STORAGE_BUCKET: ${{ secrets.REACT_APP_FIREBASE_STORAGE_BUCKET }}
-      DEPLOY_SECRET: ${{ secrets.DEPLOY_SECRET }}
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v3
