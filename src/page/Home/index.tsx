@@ -19,28 +19,40 @@ const Home = ({ isBlocked }) => {
     { name: '經歷', link: '#Work' }
   ]
   const [scrollHeight, setScrollHeight] = useState(0)
-  const scrollToAnchor = (hashName: string = '#About') => {
-    const domId = hashName.startsWith('#') ? hashName.substring(1) : hashName;
-    const scrollDOM = document.getElementById(domId);
-
-    if (scrollDOM) {
-      setScrollHeight(scrollDOM.offsetTop);
-      scrollDOM.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      window.scrollTo({ top: 0, behavior: 'smooth' }); // fallback
+  const scrollToAnchor = (sectionId) => {
+    const domId = sectionId.startsWith('#') ? sectionId.substring(1) : sectionId;
+    const element = document.getElementById(domId);
+    if (element) {
+      const offsetTop = element.offsetTop - 56; // 減去導航欄高度
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
     }
   };
 
 
   useEffect(() => {
-    const dom = document.getElementById("About");
-    const offset = dom?.offsetTop || 0;
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY + 100; // 偏移量
 
-    if (scrollHeight === 0 && offset !== 0) {
-      setScrollHeight(offset);
-      window.scrollTo({ top: offset - 56, behavior: "smooth" });
-    }
-  }, [scrollHeight])
+      NAV_LINK.forEach(({ link }) => {
+        const element = document.getElementById(link);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetBottom = offsetTop + element.offsetHeight;
+
+          if (scrollPosition >= offsetTop && scrollPosition < offsetBottom) {
+            setNavId(link);
+          }
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   const filteredNav = isBlocked
     ? NAV_LINK.filter((nav) => nav.name !== '關於我')
     : NAV_LINK;
