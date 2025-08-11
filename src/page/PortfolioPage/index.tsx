@@ -1,5 +1,9 @@
-import React, { useEffect, useState, useMemo } from 'react'
+import React, { useRef, useEffect, useState, useMemo } from 'react'
 import { useParams, useOutletContext } from 'react-router-dom'
+import { Swiper, SwiperSlide } from 'swiper/react';
+import type { Swiper as SwiperOptions } from 'swiper/types';
+import type { Swiper as SwiperType } from 'swiper/types';
+import { FreeMode, Thumbs, Navigation, Autoplay, Pagination } from 'swiper/modules';
 import { useRWD } from '@hook/useRWD'
 import Breadcrumb from "@components/common/BreadCrumb";
 import BreadcrumbItem from "@components/common/BreadCrumb/BreadcrumbItem";
@@ -9,6 +13,11 @@ import { DATABASEProps, portfolioProps } from '@typeTS/dataBase'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronUp, faChevronDown, faChevronRight, faChevronLeft, faLink } from '@fortawesome/free-solid-svg-icons'
 import './portfolioPage.scss'
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/free-mode';
+import 'swiper/css/navigation';
+import 'swiper/css/thumbs';
 
 type dataType = {
   myDataBase: DATABASEProps,
@@ -22,6 +31,8 @@ type dataType = {
 }
 
 export default function PortfolioPage() {
+  const swiperRef = useRef<SwiperType | null>(null);
+  const [thumbsSwiper, setThumbsSwiper] = useState<SwiperType | null>(null);
   const RWD_DEVICE = useRWD();
   const { categoryId } = useParams();
   const { myDataBase, NAV_LINK, setValueCategory } = useOutletContext<dataType>();
@@ -76,9 +87,47 @@ export default function PortfolioPage() {
       })
     }
   }
+  const swiperModules = {
+    thumbs: [FreeMode, Navigation, Thumbs],
+    mobile: [Autoplay, Pagination],
+    desktop: [Autoplay, Pagination],
+  };
+
+  const modules = [
+    ...(swiperModules[RWD_DEVICE] ?? []),
+    ...(thumbsSwiper ? swiperModules.thumbs : []),
+  ];
+
+  const swiperConfig: SwiperOptions = {
+    slidesPerView: 1,
+    spaceBetween:
+      RWD_DEVICE === 'mobile' ? 16 :
+        RWD_DEVICE === 'tablet' ? 24 : 32,
+
+    allowTouchMove: RWD_DEVICE !== 'desktop',
+    loop: true,
+
+    navigation: RWD_DEVICE !== 'mobile',
+
+    autoplay: RWD_DEVICE === 'mobile'
+      ? {
+        delay: 2000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true,
+      }
+      : undefined,
+
+    ...(thumbsSwiper && {
+      thumbs: { swiper: thumbsSwiper },
+    }),
+
+    modules,
+  };
+
+
 
   return (
-    <div className="page-portfolio">
+    <div className="page-portfolio" >
       <div className="container-xl">
         <div className="row">
           <div className="col">
@@ -115,8 +164,56 @@ export default function PortfolioPage() {
 
             </div>
             <div className="portfolio-carousel">
-              <Carousel carouselName="prodCarousel" carouselPre={IS_IMAGES.length > 1} carouselNext={IS_IMAGES.length > 1}>
+              <Swiper
+                slidesPerView={swiperConfig.slidesPerView}
+                spaceBetween={swiperConfig.spaceBetween}
+                pagination={RWD_DEVICE === 'mobile' ? { clickable: true } : false}
+                //不讓使用者觸碰移動slide
+                allowTouchMove={swiperConfig.allowTouchMove}
+                //反覆循環
+                loop={swiperConfig.loop}
+                //投影片之間的過渡持續時間（以毫秒為單位），數字愈大跑愈慢
+                speed={5500}
+                autoplay={swiperConfig.autoplay}
+                modules={swiperConfig.modules}
+                thumbs={swiperConfig.thumbs}
+                className="mySwiper carousel"
+              >
+                {SORT.length !== 0 && SORT.map((item, index) => (
+                  <SwiperSlide key={`${item}_${index}`}>
+                    <div className={`w-100 h-100 ${index === 0 && "active"} ${(item.includes('web-page') || item.includes('search-0') || item.includes('height-page') || item.includes('-m-')) && 'carousel-item-page'}`} key={`${item}_${index}`} data-bs-interval="10000">
+                      <div className="img-box">
+                        <LazyLoadImg src={require(`../../assets/image/Portfolio/${item}`)} className="d-block" alt={PORTFOLIO_BASE_ITEM?.title} />
+                      </div>
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+
+              <div className="portfolio-imgInfo">
+                <Swiper
+                  onSwiper={setThumbsSwiper}
+                  spaceBetween={0}
+                  slidesPerView={5}
+                  freeMode={true}
+                  watchSlidesProgress={true}
+                  modules={[FreeMode, Navigation, Thumbs]}
+                  className="mySwiper portfolio-imgInfo-imageList"
+                >
+                  {SORT.length !== 0 && SORT.map((item, index) => (
+                    <SwiperSlide key={`${item}_${index}`}>
+                      <div className={`${index === 0 && "active"} ${(item.includes('web-page') || item.includes('search-0') || item.includes('height-page') || item.includes('-m-')) && 'carousel-item-page'}`} key={`${item}_${index}`} data-bs-interval="10000">
+                        <div className="img-box">
+                          <LazyLoadImg src={require(`../../assets/image/Portfolio/${item}`)} className="d-block" alt={PORTFOLIO_BASE_ITEM?.title} />
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+              {/* <Carousel carouselName="prodCarousel" carouselPre={IS_IMAGES.length > 1} carouselNext={IS_IMAGES.length > 1}>
                 <div className="carousel-inner h-100">
+
                   {SORT.length !== 0 && SORT.map((item, index) => (
                     <div className={`carousel-item h-100 ${index === 0 && "active"} ${(item.includes('web-page') || item.includes('search-0') || item.includes('height-page') || item.includes('-m-')) && 'carousel-item-page'}`} key={`${item}_${index}`} data-bs-interval="10000">
                       <div className="img-box">
@@ -124,9 +221,10 @@ export default function PortfolioPage() {
                       </div>
                     </div>
                   ))}
+
                 </div>
-              </Carousel>
-              {SORT.length > 1 && (
+              </Carousel> */}
+              {/* {SORT.length > 1 && (
                 <div className="portfolio-imgInfo">
                   {1 <= indexPage && (
                     <button className="btn btn-primary portfolio-imgInfo-btn portfolio-imgInfo-btn-pre" type="button" role="button" onClick={() => handleClickPrev(currentItem - 1)} disabled={0 === indexPage && indexPage <= AVERAGE_PAGE}>
@@ -151,12 +249,13 @@ export default function PortfolioPage() {
                     </button >
                   )}
                 </div>
-              )}
+              )} */}
             </div>
+
 
           </div>
         </div>
       </div>
-    </div>
+    </div >
   )
 }

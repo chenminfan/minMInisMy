@@ -1,0 +1,35 @@
+.swiper {
+  width: 100%;
+  height: 100%;
+  &-wrapper {
+    // 滑動屬性
+    transition-timing-function: linear !important;
+  }
+  &-slide {
+    // text-align: center;
+    // /* Center slide text vertically */
+    // display: flex;
+    // justify-content: center;
+    // align-items: center;
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &-pagination-bullet {
+    width: 16px;
+    height: 4px;
+    border-radius: 16px;
+    background-color: $primary;
+    &-active {
+      background-color: $primary-bg-subtle;
+    }
+  }
+  &-horizontal & {
+    &-pagination {
+      position: unset;
+    }
+  }
+}
