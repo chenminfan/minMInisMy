@@ -1,9 +1,9 @@
-import React from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGlobe, faEnvelope } from '@fortawesome/free-solid-svg-icons'
-import { faSquareGithub, faCodepen, faNpm, faYarn, faReact, faFontAwesome, faJs, faBootstrap, faHtml5, faSass, faCss3Alt, faCss, faUnsplash } from '@fortawesome/free-brands-svg-icons'
+import React from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGlobe, faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faSquareGithub, faCodepen, faNpm, faYarn, faReact, faFontAwesome, faJs, faBootstrap, faHtml5, faSass, faCss3Alt, faCss, faUnsplash } from '@fortawesome/free-brands-svg-icons';
 
-import './footer.scss'
+import './footer.scss';
 
 export default function Footer() {
   return (
@@ -14,16 +14,33 @@ export default function Footer() {
             <div className='footer-info-link'>
               <ul className="footer-list">
                 <li className='footer-list-item'>
-                  <a href="https://github.com/chenminfan/minMInisMy" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faSquareGithub} size='sm' /></a>
+                  <a
+                    href="https://github.com/chenminfan/minMInisMy"
+                    className='footer-list-link btn btn-outline-light main-btn'
+                    data-gtm-id-name="footer-codepen"
+                    target="_blank"
+                  ><FontAwesomeIcon icon={faSquareGithub} size='sm' /></a>
                 </li>
                 <li className='footer-list-item'>
-                  <a href="https://codepen.io/minfan-chen" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faCodepen} size='sm' /></a>
+                  <a href="https://codepen.io/minfan-chen"
+                    className='footer-list-link btn btn-outline-light main-btn'
+                    data-gtm-id-name="footer-codepen"
+                    target="_blank"
+                  ><FontAwesomeIcon icon={faCodepen} size='sm' /></a>
                 </li>
                 <li className='footer-list-item'>
-                  <a href="mailto:mingfan1202job@gmail.com" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faEnvelope} size='sm' /></a>
+                  <a href="mailto:mingfan1202job@gmail.com"
+                    className='footer-list-link btn btn-outline-light main-btn'
+                    data-gtm-id-name="footer-mail"
+                    target="_blank"
+                  ><FontAwesomeIcon icon={faEnvelope} size='sm' /></a>
                 </li>
                 <li className='footer-list-item'>
-                  <a href="https://chenminfan.github.io/purchaseTogether-dev/" className='footer-list-link btn btn-outline-light main-btn'><FontAwesomeIcon icon={faGlobe} size='sm' /></a>
+                  <a href="https://chenminfan.github.io/purchaseTogether-dev/"
+                    className='footer-list-link btn btn-outline-light main-btn'
+                    data-gtm-id-name="footer-github"
+                    target="_blank"
+                  ><FontAwesomeIcon icon={faGlobe} size='sm' /></a>
                 </li>
                 {/* <li>
               <FontAwesomeIcon icon={faNpm} />
@@ -52,5 +69,5 @@ export default function Footer() {
         </div>
       </div>
     </footer >
-  )
+  );
 }
