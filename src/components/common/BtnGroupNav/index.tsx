@@ -1,11 +1,11 @@
-import React, { useState, useMemo } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons'
+import React, { useState, useMemo } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
 import './btnGroupNav.scss';
 
 type arrayData = {
   category: string,
-}
+};
 type Props = {
   isTool: boolean,
   navArray: arrayData[],
@@ -13,15 +13,15 @@ type Props = {
   navOrder: string[],
   valueCategory: string,
   setValueCategory: (string) => void,
-  SHOW_ITEM: number
-}
+  SHOW_ITEM: number;
+};
 
 export default function BtnGroupNav(props: Props) {
-  const { isTool, navArray, PAGE_KEY_WORD, navOrder, valueCategory, setValueCategory = () => { }, SHOW_ITEM = 5 } = props
+  const { isTool, navArray, PAGE_KEY_WORD, navOrder, valueCategory, setValueCategory = () => { }, SHOW_ITEM = 5 } = props;
   const handleClickPrev = (value) => {
-    setIndexPage(Math.ceil(value / SHOW_ITEM) === 1 ? 0 : Math.ceil(value / SHOW_ITEM - 1))
+    setIndexPage(Math.ceil(value / SHOW_ITEM) === 1 ? 0 : Math.ceil(value / SHOW_ITEM - 1));
     if (indexPage <= AVERAGE_PAGE) {
-      setCurrentItem(0)
+      setCurrentItem(0);
     } else {
       setCurrentItem((value) => {
         if (value >= TOTAL_ITEM - 1) {
@@ -29,14 +29,14 @@ export default function BtnGroupNav(props: Props) {
         } else {
           return value - SHOW_ITEM;
         }
-      })
+      });
     }
 
-  }
+  };
   const handleClickNext = (value) => {
-    setIndexPage(Math.ceil(value / SHOW_ITEM))
+    setIndexPage(Math.ceil(value / SHOW_ITEM));
     if (indexPage >= AVERAGE_PAGE) {
-      setCurrentItem(currentItem)
+      setCurrentItem(currentItem);
     } else {
       setCurrentItem((value) => {
         if (value >= TOTAL_ITEM - 1) {
@@ -44,22 +44,22 @@ export default function BtnGroupNav(props: Props) {
         } else {
           return value + SHOW_ITEM;
         }
-      })
+      });
     }
-  }
+  };
 
   const NAV_ORDER_SORT = useMemo(() => {
     return [...navArray]
       .filter((workItem) => {
         if (navOrder.length > 0 && valueCategory !== '') {
-          return navOrder.find((item: string) => (workItem.category).includes(item))
+          return navOrder.find((item: string) => (workItem.category).includes(item));
         } else {
-          return workItem.category
+          return workItem.category;
         }
-      })
-  }, [navArray, navOrder, valueCategory])
+      });
+  }, [navArray, navOrder, valueCategory]);
 
-  const PORTFOLIO_ID = Array.from(new Set(NAV_ORDER_SORT.map((workItem) => workItem.category)))
+  const PORTFOLIO_ID = Array.from(new Set(NAV_ORDER_SORT.map((workItem) => workItem.category)));
   const AVERAGE_PAGE = Math.ceil(PORTFOLIO_ID.length / SHOW_ITEM) - 1;
   const TOTAL_ITEM = navArray.length;
   const [currentItem, setCurrentItem] = useState<number>(0);
@@ -68,7 +68,19 @@ export default function BtnGroupNav(props: Props) {
   return (
     <div className="btnGroupNav">
       {isTool && 1 <= indexPage && (
-        <button className="btn btnGroupNav-btn" role="button" onClick={() => handleClickPrev(currentItem - 1)} disabled={0 === indexPage && indexPage <= AVERAGE_PAGE}>
+        <button className="btn btnGroupNav-btn" role="button"
+          onClick={() => {
+            handleClickPrev(currentItem - 1);
+            window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              event: 'GA4_btnGroupNav',
+              form_type: 'contact-us',
+              form_location: 'Maldive-tour-page'
+            });
+
+          }}
+          disabled={0 === indexPage && indexPage <= AVERAGE_PAGE}
+        >
           <FontAwesomeIcon className="mainIcon" icon={faChevronLeft} size="lg" />
         </button>
       )}
@@ -76,10 +88,34 @@ export default function BtnGroupNav(props: Props) {
         {isTool && ((indexPage !== 0) && (indexPage <= AVERAGE_PAGE)) && <div className="btn-text"><span>...</span></div>}
 
         <div className="btn-group">
-          {indexPage === 0 && <button className={`btn btn-outline-primary main-btn ${valueCategory === PAGE_KEY_WORD ? 'active' : ''}`} type="button" onClick={() => setValueCategory(PAGE_KEY_WORD)}>{`${PAGE_KEY_WORD} ALL`}</button>}
+          {indexPage === 0 && <button className={`btn btn-outline-primary main-btn ${valueCategory === PAGE_KEY_WORD ? 'active' : ''}`} type="button"
+            onClick={() => {
+              setValueCategory(PAGE_KEY_WORD);
+              window.dataLayer = window.dataLayer || [];
+              window.dataLayer.push({
+                event: 'GA4_btnGroupNav',
+                nav_button_name: 'GA4_btnGroupNav_all',
+                nav_button_position: 'top-one'
+
+              });
+            }}
+          >{`${PAGE_KEY_WORD} ALL`}</button>}
 
           {PORTFOLIO_ID.slice(0 + currentItem, SHOW_ITEM + currentItem).map((category: string, index) => (
-            <button type='button' className={`btn btn-outline-primary main-btn  ${category === valueCategory ? 'active' : ''}`} key={`category_${index}`} aria-current="page" onClick={() => setValueCategory(category)} >{category}</button>
+            <button
+              type='button'
+              className={`btn btn-outline-primary main-btn ${category === valueCategory ? 'active' : ''}`}
+              key={`category_${index}`} aria-current="page"
+              onClick={() => {
+                setValueCategory(category);
+                window.dataLayer = window.dataLayer || [];
+                window.dataLayer.push({
+                  event: `GA4_btnGroupNav`,
+                  nav_button_name: `GA4_btnGroupNav_${index}`,
+                  nav_button_position: `GA4_btnGroupNav_${index}`
+                });
+              }}
+            >{category}</button>
           ))}
         </div>
 
@@ -87,10 +123,10 @@ export default function BtnGroupNav(props: Props) {
       </nav>
 
       {isTool && (AVERAGE_PAGE > 0 && indexPage < AVERAGE_PAGE) && (
-        <button className="btn btnGroupNav-btn" role="button" onClick={() => { handleClickNext(currentItem + 1) }} disabled={indexPage >= AVERAGE_PAGE}>
+        <button className="btn btnGroupNav-btn" role="button" onClick={() => { handleClickNext(currentItem + 1); }} disabled={indexPage >= AVERAGE_PAGE}>
           <FontAwesomeIcon className="mainIcon" icon={faChevronRight} size="lg" />
         </button >
       )}
     </div >
-  )
+  );
 }
