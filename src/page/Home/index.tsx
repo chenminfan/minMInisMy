@@ -1,24 +1,24 @@
 import React, { useState, useEffect } from 'react';
-import { useScreen } from '@hook/useScreen'
-import IsMy from '@components/home/IsMy'
-import About from '@components/home/About'
-import Work from '@components/home/Work'
-import Portfolio from '@components/home/Portfolio'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUpLong } from '@fortawesome/free-solid-svg-icons'
+import { useScreen } from '@hook/useScreen';
+import IsMy from '@components/home/IsMy';
+import About from '@components/home/About';
+import Work from '@components/home/Work';
+import Portfolio from '@components/home/Portfolio';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUpLong } from '@fortawesome/free-solid-svg-icons';
 import { useGTM } from '@utils/useGTM';
-import './home.scss'
+import './home.scss';
 
 const Home = ({ isBlocked }) => {
   const [windowHeight]: number[] = useScreen();
   const { pushToDataLayer } = useGTM();
-  const [navId, setNavId] = useState<string>('')
+  const [navId, setNavId] = useState<string>('');
   const NAV_LINK = [
     { name: '關於我', link: '#About' },
     { name: '作品', link: '#Portfolio' },
     { name: '經歷', link: '#Work' }
-  ]
-  const [scrollHeight, setScrollHeight] = useState(0)
+  ];
+  const [scrollHeight, setScrollHeight] = useState(0);
   const scrollToAnchor = (sectionId) => {
     const domId = sectionId.startsWith('#') ? sectionId.substring(1) : sectionId;
     const element = document.getElementById(domId);
@@ -57,7 +57,7 @@ const Home = ({ isBlocked }) => {
     ? NAV_LINK.filter((nav) => nav.name !== '關於我')
     : NAV_LINK;
 
-  const windowHeightBlack = isBlocked ? true : (windowHeight > 900 || (windowHeight > scrollHeight))
+  const windowHeightBlack = isBlocked ? true : (windowHeight > 900 || (windowHeight > scrollHeight));
   return (
     <div className='home-page' data-bs-smooth-scroll="true">
       {isBlocked ? <section className='section-null'>
@@ -101,9 +101,10 @@ const Home = ({ isBlocked }) => {
           {filteredNav.map((nav) => {
             return (
               <button key={`nav_${nav.link}`} type="button" className={`btn btn-sm btn-primary ${nav.link === navId ? 'active' : ''}`} id="GTM_button"
+                data-gtm-id-name={nav.link.substring(1)}
                 onClick={() => {
-                  scrollToAnchor(nav.link)
-                  setNavId(nav.link)
+                  scrollToAnchor(nav.link);
+                  setNavId(nav.link);
                   pushToDataLayer({
                     event: 'buttonClick',
                     buttonText: nav.name,
@@ -111,11 +112,11 @@ const Home = ({ isBlocked }) => {
                   });
                 }}
               >{nav.name}</button>
-            )
+            );
           })}
           <button type="button" className={`btn btn-primary btn-sm btn-top ${windowHeight > 300 ? ' is-show' : ''}`} onClick={() => {
-            window.scrollTo(0, 0)
-            setNavId('')
+            window.scrollTo(0, 0);
+            setNavId('');
           }}><FontAwesomeIcon className="mainIcon" icon={faUpLong} />
           </button>
         </div>
@@ -123,6 +124,6 @@ const Home = ({ isBlocked }) => {
       </div>
     </div>
   );
-}
+};
 
 export default Home;
