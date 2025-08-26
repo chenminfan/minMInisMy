@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBars } from '@fortawesome/free-solid-svg-icons'
-import { useLocation } from 'react-router-dom'
+import React, { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
+import { useLocation } from 'react-router-dom';
 import './header.scss';
 
 type Props = {
   NAV_LINK?: any,
   setValueCategory?: any,
-}
+};
 export default function Header(props: Props) {
   const { NAV_LINK, setValueCategory } = props;
   const location = useLocation();
@@ -18,11 +18,12 @@ export default function Header(props: Props) {
           <ul className="navbar-nav">
             {NAV_LINK.map((nav) => (
               <li className='nav-item' key={`nav_${nav.link}`} onClick={() => {
-                setValueCategory(nav.name)
+                setValueCategory(nav.name);
               }}>
                 <a
                   className={`nav-link ${location.pathname === `/category/${nav.link}` || (location.pathname === "/" && nav.name === "HOME") || (location.pathname.includes('portfolio') && location.pathname.slice(11).includes(nav.link)) ? 'is-active' : ''}`}
                   href={(nav.link === '#') ? '#' : `#/category/${nav.link}`}
+                  data-gtm-id-name={nav.name}
                 >{nav.icon}{nav.name}</a>
               </li>
             ))}
@@ -30,7 +31,7 @@ export default function Header(props: Props) {
 
         </nav>
       </header>
-    )
+    );
   }
   return (
     <header className="header isNavCollapsed">
@@ -42,7 +43,7 @@ export default function Header(props: Props) {
 
               {NAV_LINK.map((nav) => (
                 <li className='nav-item' key={`nav_${nav.link}`} onClick={() => {
-                  setValueCategory(nav.name)
+                  setValueCategory(nav.name);
                 }}>
                   <a
                     className={`nav-link ${location.pathname === `/category/${nav.link}` || (location.pathname === "/" && nav.name === "HOME") || (location.pathname.includes('portfolio') && location.pathname.slice(11).includes(nav.link)) ? 'is-active' : ''}`}
@@ -68,7 +69,7 @@ export default function Header(props: Props) {
               <li className='nav-item' key={`nav_${nav.link}`}
                 data-bs-dismiss="offcanvas"
                 onClick={() => {
-                  setValueCategory(nav.name)
+                  setValueCategory(nav.name);
                 }}
               >
                 <a
@@ -81,5 +82,5 @@ export default function Header(props: Props) {
         </div>
       </div>
     </header>
-  )
+  );
 }
