@@ -1,4 +1,4 @@
-- 更新時間：2024/12
+- 更新時間：2026/01
 # 專案資訊
 ![](https://img.shields.io/github/watchers/chenminfan/minMInisMy.svg)｜[![tags](https://github.com/chenminfan/minMInisMy/actions/workflows/tags.yml/badge.svg)](https://github.com/chenminfan/minMInisMy/actions/workflows/tags.yml)｜[![pages-build-deployment](https://github.com/chenminfan/minMInisMy/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/chenminfan/minMInisMy/actions/workflows/pages/pages-build-deployment)｜[![Add label to PR](https://github.com/chenminfan/minMInisMy/actions/workflows/labeler.yml/badge.svg?event=pull_request)](https://github.com/chenminfan/minMInisMy/actions/workflows/labeler.yml)
 
