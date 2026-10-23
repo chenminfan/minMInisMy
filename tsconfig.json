@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "typeRoots": [
-      "node_modules/@types",
-      "src/typeTS"
+    "target": "ESNext",
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
     ],
-    "target": "es5",
-    "lib": ["es6", "dom", "es2017", "es2019", "es2020"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -13,32 +13,56 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    "module": "commonjs",
-    "moduleResolution": "node",
+    /* 配合 Vite 必須使用 ESM 模組解析 */
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    // "baseUrl": "src/",
-    "baseUrl": "./src/",
+    /* 路徑別名設定 */
+    "baseUrl": "./src",
     "paths": {
-      "@app/*":["*"],
-      "@image/*": ["image/*"],
-      "@assets/*": ["assets/*"],
-      "@components/*": ["components/*"],
-      "@page/*": ["page/*"],
-      "@api/*": ["data/*"],
-      "@typeTS/*": ["typeTS/*"],
-      "@utils/*": ["utils/*"],
-      "@hook/*": ["hook/*"]
+      "@app/*": [
+        "*"
+      ],
+      "@assets/*": [
+        "assets/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@page/*": [
+        "page/*"
+      ],
+      "@api/*": [
+        "data/*"
+      ],
+      "@typeTS/*": [
+        "typeTS/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@hook/*": [
+        "hook/*"
+      ]
     },
+    "typeRoots": [
+      "node_modules/@types",
+      "./src/typeTS"
+    ],
     "noEmitOnError": true,
     "noImplicitAny": false,
     "pretty": true
   },
-  "exclude": ["node_modules"],
   "include": [
     "src",
-    "src/typeTS/images.d.ts",
+    "vite.config.js",
+    "vite.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
   ]
 }

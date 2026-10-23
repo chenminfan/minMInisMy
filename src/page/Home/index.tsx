@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useScreen } from '@hook/useScreen';
-import IsMy from '@components/home/IsMy';
+// import IsMy from '@components/home/IsMy';
 import About from '@components/home/About';
 import Work from '@components/home/Work';
 import Portfolio from '@components/home/Portfolio';
@@ -60,18 +60,18 @@ const Home = ({ isBlocked }) => {
   const windowHeightBlack = isBlocked ? true : (windowHeight > 900 || (windowHeight > scrollHeight));
   return (
     <div className='home-page' data-bs-smooth-scroll="true">
-      {isBlocked ? <section className='section-null'>
+      <section className='section-null'>
         <p>🔒 目前在職中，暫無開放個人資訊，有任何指教可 <a href="mailto:mingfan1202job@gmail.com">與我聯繫</a>。</p>
         <p>下方經歷及個人作品可供參考及欣賞，感謝您</p>
-      </section> : (<>
-        <section className='home-section home-section-first is-show'>
+      </section>
+
+      {/* <section className='home-section home-section-first is-show'>
           <IsMy />
         </section>
 
         <section id="About" className={`home-section home-section-second ${windowHeight > scrollHeight || windowHeight > 120 ? 'is-show' : ''}`}>
           <About />
-        </section>
-      </>)}
+        </section> */}
 
       <section id="Portfolio" className={`home-section home-section-portfolio ${windowHeightBlack ? 'is-show' : ''}`}>
         <Portfolio />

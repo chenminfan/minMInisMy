@@ -34,7 +34,7 @@ module.exports = override(
   }),
   (config) => {
     // 🔒 根據環境變數設定 publicPath
-    const restrictPreview = process.env.REACT_APP_PREVIEW_RESTRICT === 'true';
+    const restrictPreview = process.env.VITE_APP_PREVIEW_RESTRICT === 'true';
     if (restrictPreview) {
       config.output.publicPath = '/minMInisMy/';
     }
