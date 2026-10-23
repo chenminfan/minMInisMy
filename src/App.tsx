@@ -1,4 +1,5 @@
-import React, { Routes, Route } from 'react-router-dom';
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import Main from '@page/Main';
 import Home from '@page/Home';
 import PortfolioClass from '@app/page/PortfolioClass';
@@ -13,5 +14,5 @@ export default function App({ isBlocked }) {
         <Route path='/portfolio/:categoryId' element={<PortfolioPage />}></Route>
       </Route >
     </Routes >
-  )
+  );
 }

@@ -2,37 +2,39 @@ name: tags
 on:
   push:
     tags:
-      - 'vTags[0-9]_*'
+      - "vTags[0-9]_*"
 
 jobs:
-  # Build job
   build-and-deploy:
     runs-on: ubuntu-latest
     env:
-      REACT_APP_PREVIEW_LAN_IP: ${{ secrets.REACT_APP_PREVIEW_LAN_IP }}
-      REACT_APP_PREVIEW_MOBILE_IP: ${{ secrets.REACT_APP_PREVIEW_MOBILE_IP }}
-      REACT_APP_PREVIEW_RESTRICT: 'true'
-      REACT_APP_FIREBASE_APP_ID: ${{ secrets.REACT_APP_FIREBASE_APP_ID }}
-      REACT_APP_FIREBASE_DB_URL: ${{ secrets.REACT_APP_FIREBASE_DB_URL }}
-      REACT_APP_FIREBASE_DOMAIN: ${{ secrets.REACT_APP_FIREBASE_DOMAIN }}
-      REACT_APP_FIREBASE_MEASUREMENT_ID: ${{ secrets.REACT_APP_FIREBASE_MEASUREMENT_ID }}
-      REACT_APP_FIREBASE_MESSAGING: ${{ secrets.REACT_APP_FIREBASE_MESSAGING }}
-      REACT_APP_FIREBASE_PROJECT: ${{ secrets.REACT_APP_FIREBASE_PROJECT }}
-      REACT_APP_FIREBASE_STORAGE_BUCKET: ${{ secrets.REACT_APP_FIREBASE_STORAGE_BUCKET }}
+      VITE_APP_PREVIEW_LAN_IP: ${{ secrets.VITE_APP_PREVIEW_LAN_IP }}
+      VITE_APP_PREVIEW_MOBILE_IP: ${{ secrets.VITE_APP_PREVIEW_MOBILE_IP }}
+      VITE_APP_PREVIEW_RESTRICT: "true"
+      VITE_FIREBASE_API: ${{ secrets.VITE_APP_FIREBASE_API }}
+      VITE_FIREBASE_APP_ID: ${{ secrets.VITE_APP_FIREBASE_APP_ID }}
+      VITE_FIREBASE_DB_URL: ${{ secrets.VITE_APP_FIREBASE_DB_URL }}
+      VITE_FIREBASE_DOMAIN: ${{ secrets.VITE_APP_FIREBASE_DOMAIN }}
+      VITE_FIREBASE_MEASUREMENT_ID: ${{ secrets.VITE_APP_FIREBASE_MEASUREMENT_ID }}
+      VITE_FIREBASE_MESSAGING: ${{ secrets.VITE_APP_FIREBASE_MESSAGING }}
+      VITE_FIREBASE_PROJECT: ${{ secrets.VITE_APP_FIREBASE_PROJECT }}
+      VITE_FIREBASE_STORAGE_BUCKET: ${{ secrets.VITE_APP_FIREBASE_STORAGE_BUCKET }}
     steps:
       - name: Checkout 🛎️
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
+
       - name: Setup node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: 16.x
+          node-version: 24
+
       - name: Install and Build 🔧
         run: |
-          npm install
+          npm install --legacy-peer-deps
           npm run build
 
       - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@4.1.4
+        uses: JamesIves/github-pages-deploy-action@4.6.4
         with:
           branch: gh-pages
-          folder: build
+          folder: dist

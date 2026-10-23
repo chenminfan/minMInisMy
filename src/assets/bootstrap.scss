@@ -1,6 +1,10 @@
-// 自定義
 @import './reset';
+
 @import 'bootstrap/scss/functions';
+
+@import 'bootstrap/scss/mixins';
+
 @import './variables';
 @import 'mixins/mixins';
+
 @import 'bootstrap/scss/bootstrap';
