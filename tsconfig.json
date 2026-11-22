@@ -13,39 +13,36 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
-    /* 配合 Vite 必須使用 ESM 模組解析 */
     "module": "ESNext",
     "moduleResolution": "Bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    /* 路徑別名設定 */
-    "baseUrl": "./src",
     "paths": {
       "@app/*": [
-        "*"
+        "./src/*"
       ],
       "@assets/*": [
-        "assets/*"
+        "./src/assets/*"
       ],
       "@components/*": [
-        "components/*"
+        "./src/components/*"
       ],
       "@page/*": [
-        "page/*"
+        "./src/page/*"
       ],
       "@api/*": [
-        "data/*"
+        "./src/data/*"
       ],
       "@typeTS/*": [
-        "typeTS/*"
+        "./src/typeTS/*"
       ],
       "@utils/*": [
-        "utils/*"
+        "./src/utils/*"
       ],
       "@hook/*": [
-        "hook/*"
+        "./src/hook/*"
       ]
     },
     "typeRoots": [
@@ -57,9 +54,9 @@
     "pretty": true
   },
   "include": [
-    "src",
-    "vite.config.js",
-    "vite.config.ts"
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.d.ts"
   ],
   "exclude": [
     "node_modules",
